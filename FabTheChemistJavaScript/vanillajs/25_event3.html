@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script : addeventlistener</title>
+        <meta charset='utf-8'>
+		<style>
+			div{
+				border: 1px solid orange;
+				padding : 20px;
+				margin: 10px;
+			}
+		</style>
+		
+		
+    </head>
+    <body>
+		<h1 id='titreh1'>javascript : addeventlistener</h1>
+		<div id ='div'>
+				<p>paragraphe premier, clique</p>
+				<p>paragraphe deuxième, clique</p>
+		</div>
+		<div id ='div1'>
+				<p id = 'p1'>Boiling phase</p>
+		</div>
+		<div id ='div2'>
+				<p id = 'p2'>Capture phase</p>
+		</div>
+		
+		<div id ='div3'>
+				<p id = 'p3'>Capture phase<strong>text</strong></p>
+		</div>
+		
+		<script>
+			var div = document.getElementById('div');
+			var p1 = document.querySelector('p');
+			
+			div.addEventListener('click', Messagediv);
+			p1.addEventListener('click', Messagep);
+			
+			function Messagediv (){
+				alert("event sur div");
+			}
+			
+			function Messagep (){
+				alert("event sur para");
+			}
+			//PROPAGATION des evenements
+			//js parcourt tout le DOM et va vers le plus profond en premier (phase de capture)
+			//ici c'est p alors c'est l evenement p qui est declenché en 1er 
+			//js remonte ensuite dans le DOM et déclenche les autre evenement s'ils sont prsent (phase de bouillonnement) 
+			// ici l'evenement div sera executé dans un second temps
+			
+			//on peut placer un 3eme argument
+			//si true alors l'evenement se déclenche lors de la descende dans le dom 
+			
+			///////
+			var div1 =  document.getElementById('div1');
+			var p1 =  document.getElementById('p1');
+			var div2 =  document.getElementById('div2');
+			var p2 =  document.getElementById('p2');
+			
+			//phase de bouillonnement utilisée pour div1 et p1
+			div1.addEventListener('click', MessageDiv1);
+			p1.addEventListener('click', MessageP1);
+			
+			function MessageDiv1 (){
+				alert('DIV1');
+			}
+			function MessageP1 () {
+				alert('p1');
+			}
+			
+			//phase de bouillonnement utilisée pour div2 et p2
+			div2.addEventListener('click', MessageDiv2, true);
+			p2.addEventListener('click', MessageP2, true);
+			
+			function MessageDiv2 (){
+				alert('DIV2');
+			}
+			function MessageP2 () {
+				alert('p2');
+			}
+					
+			//////
+			var body = document.body;
+			var p3 =  document.getElementById('p3');
+			var div3 =  document.getElementById('div3');
+			var strong = document.querySelector('strong')
+			
+			strong.addEventListener('click', Messagestrong, true);
+			p3.addEventListener('click', MessageP3, true);
+				
+			strong.addEventListener('click', Messagestrong);
+			p3.addEventListener('click', MessageP3);
+			
+			function MessageP3 (){
+				alert('capture MessageP3');
+			}
+			function Messagestrong (){
+				alert('capture Messagestrong');
+			}
+			
+			div3.addEventListener('click', MessageDiv3);
+			
+			body.addEventListener('click', Messagebody);
+			
+			function MessageDiv3 (){
+				alert(' boil MessageDiv3');
+			}
+			function Messagebody (){
+				alert('boil Messagebody');
+			}
+			
+			
+			
+		</script>
+    </body>
+</html>

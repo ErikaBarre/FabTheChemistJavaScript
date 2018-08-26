@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Les variable</title>
+        <meta charset='utf-8'>
+		
+		
+    </head>
+    <body>
+		<h1>Les variable</h1>
+		<script>
+			var x = 25;
+			x = x + 5 ;
+			var xrpime = "25" ;
+			var y = -75;
+			var pi = 3.14;
+			var s = 'teste'; 
+			var phr = 'balbaert à l\'ecole' ;
+			
+			var X = 100;
+			var a = 'abc', r = 'cdf' , c = 83 ;
+			var d;
+			var e = "";
+			var b = true;
+			
+			var n = null; 
+			var u = undefined;
+			var nn = NaN;
+			
+			document.write('<br>' +"variable x : " + x + ' ' + typeof(x) + 
+						"\nVariable y : " + y + ' ' + typeof(y) +
+						"\nVariable a : " + y + ' ' + typeof(a) +
+						"\nVariable n : " + y + ' ' + typeof(n) +
+						"\nVariable u : " + u + ' ' + typeof(u) +
+						"\nVariable nn : " + nn + ' ' + typeof(nn) 
+							) ;
+							
+			x = 5;
+			y = 10;
+			z = -2;
+			
+			x=x+1;
+			y=y-2;
+			z=z*3;
+			
+			var mm = z * x ;
+			var divi = z / y;
+			var mod = 13 % 3 ;
+			
+			document.write('<br>' +"variable mm : " + mm + ' ' + typeof(mm) + 
+						"\nVariable divi : " + divi + ' ' + typeof(divi) +
+						"\nVariable mod : " + mod + ' ' + typeof(mod) 
+						);
+						
+			x +=2; // x= x+2;
+			document.write('<br>' +"variable x : " + x + ' ' + typeof(x) 
+						);
+						
+			x -=3; // x= x-3;
+			document.write('<br>' +"variable x : " + x + ' ' + typeof(x) 
+						);
+			x *=y; // x= x*y;
+			document.write('<br>' +"variable x : " + x + ' ' + typeof(x) 
+						);		
+			x /=y; // x= x/y;
+			document.write('<br>' +"variable x : " + x + ' ' + typeof(x) 
+						);	
+			x %=y; // x= x%y;
+			document.write('<br>' +"variable x : " + x + ' ' + typeof(x) 
+						);	
+
+			var firstname = 'John', emptysapce = ' ', name = 'Doe';
+			var men = firstname + emptysapce + name ;
+			var other = 'Jane' + ' ' + 'Kelleman' ;
+			
+			document.write('<br>' +"variablex men : " + men +
+						"variablex other : " + other 
+						);	
+			
+			var xx = 4 + 2 + "1";
+			document.write('<br>' +"variablex xx : " + xx + typeof(xx)  
+						);	
+						
+			var xxx = 4 + "un" + 1;
+			document.write('<br>' +"variablex xxx : " + xxx + typeof(xxx)	);	
+
+			var iv = "2" + 4 + 1;
+			document.write('<br>' +"variablex iv : " + iv 
+						);	
+			
+			var t = 6;
+			document.write('<br> t++' + t++); // 5
+			document.write('<br>' + t); // 6
+			
+			var p = 6;
+			document.write('<br> ++p' + ++p); //6
+			document.write('<br>' +p); //6
+			
+			//mot clé "let"
+			let toto = 'titi' ;
+			//on peut attribuer une autre valeur à toto
+			toto='tutu';
+			//mais on ne peut pas écrire
+			let toto = 'tyty' ; //error // car c'est un temporal dead zone
+			
+			//la notion de undefined ne signifie pas que la varaible est inexistente , cela signifie qu'elle n'a aucune valeur
+			//si la varaible est undefined cela signifie que la varable a été définie quelques part et elle occupe une place mémoire
+			var aaa;
+			console(aaa) ; ///varialbe undefined
+			
+			console(bbb); //ERROR varialbe is not defined car bbb n'est definie nulle part
+			
+			//l'affichage suivant donne une variable undefined car la variable est definie dans la suite
+			//le code javascript est lit en 2 fois , une première lecture pour charger tout les object et varaible en mémoire
+			// une deuxième lecture pour interpréter le code, c'est pour cela qu'on peut définit une variable après une appel.
+			console(ccc);  
+			var ccc = 2;
+			
+			//preceance en js
+			//https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Pr%C3%A9c%C3%A9dence_des_op%C3%A9rateurs
+			var ac=1, bc=2, cc=4;
+			ac=bc=cc;
+			console.log(ac);
+			console.log(bc);
+			console.log(cc);
+			
+			//en js false = 0
+			console.log(3<2<1); //true car 3<2 => false et 0<1 => true
+			Number(false); //=> 0
+			Number(undefined) // => NaN
+			Number(null) // => 0
+			null == 0 // => false
+			null < 1 // ==> true (dans ce cas: il y a conversion)
+			false = 0 // true
+			
+			Boolean(undefined);
+			Boolean(null);
+			Boolean("");
+			
+		</script>
+    </body>
+</html>

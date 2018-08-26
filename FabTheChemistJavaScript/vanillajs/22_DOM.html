@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'> 
+		
+    </head>
+    <body>
+		<h1 id='titreh1'>chapitre sur le concept DOM:</h1>
+		<p class='para'>Du textet et une url <a href='http://www.google.com'>google</a> vers un site</p>
+		<p class='para'>Un autre paragraphe</p>
+		<script>
+			//les element HTML sont des objects
+			//on utilise des getter et setter pour modifier les propriétés des élements HTML
+		
+			var titre = document.getElementById('titreh1');
+			console.log(titre);
+			var paragraphe = document.getElementsByTagName('p');
+			console.log('nombre de p : ' + paragraphe.length);
+			console.log('nombre de p : ' + paragraphe[1]);
+			var classes = document.getElementsByClassName('para');
+			console.log('nombre de c : ' + classes.length);			
+			console.log('nombre de c : ' + classes[0]);		
+
+			//extraction d'element
+			//querySelector: retourne le 1er resultat
+			var q1 = document.querySelector('p a');
+			var q2 = document.querySelector('para'); //retourne null car il ne trouve pas
+			console.log(q1);
+			console.log(q2);
+			var q3 = document.querySelector('.para');
+			console.log(q3);
+			var q40 = document.querySelector('p').innerHTML;
+			console.log('innerHTML :' + q40);
+			var q41 = document.querySelector('p').textContent;
+			console.log('textContent :' + q41);
+			var q4 = document.querySelector('p a').innerHTML;
+			console.log('innerHTML :' + q4);
+			
+			var titrepage = document.title;
+			var page = document.body;
+			var lien = document.links; //revoi la liste des liens trouvé sur la page
+			
+			console.log(titrepage + ' ' + page + ' ' + lien);
+			console.log(lien[0]);
+			console.log(lien[0].textContent);
+			console.log(lien[0].innerHTML); //meme resultat que text content car renvoi le contenu
+						
+		</script>
+    </body>
+</html>

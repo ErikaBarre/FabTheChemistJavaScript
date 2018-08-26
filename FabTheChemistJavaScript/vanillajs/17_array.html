@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript :</h1>
+		<script>
+			//initialisation de tableau 
+			var scores = [];
+            var scores2 = new Array();
+			//on peut compléter pour la suite le tableau :
+			scores = [72,84,96,12,58];
+		
+			//à ne pas confondre avec les variables à accolades qui sont des objects et non des tableaux en js
+			var obj = {};
+			
+			//un tableau peut melanger les type et les objects
+			var aType = ['flower', 10, true,{name:'Tony', adresse:'rue de Ninoves'}, function(name{var grr = 'hello';console.log(grr)})];
+			
+            aType[4](aType[3].name);
+		    //https://ryanpcmcquen.org/javascript/2015/10/25/map-vs-foreach-vs-for.html
+			var list = ['abc','def','ghi','jkl','mno'];
+			
+			console.log(list[2]); // sortie : 'ghi'
+			
+			//changer valeur tableau
+			list[2] = 'Paul' ;
+			console.log(list[2]); // sortie : 'Paul'
+			
+			//longueur de tableau
+			var len = list.length; 
+			console.log("longueur de tableau : " + len);
+			
+			//ajout element supplémentaire en fin de tableau
+			list[list.length] = 'Brol' ;
+			list[list.length] = 'Truc' ;
+			
+			console.log(list[5] + ' ' + list[6]);
+			
+			for(var i = 0;i<list.length;i++){
+				console.log(list[i]);
+			}
+			
+			//tableau de hachage n existe pas en js, alors pour controuner , utlisation de la structure
+			//objet litteral
+			var list2 = {
+					identifiant0 : 'abc',
+					identifiant1 : 'def',
+					identifiant2 : 'ghi',
+					identifiant3 : 'ijk',
+					identifiant4 : 'lmn'
+					};
+					
+			console.log('identifiant2 : ' + list2.identifiant2)	; // recherche sur la key , ici identifiant2
+
+			//boucle sur structure
+			for(var key in list2){
+				console.log(key + ' ' + list2[key]);  //recherche sur la key
+			}
+			
+			//boucle for each pour tableau entre crochet
+			console.log('foreach');
+			list.forEach(function(element){
+					console.log(element);
+			});
+			
+			//map
+			var nums = [ 5,  9,   7];
+			
+			nums.map(function (num) {
+			    console.log(num);
+			});
+			
+			var oneBetterThanNums = nums.map(function (num) {
+			    return num + 1;
+			});
+			console.log(oneBetterThanNums); //rsultat tableau de 3 element [ 6,  10,   8] 
+			
+			//on peut stocker un des élements du tableau dans une nouvelle variable 
+			var six = list[6];
+			
+			var arr = ['abc', 'dfr','kij'];
+			//un tableau entre crochet est un object si on fait une boucle in 
+			for(var prop in arr){
+				console.log(arr[prop]);  //le résultat est une liste de KEY VALUE 1:'abc'  , 2:'dfr' etc 
+			}
+			//en tant qu'object on peut ajouter une propriété, meme de façon generic avec un prototype 
+			Array.prototype.toto = 'cool';
+			for(var prop in arr){
+				console.log(arr[prop]);  //le résultat est une liste de KEY VALUE 1:'abc'  , 2:'dfr' etc et la nouvelle propriété toto : 'cool' 
+			}
+			//si on veut afficher juste les valeur de arr, il faut faire une boucle classisque for(var i =0; i<arr.length;i++)
+		</script>
+    </body>
+</html>

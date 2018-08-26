@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript :</h1>
+		<script>
+			var texte = "Outre les objets natifs, nous pouvons également créer nos propres objets en JavaScript";
+			var mintexte = texte.toLoxerCase();
+			var majtexte = texte.toUpperCase();
+			var pos0 = texte.charAt(0);
+			var pos11 = texte.charAt(11);
+			
+			//methode sensible a la casse
+			var pre = texte.indexOf('bj') ;
+			var las = texte.lastIndexOf('Sr') ;
+			
+			console.log(texte.replace('objets','groskeykey')) ;
+			console.log(texte.slice(0,10)) ; // resultat : "Outre les o"
+			
+			//si valeurs negative, on commence par la fin 
+			//si on veut recuperer le dernier caractères alors il faut place rune espace : " ..... JavaScript ";
+			console.log(texte.slice(-1,10)) ; //-1 : 
+			
+			texte = "    Outre les objets natifs, nous pouvons également créer nos propres objets en JavaScript     ";
+			console.log(texte.trim()) ; //-1 : 
+			
+		</script>
+    </body>
+</html>

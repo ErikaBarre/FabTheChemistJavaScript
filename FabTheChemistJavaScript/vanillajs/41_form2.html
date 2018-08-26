@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 id="page_title">Todo Tracker</h1>
+	
+	<h2 id="todo_header">Todos</h2>
+
+	<form action="">
+		<input type="text" id='user-do' placeholder="New To Do">
+	</form>
+
+	<ul>
+		<li class="todos" >Item 1</li>
+		<li class="todos">Item 2</li>
+		<li class="todos">Item3</li>
+	</ul>
+	<button id='clear'>Clear All</button>
+
+<script type="text/javascript">
+	var title = document.getElementById("page_title");
+	var toDoHeader = document.getElementById("todo_header");
+	
+	var qTitle = document.querySelector("h1"); //ramène le 1er element 
+	var qIdTitle = document.querySelector("#page_title");
+	var qClass = document.querySelector(".todos");
+	var qClass = document.querySelectorAll(".todos");
+	
+	qTitle.textContent = 'Mon Poulet';
+	qClass.textContent = 'Wake up';
+	qClass[1].textContent = 'xxx';
+	
+	
+	//ajout d'un element avec appendchild. Il faut d'abord créé l'element avec createelement
+	var ulElement = document.querySelector('ul');
+	var newLi = document.createElement('li') ;
+	newLi.textContent = "Go to sleep" ;
+	ulElement.appendChild(newLi);
+	
+	//var firstC = ulElement.firstChild;
+	//alert(newLi.firstChild);
+	while(ulElement.firstChild){
+		ulElement.removeChild(ulElement.firstChild);
+	}
+	//alert('fini');
+	
+	var btn = document.querySelector('#clear');
+	//btn.addEventListener('click', function() {alert('4444');});
+	//btn.addEventListener('click', () => alert('4444');  //depend de la version de brownser
+	//on peut associer/accumuler 2 fonctions au bouton
+	//btn.addEventListener('click', function() {alert('5555');});
+	
+	btn.addEventListener('click', function() {
+		while(ulElement.firstChild){
+			ulElement.removeChild(ulElement.firstChild);
+		}
+	});
+	
+	//btn.addEventListener('click', () => alert('5555');
+	/*
+	ulElement.removeChild(ulElement.firstChild);
+	ulElement.removeChild(ulElement.firstChild);
+	ulElement.removeChild(ulElement.firstChild);
+	*/
+	var formField = document.querySelector("form");
+	var input = document.getElementById('user-do');
+	
+	formField.addEventListener("submit", function(submitevent){
+		//quand on clique sur entré à la sortie d'un champs dans un formulaire, la page est rafraichie (on ne le voit pas forcément, mais cela fonctionne ainsi)
+		//pour empecher ce rafraichissement du à l'action de la touche entrée, il faut empecher le rafraichissement de s'exécuter et empecher l'éventement "submit" avec preventDefault
+		submitevent.preventDefault();  
+		//si on empeche pas le submit de s'exécuter alors on n'affiche pas le console.log si dessous, la page envoie tout au server. 
+		//pour voir la console.log, il faut empecher l'event submit de s'exécuter ainsi on n'envoi rien au server, la page ne se refraichit pas en perdant toutes les données
+		//console.log('form has been submitted if we doens''t prevent id'); 
+		console.log(input.value);
+		toDoMaker(input.value);
+		input.value = '';
+		}) ;
+	
+	var toDoMaker = function (value){
+		var newLi = document.createElement('li') ;
+		newLi.textContent = value ;
+		ulElement.appendChild(newLi);
+	}
+	
+	//tableaux pour stocker toutes les todos values
+	var toArrays = [];
+	//JSON.stringify est utilisé car localstorage fonctionne avec des string et non des tableaux
+	localStorage.setItem('todos', JSON.stringify(toArrays));
+	
+	//ensuite on utilise JSON pour convertir la string des données en un objects javascript (on fait le chemin inverse)
+	//la variable devrait contenir un tableau
+	var storage = JSON.parse(localStorage.getItem('todos'));
+	
+	
+	
+</script>
+</body>
+</html>

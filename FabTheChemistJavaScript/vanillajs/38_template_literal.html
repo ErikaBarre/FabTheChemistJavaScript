@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+
+    </head>
+    <body>
+      <p>
+      </p>
+		<script>
+			//ES5
+			var sentence = 'my uncle bob /n'+
+							 ' and I like ';
+			
+			var el1 = 'peperoni';
+			var el2 = 'mushroom';
+			
+			var piza = 'I like piza with ' + el1 + ' and ' + el2;
+
+			var stringES5 = '"I\'m sick", \nJohn said'; 
+			
+			//ES6
+			//template literal créé avec back quote ` backticks et pas des quotes ou guillemets
+			//interpolate variables with ${placeholders}
+			//interpolate any kind of expression
+			//multi length 
+			//doens't interpret backslak (comme caractère d'échappement) 
+			
+			let sentence2 = `my uncle rob 
+			and like` ;
+			
+			let el1 = 'peperoni';
+			let el2 = 'mushroom';
+						
+			var piza = `I like piza with ${el1} and ${el2}`;
+			
+			var pizza = {
+				ingr1:'peperoni',	
+				ingr2:'mushroom',
+				favoritePizza : function(){
+					return `ma pizza contents ${ingr1} and ${ingr2}`;		
+				}
+			}		
+			pizza.favoritePizza();
+			
+			let stringES6 = `"I'm sick", 
+							John said`; 
+
+			var drink = 'coffee';
+			var food  = 'doughut';
+			var time  = 'morning';
+			
+			let sent = `John said good ${time} as he drink a ${drink} and eat his ${food} .` ;
+			
+		</script>
+    </body>
+</html>

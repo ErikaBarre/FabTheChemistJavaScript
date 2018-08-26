@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+//on a parle que l'héritage en js est en fait l'accees au prototype de l'object fonction ou tableau ou obejct clé/valeur par __proto__ (qui n'est pas utilisé en pratique puisqu'on peut acceder directement)
+// le mot clé prototype est une propriété de l'object function uniquement et n'a rien à voir avec l'héritage. C'est le prototype de tout object créé si on utilise une fonction comme construteur de fonction.
+
+
+	function Person(firstname, lastname){
+			console.log(this);
+			this.firsname = firstname;
+			this.lastname = lastname;
+			console.log('Hi2');
+			
+			
+    }
+	
+    Person.prototype.getFullNameX = function(){
+        return this.firsname + this.lastname;
+    }
+    
+    //quand on appelle le mot clé "new" , il crée un objet vide et il met le prototype de cet object vide sur 
+    //la propriété prototype de la function que vous appelez
+    //ainsi pour n'importe quel objet que l'ont crée en utilisant cette fonction vide comme un constructeur de 
+    //fonction spéciquement avec un "new" et sans valeur de retour laissant js returnant automatiquement cette valeur ,
+    //cela signife que l'objet créé a non suelement propriété et mathod attaché à l'intérieur de la fonction mais il 
+    //détient a prototype qui est .prototype property de cette fonction
+		var john = new Person('john','doe');
+		console.log(john); //l'object montre a prsent qu'il detient également la proprio fullname
+		
+        john.getFullNameX();
+    
+		var jane = new Person('jane','Doe');
+		console.log(jane);
+
+    //peut etre definit n'importe où dans le code
+    Person.prototype.getFormalFullNameX = function(){
+        return this.firsname + ', '+ this.lastname;
+    }
+    john.getFormalFullNameX();
+    
+    //on aurait pu placer la fonction dans la fonction person mais si on créé 1000 object , on crée 1000 fois la function interne . Alors l'interet des prototype est que la fonction est mise en mémoire une seul fois et les 1000 object créé peuvent malgré tout y acceder. 
+    
+     var n = new Number('3');  //capitize first letter of paramétre
+        //n n'est pas une primitive c'est un object
+        //cet obecjt a une propriété prototype
+    Number.prototype.toFixed ;
+    n.toFixed;
+    //n a accès aux methods de l'object
+    var s = new String();
+    String.prototype.length;
+    s.length;
+    
+    var d = new Date("15/02/2018");
+    d.getDay();
+    
+    //comme tout objectmeme definit par js, on peut ajouter des method
+    
+    String.prototype.isLengthGretarThan = function(limit){
+        return this.length > limit; 
+    }
+    s.isLengthGretarThan(10);
+    
+    //String est spécial car js peut détecter que la varaible est un string
+    "John".length ; //conversion de "john" en string par js
+    
+    Number.prototype.isPositive = function(){
+        return this > 0;
+    }
+    //js ne converti pas les chiffres automatiquement en Number
+    //3.isPositive ; => ERROR
+    
+    var th = new Number(3);
+    th.isPositive();
+    
+    //gestion des dates
+    //https://momentjs.com/
+    
+</script>
+</body>
+</html>

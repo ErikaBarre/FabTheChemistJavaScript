@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Arrow functions</title>
+</head>
+<body>
+
+
+
+</body>
+
+<script type="text/javascript">
+//arrow functions - also called 'fat arrow' functions, are a more concise syntax for wirting function expressions . 
+//They utilize a new token =>, that looks like a fat arrow.
+//Arrow functions are anonymous and chage the way "this" bind in functions
+
+//ES5
+var ES5function = function (){
+	return 2;
+}
+var ES5function = function (){return 2;}
+
+//ES6
+let ES6function = () => 2;
+//moins de code
+//pas function mot clé
+//pas d'accolade et ainsi pas de mot clé return (c'est un return implicite)
+// () sometimes optional pour 1 paramètre mais obligatoir pour 0 , 2 ou plus de paramètres
+// valable uniquement pour les fonction ANONYME
+
+//avec 1 paramètres
+let cubed ;
+cubed = (x) => x*x*x;
+
+let cubed1 ;
+cubed1 = x => x*x*x;
+
+let cubed2 ;
+cubed2 = x => {return x*x*x;};
+
+let cubed3 ;
+cubed3 = (x) => {return x*x*x;};
+
+let add;
+add = (x,y) => x + y;
+
+let add2;
+add2 = (x,y) => {return x + y;};
+
+let add3;
+add3 = (x,y,z) => {return x + y + z;};
+
+let add4;
+add4 = (x,y,z) =>  x + y + z;
+
+let func1 = () => 'Hi';
+let func2 = () => {return 'Hi'};
+let func3 = () => 'John';
+let func4 = (x,y) => x * y;
+var x = 10;
+var y = 30;
+func4(x,y);
+
+var numbers = [2,4,6,8] ;
+var treatement = numbers.map(function (n){return n*n;});
+
+var treatement2 = numbers.map((n) => n*n);
+var treatement3 = numbers.map(n => n*n);
+
+</script>
+
+</html>

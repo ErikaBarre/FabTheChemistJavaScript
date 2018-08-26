@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Les formulaires</title>
+        <meta charset="utf-8">
+            
+        <style>
+            label{
+                display: inline-block;
+                min-width: 200px;
+            }
+            input[type='submit']{
+                text-align: right;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h1>Les formulaires HTML</h1>
+        
+        <!--Nous ne créerons pas la page "traitement.php" dans ce cours.
+        Cette page doit normalement effectuer le traitement des données.
+        Le bouton "valider" ne fonctionnera donc pas ici.-->
+        <form method="post" action="traitement.php">
+            <label for='prenom'>Entrez votre prénom svp : </label>
+            <input type='text' name='prenom' id='prenom' required="required" maxlength="20">
+            <span id='nofirstname'></span><br>
+            
+            <label for='mail'>Entrez votre mail : </label>
+            <input type='email' name='mail' id='mail' required="required"><br>
+            
+            <label for='tel'>Numéro de téléphone :</label>
+            <input type='tel' name='tel' id='tel' required="required"><br>
+                
+            <input type='submit' value='Valider' id='btn'>
+        </form>
+        <script>
+        	var btn = document.getElementById('btn');
+        	var prenom = document.getElementById('prenom'); 
+        	var prenom_m = document.getElementById('nofirstname'); 
+        	var prenom_v = '/^[a-zA-ZéèîïÊÎÏ][a-zéèàçîï]+([-\'s][a-zA-ZéèîïÊÎÏ][a-zéèàçîï]+)?/';
+        	
+        	btn.addEventListener('click', function(e) {
+        			if(prenom.validity.valueMissing){
+        				e.preventDefault();
+        				prenom_m.textContent = 'Prenom manquant';
+        				prenom_m.style.color = 'red';
+        				
+        			}else if (prenom_v.test(prenom.value) == false){
+        				e.preventDefault();
+        				prenom_m.textContent = 'Prenom mal composé';
+        				prenom_m.style.color = 'red';
+        			}
+        			
+        	});
+        	
+        	//regex pour adresse email https://www.regular-expressions.info/email.html
+        	
+
+//var regex_email = /\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f] | \\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@ (?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?  |  \[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3} (?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]: (?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f] |  \\[\x01-\x09\x0b\x0c\x0e-\x7f])+) \])\z/;
+        	
+        </script>
+    </body>
+</html>
+
+

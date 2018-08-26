@@ -1,0 +1,6 @@
+Text à inséré dans le fichier 3 fabrice
+ template string fabrice and age 39 , prénom Erika nom : Barre 
+, profession playmate , sitation mariétage marié 2 enfants [object Object]
+Text à inséré dans le fichier 3 fabrice
+ template string fabrice and age 39 , prénom Erika nom : Barre 
+, profession playmate , sitation mariétage marié 2 enfants [object Object]

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //call method calls a function with a given "this" value and aguments provided individually
+
+        //soit object
+        var obj = {
+            num: 2
+        };
+
+        var addToThis = function(a, b, c) {
+            return this.num + a + b + c; //this n'a pas de context
+        }
+
+        //pour lié un contexte à this qui est en définitve un object il faut appeler la method call
+        addToThis.call(obj, 1, 2, 3); // 8
+
+        var person1 = {
+            firstName: 'Joe',
+            name: 'Doe'
+        };
+        var person2 = {
+            firstName: 'John',
+            name: 'Ewing'
+        };
+
+        function fullName(freeting) {
+            return this.firstName + ' ' + this.name;
+        }
+        fullName(); //undefined undefined undefined
+
+        fullName.call(person1, 'Hello');
+        fullName.call(person2, 'Bonjour');
+
+        var mylanguage = function(l1, l2, l3) {
+            console.log(this.name + l1 + l2 + l3);
+        }
+
+        var p1 = {
+            name: 'Tim'
+        }
+
+        var languages = ['English', 'Spanish', 'German'];
+
+        mylanguage.call(p1, languages[0], languages[1], languages[2]);
+
+        //la fonction apply permet de passer un talbeau
+
+        var numbers = [5, 6, 2, 3, 7];
+
+        var max = Math.max.apply(null, numbers);
+
+        console.log(max);
+        // expected output: 7
+
+        var min = Math.min.apply(null, numbers);
+
+        console.log(min);
+        // expected output: 2
+
+        mylanguage.apply(p1, languages);
+
+        //
+        var person = {
+            firstname : 'john',
+            lastname : 'doe',
+            getFullNamex : function(){
+                var fullname = this.firstname + ' ' + this.lastname;
+                return fullname;
+            }
+        }
+         var person2 = {
+            firstname : 'jane',
+            lastname : 'olive'
+        }
+        
+        var logName = function(lang1, lang2){
+            console.log('Logged: ' + this.getFullNamex());
+        }
+        
+        var lognamefn = logName.bind(person);
+        lognamefn();
+        
+        
+        var logName2 = function(lang1, lang2){
+            console.log('Logged: ' + this.getFullNamex());
+            console.log('arguments : ' + lang1 + lang2);
+            console.log('--------');
+            
+        }.bind(person);
+        logName2();
+        logName2('en'); //ce sera le param lang1
+        
+        //bind crée une copie de la fonction qui est est appelée et un object est passé à la fonction . person object est la reference a this
+        
+        //call ne fait pas de copie de fonction, il l'exécute directement, le 1er arg est "this" et les autres arguement sont les lang1 et lang2
+        logName.call(person,'en', 'es');
+        //apply : meme chose que call mais les arg sont passé en tableau
+        logName.apply(person,['en', 'es']);
+        
+        (function(lang1, lang2){
+            console.log('Logged: ' + this.getFullNamex());
+            console.log('arguments : ' + lang1 + lang2);
+            console.log('--------');
+            
+        }).apply(person,['en','es']);
+        
+        //apply ou call permettent d'appliquer une methode d'un object sur un autre object
+        //person2 devient le this de la methode
+        person.getFullNamex.apply(person2);
+        
+        //function currying
+        function multiply(a,b){
+            return a*b;
+        }
+        //le 1er paramètre de la fonction multiply sera toujours 2
+        var multiplyt = multiply.bind(this,2);
+        multiplyt(4); // 2*4 = 8
+        
+        var multiplytt = multiply.bind(this,2,2);
+        multiplytt(5); // sera toujours 2*2 = 4 ,5 n'est pas tenu en compte dans multiply
+        
+         var multiplytq = multiply.bind(this);
+        multiplytq(5,2); // sera toujours 5*2 = 10
+        
+        
+    </script>
+</body>
+
+</html>

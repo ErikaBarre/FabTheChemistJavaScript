@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript :</h1>
+		<script>
+			//creation d'object avec une fonction
+			// il s'agit d'un "constructeur"
+			
+			var car = new Car('Honda','civic', 2006, 'red', '1800cc');
+			
+			function Car (make, model, year, color, cc){
+				this.make = make;
+				this.model = model;
+				this.color = color;
+				this.cc = cc;
+			}
+			document.write(car.make);
+		</script>
+    </body>
+</html>

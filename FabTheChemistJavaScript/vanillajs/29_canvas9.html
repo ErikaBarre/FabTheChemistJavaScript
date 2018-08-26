@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>L'élément HTML canvas</title>
+        <meta charset="utf-8">   
+        <style>
+        	
+        	body{
+                margin: 0px;
+                padding: 0px;
+            }
+            #canvas1{
+                background-color: orange;
+            }
+            #image{
+            	display : none;
+            }
+        </style>
+    </head>
+    
+    <body>
+    	<img id="image" alt="couche de soleil" src="suisse.jpg">
+        <canvas id='canvas1' width='400' height='200'></canvas>
+        
+        <script type="text/javascript">
+        	var canvas = document.getElementById('canvas1');
+        	var contexte = canvas.getContext('2d');	
+        	
+        	var image = document.getElementById('image');
+        	
+        	image.addEventListener('load', function(e) {
+        		contexte.drawImage(image,50,25, 500,350)
+        	});
+        	
+        	
+        	
+        </script>
+    </body>
+</html>

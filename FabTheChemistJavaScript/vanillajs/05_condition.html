@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Condition</title>
+        <meta charset='utf-8'>
+		
+		
+    </head>
+    <body>
+		<h1>Condition :</h1>
+		
+		<script>
+		//les expression suivantes retournent false
+		/*
+		(false)
+		(0)
+		('')
+		(null)
+		(undefined)
+		(NaN)
+		*/
+		
+		var x = 7 , y = 14;
+		var vrai = x < y ;
+		var faux = 14 <= 7;
+		var egale = 4 == "4";
+		var egalevaltype = 4 === "4";
+		var difval = 4 != "4" ;
+		var difvalT = 4 !== "4" ;
+		
+		console.log('variable x : ' + x +
+			'\nvariable vrai : ' + vrai +
+			'\nvariable faux : ' + faux +
+			'\nvariable egale : ' + egale +
+			'\nvariable egalevaltype : ' + egalevaltype +
+		'\nvariable difval : ' + difval +
+		'\nvariable difvalT : ' + difvalT 
+		);
+		
+		Boolean(undefined);  // => false
+		Boolean(null);  // => false
+		Boolean("");  // => false
+		Boolean(0);
+		
+		var a;
+		if(a){
+			console.log("display"); //si a est undefined null , 0 ou ""  , on ne passe pas par ce code
+		}
+		var er = undefined || "Hello" ; //er = "Hello"
+		var az;
+		var tr = az || "Hello1" ; // tr = "Hello1"
+		var po = "HI" || "HELLO" ; // po = "HI"
+		
+		</script>
+		
+    </body>
+</html>

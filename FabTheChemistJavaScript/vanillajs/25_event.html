@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript :</h1>
+		<p>paragraphe premier</p>
+		<p onclick='alert("onclick event");' >click sur le texte</p>
+		<p onclick='this.textContent = "texte de remplacement lors du click";' >click sur le texte</p>
+		<div>second paragraphe</div>
+		<script>
+			var p1 = document.querySelector('p');
+			
+			//gestionnaire d evenement : 
+			p1.onclick = function(){
+				this.innerHTML = '<b>super</b>';
+				this.style.color = 'orange';
+			};
+			
+			//function avec parenthèse, la fonction s'exécute immédiatement au chargement de la page
+			// function sans parenthèse , la fonction s'exécute à l'appel par le user
+			var div = document.querySelector('div');
+			div.onmouseover = textChange;
+			
+			//div.onmouseover = textChange(); // va generer une erreur car this dans la fonction pas encore definit au chargement de la page
+			
+			div.onmouseout = textChange2;
+			//div.onclick = textChange3; //ajouter a d'autre event : cela ne fonctionne pas
+			function textChange(){
+				this.innerHTML = '<b>super strange</b>';
+				this.style.color = 'blue';
+			};
+			function textChange2(){
+				this.innerHTML = '<b>super mega strange</b>';
+				this.style.color = 'green';
+			};
+			/*
+			function textChange3(){
+				this.innerHTML = '<b>just mega strange</b>';
+				this.style.color = 'red';
+			};*/
+			
+		</script>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>Regex</h1>
+		<p>1, 10, 100 , 11 , 12, 251096,1000</p>
+		<p id='p1'>On apprend à utiliser les regex en JavaScript x pend</p>
+		<p id='reg'></p>
+		<script>
+			var text = document.querySelector('p').textContent;
+			var texte = document.getElementById('p1').textContent;
+			
+			// + : recherche de l'expression 10 ainsi que toute les expressions qui contiennent 1 suivi de "un ou plusieurs" 0 comme 10 , 100 etc, 
+			//se place directement APRES l'expression a chercher
+			// ? : identique à + sauf que les expression doivent contenir "zero ou une" occurences
+			// * : identique à + sauf que les expression doivent contenir "zero ou une ou plusieurs" occurences	
+			// ^a : recherche d'un a en debut de chaine, se place avant 
+			// a$ : recherche d'un a en fin de chaine
+			// a{X} : on veut une séquence de X 'a', comme a{2}
+			// a{X,Y} : on veut une séquence de X à Y 'a', comme a{2,5}
+			// a{X,} : on veut une séquence de au moins X 'a', comme a{2,}
+			// a(?=b) : on recherche un "a" suivi d'un b
+			// a(?!b) : on recherche un "a" NON suivi d'un b
+			
+			var r1 = /10+/g ;
+			var r2 = /x+/ ;
+			var r3 = /e(nd)?/g;  //recherche de 'e' ou 'end' . Le ? : recherche de 0 ou 1 occurence de nd // end,e,e,e,e,e
+			var r31 = /e(nd)?/;  //recherche de 'e' ou 'end'  // end,nd
+			var r4 = /e$/;
+			var r5 = /p{2}/ ;
+			var r6 = /Java(?=Script)/ ;
+			
+			var res1 = text.match(r1); 
+			var res2 = texte.match(r2);//r2.test(texte);
+			var res3 = texte.match(r3);  //3.test(texte);
+			var res4 = texte.match(r4); 
+			var res5 = texte.match(r5);
+			var res6 = texte.match(r6); 			
+					
+			var resultat = document.getElementById('reg');
+			resultat.innerHTML = 'reg1 : ' + res1 +           //reg1 : 10,100,10,1000
+								 '<br>reg2 : ' + res2 +
+								 '<br>reg3 : ' + res3 +
+								 '<br>reg4 : ' + res4 +
+								 '<br>reg5 : ' + res5 + 
+								 '<br>reg6 : ' + res6 /*+
+								 '<br>reg7 : ' + res7 + 
+								 '<br>reg8 : ' + res8 +
+								 '<br>reg9 : ' + res9 + 
+								 '<br>reg10 : ' + res10 */
+								 ;
+			
+			
+		</script>
+    </body>
+</html>

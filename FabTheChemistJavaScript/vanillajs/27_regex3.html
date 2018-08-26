@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>Regex</h1>
+		<p id='p1'>On apprend à utiliser les 6 [regex] en JavaScript 125 x ? 2365pend ?</p>
+		<p id='reg'></p>
+		<script>
+		
+			// [abcde] 	: recherche des caractères entre les crochets
+			// [^abcde]	: recherche des caractères qui ne se trouvent pas entre les crochets
+			// [a-z]	: recherche des caractère entre a et z (lettre minuscule)
+			// [^a-z]	: recherche des caractères qui ne se trouvent pas entre a et z en minuscule
+			// [0-9]	: recherche des caractères qui se situe entre 0 et 9
+			// [^0-9]	: recherche des caractère qui ne sont pas des chiffre entre 0 et 9
+			// (jour|soir) : recherche des mots jour et soir
+				
+			var text = document.querySelector('p').textContent;
+			var texte = document.getElementById('p1').textContent;
+			var expr = document.querySelector('p');
+			
+			var r1 = /aeiouy/g;
+			var r2 = /[aeiouy]/g;
+			var r3 = /[C-X]/g;
+			var r4 = /[^aeiou]/g; //recherche de tout les caractères sauf les lettres indiquée
+			var r5 = /[0-9]/g;
+			var r6 = /^[A-Z]/g;  // recherche d'une majuscule en début de chaine
+			var r7 = /[0-9]{4}/g;
+			var r8 = /[a-zàéè]/g;
+			var r9 = /[a-zA-Z]/g;
+			var r10 = /[^a-zA-Z]/g;
+			var r11 = /\[regex\]/g;
+			var r12 = /[e\[\]]/g;
+			var r13 = /[0-9-]/g; //rechercher chiffre et tiret
+			var r14 = /\?$/ ; //recherche de '?' en fin de chaine
+			
+			var res1 = text.match(r1);
+			var res2 = text.match(r2);
+			var res3 = text.match(r3);
+			var res4 = text.match(r4);
+			var res5 = text.match(r5);
+			var res6 = text.match(r6);
+			var res7 = text.match(r7);
+			var res8 = text.match(r8);
+			var res9 = text.match(r9);
+			var res10 = text.match(r10);					
+			var res11 = text.match(r11);
+			var res12 = text.match(r12);	
+			var res13 = text.match(r13);
+			var res14 = text.match(r14);
+			
+			var resultat = document.getElementById('reg');
+			resultat.innerHTML = 'reg1 : ' + res1 +
+								 '<br>reg2 : ' + res2 +
+								 '<br>reg3 : ' + res3 +
+								 '<br>reg4 : ' + res4 +
+								 '<br>reg5 : ' + res5 + 
+								 '<br>reg6 : ' + res6 +
+								 '<br>reg7 : ' + res7 + 
+								 '<br>reg8 : ' + res8 +
+								 '<br>reg9 : ' + res9 + 
+								 '<br>reg10 : ' + res10 +
+								 '<br>reg11 : ' + res11 +
+								 '<br>reg12 : ' + res12 +
+								 '<br>reg13 : ' + res13 +
+								 '<br>reg14 : ' + res14 
+								 ;
+			
+			
+		</script>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Premier script JavaScript !</title>
+        <meta charset='utf-8'>
+    </head>
+    <body>
+        <script>
+			var heure = 15;
+			
+			//test, mais verifier que le retour de test est verifie en comparant a true
+			if(heure <= 18 == true){
+				console.log("bonjour");
+			}else{
+				console.log("bonsoir");
+			}
+			
+			if(heure <= 18 == false){
+				console.log("bonjour2");
+			}else{
+				console.log("bonsoir2");
+			}
+			
+			
+			 heure = 9;
+			 if(heure <= 12 == true){
+				console.log("matin");
+			}else if (heure <= 18 == true){
+				console.log("après mide");
+			}else{
+				console.log("soir");
+			}
+			
+			heure = "neuf";
+			
+			if(typeOf(heure) == 'number' == true){
+				if(heure <= 12 == true){
+					console.log("matin");
+				}else if (heure <= 18 == true){
+					console.log("après mide");
+				}else{
+					console.log("soir");
+				}
+			}else{
+				console.log("ce n'est pas une heure");
+			}
+			            //console.log();
+        </script>
+    </body>
+</html>

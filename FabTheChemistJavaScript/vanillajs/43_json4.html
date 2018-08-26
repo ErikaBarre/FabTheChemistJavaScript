@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON</title>
+</head>
+<body>
+	<h1>JSON</h1>
+    <div id="output"></div>
+	<script type="text/javascript">
+	
+       var data = '{"results":[{"gender":"female","name":{"title":"mrs","first":"osnaura","last":"costa"},"location":{"street":"4603 rua são paulo ","city":"paulista","state":"acre","postcode":27585,"coordinates":{"latitude":"-73.7530","longitude":"24.4053"},"timezone":{"offset":"-1:00","description":"Azores, Cape Verde Islands"}},"email":"osnaura.costa@example.com","login":{"uuid":"c2867ca0-3222-49ff-83ac-e1f695b08884","username":"smalltiger206","password":"nyjets","salt":"kiiL77Xp","md5":"461aadb575579993e2d49d9e5101e587","sha1":"563f83aa977b47a51b16751b42223f342e6cd9dc","sha256":"062e23c106c1ed8635c6ef61203e6d312f9f30e1fd8d192d0b5276121a88b204"},"dob":{"date":"1996-09-09T15:32:15Z","age":21},"registered":{"date":"2008-05-15T00:55:25Z","age":10},"phone":"(36) 0555-2208","cell":"(27) 5347-9472","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/women/58.jpg","medium":"https://randomuser.me/api/portraits/med/women/58.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/58.jpg"},"nat":"BR"}],"info":{"seed":"e282e8d5df2283e8","results":1,"page":1,"version":"1.2"}}'  ;
+
+       console.log(data);
+        //conversion json => array
+        var dataJSON = JSON.parse(data);
+        //pour acceder directement à l'object sous forma de tableau
+        console.log(dataJSON.results);
+        console.log(dataJSON.results[0].name.last );
+        var output = document.getElementById('output');
+
+        output.innerHTML=dataJSON.results[0].name.title + ' ' + dataJSON.results[0].name.last + ' ' + dataJSON.results[0].name.first 
+         + '<img src="' + dataJSON.results[0].picture.thumbnail + '">' ;
+
+         //conversion array => json
+         var stringJSON = JSON.stringify(dataJSON);
+        
+        //il y a une grande similarité entre un object literal js et json
+        
+        var objectliteral = {
+            firstname : 'Mary',
+            isprogrammer : true
+        }
+        
+        console.log(JSON.stringify(objectliteral));
+        //{"firstname":"Mary","isprogrammer":true}
+        
+        JSON.parse('{"firstname":"Mary","isprogrammer":true}');
+        //{firstname : 'Mary',isprogrammer : true }
+        
+	</script>
+</body>
+</html>

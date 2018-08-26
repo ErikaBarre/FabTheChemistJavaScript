@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>L'élément HTML canvas</title>
+        <meta charset="utf-8">   
+        <style>
+        	
+        	body{
+                margin: 0px;
+                padding: 0px;
+            }
+            #canvas1{
+                background-color: orange;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <canvas id='canvas1' width='400' height='200'></canvas>
+        
+        <script type="text/javascript">
+        	var canvas = document.getElementById('canvas1');
+        	var contexte = canvas.getContext('2d');	
+        	
+        	//pour creer un degradé
+        	// 20 est la taille du point central , 75 est la taille du dégradé
+        	var radial = contexte.createRadialGradient(200,100,20,200,100,75);
+        	radial.addColorStop(0, "#4C8");
+        	radial.addColorStop(0.25, "#48C");
+        	radial.addColorStop(1, "#A4A");
+        	
+        	contexte.beginPath();
+        	contexte.fillStyle = radial;
+        	
+        	//il faut creer un cercle de la meme taille que le degardé
+        	contexte.arc(200, 100, 75,0, 2*Math.PI);
+        	contexte.fill();
+        </script>
+    </body>
+</html>

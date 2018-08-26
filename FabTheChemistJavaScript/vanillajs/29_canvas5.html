@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>L'élément HTML canvas</title>
+        <meta charset="utf-8">   
+        <style>
+        	
+        	body{
+                margin: 0px;
+                padding: 0px;
+            }
+            #canvas1{
+                background-color: orange;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <canvas id='canvas1' width='400' height='200'></canvas>
+        
+        <script type="text/javascript">
+        	var canvas = document.getElementById('canvas1');
+        	var contexte = canvas.getContext('2d');	
+        	
+        	//beginpath : definit le debut d'un nouveau tracé
+        	contexte.beginPath();
+        	contexte.lineWidth = '5';
+        	contexte.fillStyle = 'red';
+        	contexte.strokeStyle = "#48C" ;
+        	//coordonnée x, y, rayon, angle de détart, angle d'arrivée
+        	contexte.arc(75, 100, 50, 0, Math.PI);
+        	contexte.stroke();
+        	
+        	contexte.beginPath();
+        	contexte.lineWidth = '5';
+        	contexte.strokeStyle = "blue" ;
+        	//coordonnée x, y, rayon, angle de détart, angle d'arrivée
+        	contexte.arc(200, 100, 50, 0, 2*Math.PI);
+        	contexte.stroke();
+        	
+        	contexte.beginPath();
+        	contexte.lineWidth = '5';
+        	contexte.fillStyle = 'red';
+        	contexte.strokeStyle = "red" ;
+        	//coordonnée x, y, rayon, angle de détart, angle d'arrivée
+        	contexte.arc(325, 100, 50, 0, Math.PI, 2*Math.PI);
+        	contexte.stroke();
+        </script>
+    </body>
+</html>

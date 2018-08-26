@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Endroit où est écrit le JavaScript !</title>
+        <meta charset='utf-8'>
+		<script src='2.js'></script>
+		
+    </head>
+    <body>
+		<h1>On peut écrire du Javascript dans :</h1>
+		<script>
+			//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
+		
+			var heure = 9;
+			
+			if(heure >= 0 && heure <= 12 == true){
+				console.log("matin");
+			} else if (heure === 12 == true){
+				console.log("mide pile");
+			}  else if (heure >= 12 && heure <= 18 == true){
+				console.log("apres midi");
+			}  else {
+				console.log("soir");
+			}
+			
+			heure = 26;
+			
+			if(heure < 0 || heure > 24 == true){
+				console.log("heure non valide");
+			} else  {
+				console.log("heure valide");
+			}
+			
+			
+			if(!(heure < 16 == true)){
+				console.log("plus de 16h");
+			} else  {
+				console.log("moins de 16h");
+			}
+			
+			//en js false = 0
+			console.log(3<2<1); //true car 3<2 => false et 0<1 => true
+			
+			//cas spécial de l'utilisation de l'opérator logique pour attribuer une valeur 
+			var er = undefined || "Hello" ; //er = "Hello"
+			var az;
+			var tr = az || "Hello1" ; // tr = "Hello1"
+			var po = "HI" || "HELLO" ; // po = "HI"
+		</script>
+    </body>
+</html>

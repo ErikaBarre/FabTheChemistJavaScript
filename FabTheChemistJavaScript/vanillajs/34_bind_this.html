@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        let cat = {};
+
+        cat = {
+            sound: 'Miaouw',
+            speak: function() {
+                console.log(this.sound);
+
+            }
+
+        }
+        car.speak();
+
+        let speakFunction = cat.speak;
+        speakFunction(); // undefined car "let" n'est pas rattaché au context de "this"
+
+        //car c'est comme si on écrivait 
+        let speakFunction = function() {
+            onsole.log(this.sound); //this n'est rattaché à aucun object
+        }
+
+        //on doit alors utiliser "bind"
+        let speakFunction = cat.speak;
+
+        let speakFunctionBind = speakFunction.bind(cat); // on passe le context de cat
+        speakFunctionBind(); // miaou
+
+        ////
+        let person1 = {
+            name: 'alex'
+        };
+
+        let person2 = {
+            name: 'alexis'
+        };
+
+        function namer() {
+            this.name;
+        }
+
+        let getPersonName1 = namer.bind(person1);
+        let getPersonName2 = namer.bind(person2);
+
+        getPersonName1();
+        getPersonName2();
+
+        //ou bien
+        namer.bind(person1)();
+        namer.bind(person2)();
+
+        let number = {
+            x: 24,
+            y: 26
+        }
+
+        let count = function() {
+            console.log(this.x + this.y);
+        }
+
+        count(); // NaN car this = window 
+
+        count.bind(number)();
+
+        //autre exemple de bind
+        var module = {
+          x: 42,
+          getX: function() {
+            return this.x;
+          }
+        }
+
+        var unboundGetX = module.getX;
+        console.log(unboundGetX()); // The function gets invoked at the global scope
+        // expected output: undefined
+
+        var boundGetX = unboundGetX.bind(module);
+        console.log(boundGetX());
+        // expected output: 42
+        
+        //avec paramètre
+        var module = {
+          x: 42,
+          getX: function(TTT) {
+            return TTT + this.x;
+          }
+        }
+
+        var unboundGetX = module.getX;
+        console.log(unboundGetX()); // The function gets invoked at the global scope
+        // expected output: undefined
+
+        var boundGetX = unboundGetX.bind(module,4);
+        console.log(boundGetX());
+        //46
+        
+        //autre exemple avec this
+        function aa() {
+            console.log(this);
+        }
+        aa(); //this = windoiw
+        var bb = function() {
+            console.log(this);
+        }
+        bb(); //this = windowd
+
+        function aax() {
+            console.log(this);
+            this.newvar = "Hello";
+        }
+        aax();
+        console.log(newvar); // "hello" car newvar a été créé pour la window
+
+        var c = {
+            name: 'the objg',
+            log: function() {
+                //pour ne pas perdre le contextn on peut écrire ceci
+                var self = this;
+                
+                console.log(this);
+                this.name = "Hola";
+                
+                var setName = function(newvalue){
+                    this.name = newvalue;
+                }
+                setName('Huhuhu');
+                console.log(this);
+                
+            }
+        }
+        c.log(); //this = c
+        
+        //fonction definit au niveau de this, la fonction est attachée à this
+        function ee(){
+            console.log('dfdfff');        
+        }
+        ee();
+        this.ee();
+        
+        //var est aussi lié à this
+        var ppp = 5;
+        console.log(ppp);
+        console.log(this.ppp);
+        
+        //let n'est pas attaché à this
+        let mmm = 5;
+        console.log(mmm); // 5
+        console.log(this.mmm) ; //=> undefined 
+        
+    </script>
+
+</body>
+
+</html>

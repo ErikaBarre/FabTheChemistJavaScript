@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>Regex</h1>
+		<p>Engagez vous qu'ils disaient, rengagez vous qu'ils disaient</p>
+		<p id='reg'></p>
+		<script>
+			//regex est delimite par des slash
+			//		/pattern/modifiers
+			//   vzr alphabet = = / ou /i
+			//	pattern => ou
+			//  modifier => i (case insensitive) 			
+			
+			// i : ignore la casse
+			// g : global, reprend toutes les occurence trouvee
+			
+			var expr = document.querySelector('p');
+			var r1 = /engagez/i ;
+			var r2 = /engagez/ig ;
+			var r3 = /engagez/ ;
+			var r4 = /engagez/g ;
+			var r5 = /ENGAGEZ/ ;
+			var r6 = /ENGAGEZ/i ;
+			var r7 = /aient/ ;
+			var r8 = /aient/ ;
+			
+			var rec = document.querySelector('p').textContent;
+			
+			//match retourne les occurences
+			var res1 = expr.textContent.match(r1);
+			var res2 = expr.textContent.match(r2);
+			
+			//pour connaitre le nombre d'occurence
+			var Lres1 = expr.textContent.match(r1).length;
+			var Lres2 = expr.textContent.match(r2).length;
+			console.log(Lres1);
+			console.log(Lres2);
+			
+			//retourne la position dans la string sinon retourne -1
+			var res3 = expr.textContent.search(r1);
+			var res4 = expr.textContent.search(r3);
+		
+			var res5 = expr.textContent.replace(r2, "barrez");
+			var res6 = expr.textContent.replace(r4, "barrez");
+			
+			var res7 = r5.test(rec);
+			var res8 = r6.test(rec);
+						
+			// exec : retourne le texte si la chaine a été trouvée ou null si la methode ne trouve rien
+			var res9 = r7.exec(rec);
+			var res10 = r8.exec(rec);
+			
+			var resultat = document.getElementById('reg');
+			resultat.innerHTML = 'reg1 : ' + res1 +
+								 '<br>reg2 : ' + res2 +
+								 '<br>reg3 : ' + res3 +
+								 '<br>reg4 : ' + res4 +
+								 '<br>reg5 : ' + res5 + 
+								 '<br>reg6 : ' + res6 +
+								 '<br>reg7 : ' + res7 + 
+								 '<br>reg8 : ' + res8 +
+								 '<br>reg9 : ' + res9 + 
+								 '<br>reg10 : ' + res10 
+								 ;
+			
+			
+		</script>
+    </body>
+</html>

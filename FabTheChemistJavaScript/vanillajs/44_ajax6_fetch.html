@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>AJAX-FETCH</title>
+</head>
+
+<body>
+	<h1>AJAX-FETCH Syntax</h1>
+    <div id="output"></div>
+    <button id="trigger">Get a Joke</button>
+	<script type="text/javascript">
+		//on peut utuiliser la nouvelle syntaxe avec fetch , avec la arrow function
+		var joker = document.querySelector('#trigger');
+        joker.addEventListener('click', loadJoke);
+        
+        function loadJoke() {
+        	
+            fetch('https://api.chucknorris.io/jokes/random')
+                .then(resJSON)
+                .then(json => document.querySelector('#output').innerHTML = '<div><img src="'+json.icon_url+'"> '+json.value+'</div>')
+                .catch(error => console.log(error));
+               
+            function resJSON(response){
+                return response.json();
+            }
+        }
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript :</h1>
+		<script>
+			var list = ['abc', 'def', 'ghi', 'kjl', 'yui'] ;
+			
+			//ajout en FIN de tableau, renvoi la taille du tableau
+			var taille = list.push('vfr','nhty');
+			
+			for(var i = 0; i < list; i++){
+				console.log(list[i]);
+			}
+			
+			//on peut également ajouter un element en plaçant l'index suivant 
+			//le tableua a 5 valeurs, la 6 eme peut etre ajoutée aisni
+			list[5] = "test";
+			//si on place 
+			list[7] = "test2";
+			//alors la valuer en 6 est undefined
+			
+			//suppression du DERNIER element
+			//variable suppre contient l'element supprime
+			var suppre = list.pop();
+			
+			//ajout en DEBUT de tableau et retourne la nouvelle taille du tableau
+			var taille2 = list.unshift('vfr','nhty');
+			
+			//suppression du PREMIER element
+			//variable suppre2 va récupérer l'element supprimé
+			var suppre2 = list.shift();
+			
+			//insertion d element à partir de l'element 1 , on veut supprier aucun element donc 0
+			list.splice(1,0, 'dfdsfsdf','azertty') ;
+			
+			for(var i = 0; i < list.length; i++){
+				console.log(list[i]);
+			}
+			
+			//suppression de 3 elements à partir de l'element 1
+			list.splice(1,3);
+			for(var i = 0; i < list.length; i++){
+				console.log(list[i]);
+			}
+			
+			var tri = ['Abc', 'abc', 'Ghi', 'ghi'] ;
+			tri.sort();
+			for(var i = 0; i < tri.length; i++){
+				console.log(tri[i]);
+			}
+			
+			//inversion de tableau
+			tri.reverse();
+			for(var i = 0; i < tri; i++){
+				console.log(tri[i]);
+			}
+			//comme on peut le voir sort et reverse modifie la structure tableau lui meme , tri ne détient plus son ordre initiale			
+			
+			//concatenation d element de tableau et chaque element separer par un slash
+			var chaine = tri.join('/');
+			console.log(chaine);
+			
+			//extraction de tableau avec slice. La méthode accepte 2 arguments, le premier est inclus et le 2eme argument est exclus
+			//pour prendre tout le tableau avec 2 argument il faut que la borne supérieur soit égal au length du tableau soit index+1. 
+			//le 1er élément est 0 en commençant par la gauche 
+			console.log('L69 tri ' + tri);
+			var extract = tri.slice(0,2);
+			for(var i = 0; i < extract.length; i++){
+				console.log('L71 ' +extract[i]);
+			}
+			//affichage du tableau directement en 1 ligne
+			console.log(extract);
+			
+			//on peut aussi effectuer des extraction en commençant par la fin,
+			console.log('L79 tri ' + tri);
+			var extractNeg = tri.slice(-3,-1);
+			for(var j = 0; j < extractNeg.length; j++){
+				console.log('L81 ' + extractNeg[j]);
+			}
+			//aussi un mélange des 2
+			tri.slice(-3,5);
+			
+			//slice avec 1 arguement, le tableau est coupe de l'index 2 jusqu'à la fin
+			var extractOne = tri.slice(2);
+			for(var i = 0; i < extractOne.length; i++){
+				console.log(extractOne[i]);
+			}
+			//meme chose avec arguement négatif mais on compte à partir de la fin et extrait jusque la fin
+			extractOne = tri.slice(-2);
+			for(var i = 0; i < extractOne.length; i++){
+				console.log(extractOne[i]);
+			}
+			
+			//merge des tableaux
+			var tab1 = ['abc'];
+			var tab2 = ['frg'];
+			var tab3 = tab1.concat(tab2);
+			for(var i = 0; i < tab3.length; i++){
+				console.log(tab3[i]);
+			}
+			var tab4 = tab2.concat(tab1);
+			for(var i = 0; i < tab4.length; i++){
+				console.log(tab4[i]);
+			}		
+			var tab5 = ['azerty'];
+			//on peut egalement ajouter plusieurs tableau à la fois
+			var tab6 = tab1.concat(tab2,tab5);
+			
+			//verifier si un element est dans le table avec indexOf, retourne l'index sinon -1
+			document.write(list.indexOf("def"));  //retourne 1 car position 1
+			
+		</script>
+    </body>
+</html>

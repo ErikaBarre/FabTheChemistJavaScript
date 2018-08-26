@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script : addeventlistener</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1 id='titreh1'>javascript : addeventlistener</h1>
+		<p>paragraphe premier, clique</p>
+		<p id = 'pid'>second <b>paragraphe</b></p>
+		<div>1er division</div>
+		<script>
+			var p1 = document.querySelector('p');
+			p1.addEventListener('click', changetext);
+			
+			function changetext (){
+				this.innerHTML = '<i>mega super</i>';
+				this.style.color = 'orange' ; 
+			} 			
+			
+			var div = document.querySelector('div');
+			
+			div.addEventListener('click', function (){
+					this.innerHTML = '<i>just mega super</i>';
+					this.style.color = 'blue' ; 
+			});
+			
+			var p2 = document.getElementById('pid');
+			
+			//avec addeventlistener , on peut accumuler les events sur l'object
+			p2.addEventListener('click', Message1);
+			p2.addEventListener('click', Message2);
+			p2.addEventListener('mouseover', function1);
+			p2.addEventListener('mouseout', ifunction1);
+			p2.addEventListener('mousedown', function2);
+			p2.addEventListener('mouseup', ifunction2);
+			
+			function Message1 (){
+				alert('message 1');
+			}
+			
+			function Message2 (){
+				alert('message 2');
+			}
+			
+			function function1 (){
+				this.innerHTML = 'eh be'
+				this.style.backgroundColor = 'yellow';
+			}
+			function ifunction1 (){
+				this.innerHTML = 'second <b>paragraphe</b>'
+				this.style.backgroundColor = '';
+			}
+			function function2 (){
+				this.innerHTML = 'c\'est pas gagné'
+				this.style.color = '#26C';
+				this.style.fontWeight = 'bold';
+				this.style.fontSize = '40px';
+			}
+			function ifunction2 (){
+				this.innerHTML = 'second <b>paragraphe</b>'
+				this.style.color = '';
+				this.style.fontWeight = '';
+				this.style.fontSize = '';
+			}
+			
+			
+		</script>
+    </body>
+</html>

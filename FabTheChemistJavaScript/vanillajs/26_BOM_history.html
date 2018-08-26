@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1 id = 'titleh1'>BOM et History</h1>
+		
+		<button id='precedent'>precedent</button>
+		<button id='suivant'>suivant</button>
+		<button id='specifique'>3 page en arrière</button>
+		
+		<p></p>
+		
+		<script>
+			var p = document.querySelector('p');
+			var precedent = document.getElementById('precedent');
+			var suivant = document.getElementById('suivant');
+			var specifique = document.getElementById('specifique');
+			
+			precedent.addEventListener('click', f_precedent )
+			suivant.addEventListener('click', f_suivant )
+			specifique.addEventListener('click', f_specifique )
+			
+			function f_precedent (){
+				history.back();
+				
+			}
+			function f_suivant (){
+				history.forward();		
+							
+						}
+			function f_specifique (){
+				history.go(-3);
+				
+			}
+			var histo = history.length;
+			
+			p.innerHTML = 'historique:' + histo;
+			
+		</script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    
+    //il faut faire attention avec ce genre d'object qui mélange accolade et crochet, les erreur de syntaxes sont fréquente
+    //très utilisé en extjs
+var people = [
+    {
+        // the 'john' object
+        firstname: 'John',
+        lastname: 'Doe',
+        addresses: [
+            '111 Main St.',
+            '222 Third St.'
+        ]
+    },
+    {
+        // the 'jane' object
+        firstname: 'Jane',
+        lastname: 'Doe',
+        addresses: [
+            '333 Main St.',
+            '444 Fifth St.'
+        ],
+        greet: function() {
+            return 'Hello!';   
+        }
+    }
+]
+
+console.log(people);
+    
+</script>
+</body>
+</html>

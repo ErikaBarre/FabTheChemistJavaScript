@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Les variable</title>
+        <meta charset='utf-8'>
+		
+		
+    </head>
+    <body>
+		<h1>Les variable</h1>
+		<script>
+		var a = 3;
+		console.log(typeof a);
+
+		var b = "Hello";
+		console.log(typeof b);
+
+		var c = {};
+		console.log(typeof c);
+
+		var d = [];
+		console.log(typeof d); // ceci ne donnera pas un array mais un object
+		console.log(Object.prototype.toString.call(d)); // à utiliser pour détermine qu'un object est un array : [object array]
+		if(Object.prototype.toString.call(d) == "[object Array]"){}
+
+		function Person(name) {
+		    this.name = name;
+		}
+
+		var e = new Person('Jane');
+		console.log(typeof e);
+		
+		//instanceof me dit que si l'object est sous la chaine de prototype __proto__
+		//typeof e indiquera seulement si e est un object
+		//instanceof indiquera si e est une instance de l'object Person
+		console.log(e instanceof Person);
+
+		console.log(typeof undefined); // makes sense
+		console.log(typeof null); // a bug since forever, like, forever...
+
+		var z = function() { };
+		console.log(typeof z);
+
+
+			
+		</script>
+    </body>
+</html>

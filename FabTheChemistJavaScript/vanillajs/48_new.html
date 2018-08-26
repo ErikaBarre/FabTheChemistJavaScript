@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		function Person(){
+			this.firsname = 'john';
+			this.lastname = 'doe';
+			console.log('Hi');
+			
+			return {greeting : 'Hello'};
+		}
+	
+		var john = new Person(); //function constructor (on crée un object depuis une fonction)
+		console.log(john); 
+		//on obtient un object de type Person
+		//on a construit un objet avec methods et propriétés et lui place ses protoptype
+		//comme décrit dans 47_inheritance , on a deifnit le prototype d'un mauvaise manière juste pour la démo
+		//ici avec new on installe le prototype dans la variable john
+		//new est en réalité un opérateur
+		//new crée un nouvel object en mémoire avec son contexte d'exécution
+		
+		function Person2(firstname, lastname){
+			this.firsname = firstname;
+			this.lastname = lastname;
+			console.log('Hi2');
+			
+			return {greeting2 : 'Hello2'};
+		}
+	
+		var john2 = new Person2('john','doe');
+		console.log(john2); 
+		
+		var jane = new Person2('jane');
+		console.log(jane);
+		
+        //autres cas
+        var n = new Number('3');  //capitize first letter of paramétre
+        //n n'est pas une primitive c'est un object
+        //cet obecjt a une propriété prototype
+        
+        
+		
+	</script>
+</body>
+</html>

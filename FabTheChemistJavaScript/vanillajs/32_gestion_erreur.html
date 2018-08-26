@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<label for='nb'>entrez un nombre entre 1 et 10</label>
+<input type="number" min="1" max="10" id='nb' name='nombre'>
+<button type="button" id='test'>Validation</button>
+<p id ='msg'></p>
+
+<script type="text/javascript">
+	var b = document.getElementById('test');
+	b.addEventListener('click', f_test_valeur);
+	
+	function f_test_valeur(){
+		var p = document.getElementById('msg');
+		var x = document.getElementById('nb').value;
+		
+		try{
+			if((isNaN(x)) || (x== '')){
+				throw 'pas bonne entrée';
+			}else if(x<1 || x>10){
+				throw 'pas dans la fourhcette attendue';
+			}else{
+				msg.innerHTML = 'good';
+			}
+		}catch (e) {
+			msg.innerHTML = e
+		}finally{
+			document.getElementById('nb').value = '';
+		}
+		
+	}
+</script>
+</body>
+</html>

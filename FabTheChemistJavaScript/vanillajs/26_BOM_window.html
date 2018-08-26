@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript : BOM (browser object model) and window</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+    	
+		<h1 id = 'titleh1'>BOM (browser object model) and window</h1>
+		<p>cliquer pour ouviri un nouvel onglet</p>
+		
+		<button id='bopen'>ouvrir fenetre</button>
+		<button id='bfermer'>fermer fenetre</button>
+		<button id='bredimen'>redimensionner fenetre</button>
+		
+		<script>
+			//BOM n'a pas de stadard
+			//BOM est la fenetre du navigateur
+			
+			window.alert('message'); 
+			alert('identique'); //window est implicite
+			
+			document.getElementById('titleh1');
+			var p =document.querySelector('p');
+			p.addEventListener('click', fenetre);
+			
+			var bopen =document.querySelector('#bopen');
+			var bfermer =document.querySelector('#bfermer');
+			var bredimen = document.querySelector('#bredimen');
+			var fenetre = '';
+			
+			
+			
+			bopen.addEventListener('click', f_ouvrir);
+			bfermer.addEventListener('click', f_fermer);
+			bredimen.addEventListener('click', f_redim);
+			
+			function fenetre(){
+				window.open('http://www.google.com', target='_blank', 'width=500, height=300, top = 100, left = 100');
+				
+			}
+			
+			function f_ouvrir (){
+				fenetre = window.open('http://www.google.com', '_blank', 'width=600, height=600');
+				console.log(fenetre);
+			}
+			
+			//IE : ne fonctionne pas, ne stocke  rien dans fenetre
+			function f_fermer (){
+				fenetre.close();			
+			}
+			
+			// sur firefox52 = Error: Permission denied to access property "resizeTo"
+			function f_redim (){
+				fenetre.resizeTo(300,300);			
+			}
+			
+		</script>
+    </body>
+</html>

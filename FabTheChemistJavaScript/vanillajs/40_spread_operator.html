@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Spread operator</title>
+</head>
+
+<body>
+
+
+    <script type="text/javascript">
+        /*
+        spread operator allows an expression to be expanded in places where multiple arguments 
+        (for function calls) or multiple elements (for array literals) or multiple variables 
+        (for destructuring assignement) are expected
+
+        la syntax est 3  petits points : ...
+        */
+
+        // sur les arrays
+        let letters = ['a', 'b', 'c'];
+
+        console.log(letters); // retourne le tableau ['a','b','c']
+
+        console.log(...letters); // retourn une string (le talbeau est converti en string) comme ceci : 'a''b''c' (sans virgule)
+
+        let names = ["Tim", "Sarah", "Erika"];
+        console.log(names);
+        console.log(...names);
+
+        var alpha = ['a', 'b', 'c'];
+        var beta = ['d', 'e', 'f'];
+
+        var joindre = alpha.concat(beta);
+        joindre; // ['a','b','c', 'd','e','f']
+
+        let bet = ['d', 'e', 'f'];
+        let alphabet = ['a', 'b', 'c', ...bet];
+        alphabet; // ['a','b','c', 'd','e','f']
+
+        //sur les functions
+        let first = [1, 2, 3];
+        let second = [4, 5, 6];
+
+        function productOfThree(a, b, c) {
+            let result = a * b * c;
+            console.log(result);
+            return result
+        }
+        productOfThree(first[0], first[1], first[2]); //6
+
+        productOfThree(...first); //6
+        productOfThree(...second); //48
+
+        let bath = ['ran', 'bathroom', 'quickly'];
+
+        function matLib(verb, noun, adjective) {
+            return `I ${verb} to the ${noun} , ${adjective}`;
+        }
+        matLib(...bath);
+
+        //mot clé arguments
+        function greet(firstname, lastname, language) {
+
+            language = language || 'en';
+
+            if (arguments.length === 0) {
+                console.log('Missing parameters!');
+                console.log('-------------');
+                return;
+            }
+
+            console.log(firstname);
+            console.log(lastname);
+            console.log(language);
+            console.log(arguments);
+            console.log('arg 0: ' + arguments[0]);
+            console.log('-------------');
+
+        }
+
+        greet();
+        greet('John');
+        greet('John', 'Doe');
+        greet('John', 'Doe', 'es');
+
+    </script>
+</body>
+
+</html>

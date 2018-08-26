@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript :</h1>
+		<script>
+			//getter de date
+			var date = new Date();
+			
+			var tempsMilliseconde = date.getTime();
+			var anneeComplete = getFullYear();
+			var mois = date = getMonth(); // 0 à 11
+			var jour = getDate();
+			var jourNumber = getDay();
+			var heure = date.getHours();  // 0 à 23
+			var minute = date.getMinutes() 
+			var seconde = getSeconds();
+			var milliMinute = getMilliseconds();
+			
+			console.log(
+						'tempsMilliseconde ' + tempsMilliseconde +
+						'\nanneeComplete ' + tempsMilliseconde +
+						'\nmois ' + tempsMilliseconde +
+						'\njour ' + tempsMilliseconde +
+						'\njourNumber ' + tempsMilliseconde +
+						'\nheure ' + tempsMilliseconde +
+						'\nminute ' + tempsMilliseconde +
+						'\nseconde ' + tempsMilliseconde +
+						'\nmilliMinute ' + tempsMilliseconde 
+			) ;
+			
+			//setter de date
+			date.setFullYear(2016,2,15);  // year month day
+			date.setHours(11);
+			date.setMinutes(36);
+			date.setSeconds(15);
+			
+			console.log(
+						'tempsMilliseconde ' + tempsMilliseconde +
+						'\nanneeComplete ' + tempsMilliseconde +
+						'\nmois ' + tempsMilliseconde +
+						'\njour ' + tempsMilliseconde +
+						'\njourNumber ' + tempsMilliseconde +
+						'\nheure ' + tempsMilliseconde +
+						'\nminute ' + tempsMilliseconde +
+						'\nseconde ' + tempsMilliseconde +
+						'\nmilliMinute ' + tempsMilliseconde 
+			) ;
+			
+			 var mois = ['janvier', 'février', 'mars', 'avril', 'mai',
+                        'juin', 'juillet', 'août', 'septembre',
+                        'octobre', 'novembre', 'décembre'];
+            
+            var jour = ['dimanche', 'lundi', 'mardi', 'mercredi',
+                        'jeudi', 'vendredi', 'samedi'];
+						
+			alert('Le ' +jour[jourNumber]+' '+jour+' '+mois[mois]+' '+anneeComplete+
+                  '.\nIl est : ' +heure+'h '+minute+'mn et '+seconde+'s.');
+			
+		</script>
+    </body>
+</html>

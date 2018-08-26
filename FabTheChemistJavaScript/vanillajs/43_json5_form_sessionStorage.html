@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+</head>
+
+<body>
+    <h1>JSON</h1>
+    <div id="output"></div>
+    <form id='dataForm' action="">
+        <input type="text" name="first" value="Bobby">
+        <input type="text" name="last" value="Ewing">
+        <input type="text" name="company" value="Ewing Oil">
+        <input type="text" name="email" value="bobby.ewing@ewing.com">
+        <input type="submit" value="Submit">
+    </form>
+    <script type="text/javascript">
+        window.onload = function() {
+            if (sessionStorage.getItem('person') != null) {
+                //var data = JSON.parse(sessionStorage.getItem('person'));
+                var data = JSON.parse(sessionStorage['person']);
+                var message = data.first;
+                var out = document.getElementById("output");
+                out.innerHTML = message;
+                console.log('L22 ' + data);
+            }
+        }
+
+        var form = document.getElementById('dataForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var data = formData(form);
+            if (data) {
+                sessionStorage['person'] = JSON.stringify(data);
+                sessionStorage.setItem("person2", JSON.stringify(data));
+            }
+            console.log(data);
+        })
+
+        function formData() {
+            var el = form.querySelectorAll('input[type="text"]');
+            var dataj = {};
+            var cnb = 0;
+            for (var i = 0; i < el.length; i++) {
+                console.log(cnb++);
+                var name = el[i].name;
+                var value = el[i].value;
+                console.log(name, value);
+                dataj[name] = value;
+            }
+            return dataj;
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id='varX'></p>
+<p id='varY'></p>
+
+	<script type="text/javascript">
+		'use strict';
+		var afficheX = document.getElementById('varX');
+		var afficheY = document.getElementById('varY');
+		
+		function affX (){
+			'use strict';
+			var x=5;
+			alert(x);
+		}
+
+		function affY (){
+			'use strict';
+			y=5;
+			alert(y); //ne sera pas exécuter car 'use strict' detecte que 'var" est absent
+		}
+		
+		affX() ;
+		affY() ;
+		
+	</script>
+
+</body>
+</html>

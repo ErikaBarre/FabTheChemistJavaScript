@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript :</h1>
+		<script>
+			//un object est un type de valeur clé/valeur
+			//un object est tout ce qui n'est pas promitif
+			var primitive = "ceci est une valeur primitive" ;
+			var longeurprimitive = primitive.length;
+			var uppercaseprimitive = primitive.toUpperCase(); // on applique une fonction sur une primitive string et on obtient une primitive string 
+			//mais pour appliquer une methode sur la primitive string, js convertit la primitive string en object string
+			//le resultat est une primitive 
+			
+			//string peut etre une primitive ou un object selon la façon dont on le déclare
+			//on mode consolde , l'objectstring apparait comme une tableau de caractères
+			var chaine = new String("object string");
+			var uppercasechaine = chaine.toUpperCase(); // on applique une fonction sur l'object string et on obtient une object string 
+			
+			document.write('longuer de primitive ' + longeurprimitive + 
+						'\n primitive en majuscule : ' + uppercaseprimitive + 
+						'\n chaine en majuscule : ' + uppercasechaine
+						+ '<br>'
+						) ;
+			console.log(chaine); //apparait comme tableau de caractère
+			console.log(uppercasechaine); //object string
+			console.log(typeof uppercasechaine.length); // le retour n'est pas un object (alors qu'on part d'un object string) mais une primitive car js est conçu pour préserver de la mméoire
+			console.log('longuer de primitive ' + longeurprimitive + 
+					'\n primitive en majuscule : ' + uppercaseprimitive + 
+					'\n chaine en majuscule : ' + uppercasechaine
+					
+					) ;
+			
+			//definition d'un object - conteneur de proprio , methode ou autre object
+			var infodiverse = { 
+					prenom : 'Joe',
+					nom : 'McAGER',
+					age : 23,
+					//fonction anonyme
+					identite : function(){
+							return 'Prenom ' + this.prenom +
+									'\nnom ' + this.nom +
+									'\nage ' + this.age ;
+						}
+					};
+			//identique à
+			var infodiverse2 = { 
+					'prenom' : 'Joe',
+					'nom' : 'McAGER',
+					'age' : 23,
+					//fonction anonyme
+					'identite' : function(){
+							return 'Prenom ' + this.prenom +
+									'\nnom ' + this.nom +
+									'\nage ' + this.age ;
+						}
+					};
+			document.write('<br>2 ' +infodiverse2.identite()) ;
+			
+			document.write('<br> ' +infodiverse.identite()) ;
+			//on peut également accéder aux propriétés directement:
+			document.write('<br> ' + infodiverse.nom);
+			document.write('<br> ' + infodiverse['nom']);
+			
+			//ajout de proprio supplémentaire dans l'object deja exsitant
+			infodiverse.taille = '180 cm' ;
+			
+			document.write('<br> ' + infodiverse['taille']);
+			
+			document.write('<br> ' + infodiverse['tourTaille']);
+			
+			//inspecter le tableau
+			console.log(infodiverse); // Object { prenom: "Joe", nom: "McAGER", age: 23, identite: identite(), taille: "180 cm" }
+			
+			var car = {
+				make : 'Honda',
+				color : 'resd',
+				mpg : false,
+				gallons : 12,
+				engine : 1,
+				'origin year' : 1984
+			};
+			//la dernière valeur on ne peut pas l'atteindre avec la dot notation, obligé d'utilise les braket notation
+			document.write('<br> ' + car['origin year']);
+			//ajout de proprio avec des mots réservés peut aussi se faire avec braket notation
+			car['function'] = 'drive' ; 
+			//inspecter le tableau
+			console.log(car);
+			
+			//objet contenant un object
+            var no = new Object();
+            no.name = "charlot";
+            no.firstname = "jojo";
+            no.address = new Object();
+            
+            no.address.numero = 15;
+            no.address.city = "NY";
+            
+            console.log(no.address.city);
+            console.log(no["address"]["city"]);
+            
+            // object peut etre deifinit de la manière suivante, cela s'appelle un object literal (avec accolade)
+            var tr = {
+                name : "toto",
+                firstname:"charlot",
+                adresse : {
+                    numero:75,
+                    rue: "chaussee de namur",
+                    cp : 1300
+            }
+            }
+            console.log(tr.adresse.numero);
+            
+            function greet(data){
+                console.log(data.firstname);
+            }
+            greet(tr);
+            //on peut aussi écrire
+            greet({
+                firstname:'Joe',
+                lastname:'Champ'
+                
+            });
+            //ajout autre obj
+            tr.adresse2 = {
+                street:'333 second st'
+            };
+            tr.adresse3 = {};
+            tr.adresse3.brol = "polo";
+            
+		</script>
+    </body>
+</html>

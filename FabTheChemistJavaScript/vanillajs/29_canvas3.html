@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>L'élément HTML canvas</title>
+        <meta charset="utf-8">   
+        <style>
+        	
+        	body{
+                margin: 0px;
+                padding: 0px;
+            }
+            #canvas1{
+                background-color: orange;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <canvas id='canvas1' width='350' height='200'></canvas>
+        
+        <script type="text/javascript">
+        	var canvas = document.getElementById('canvas1');
+        	var contexte = canvas.getContext('2d');	
+        	
+        	//contexte.beginPath();
+        	
+        	contexte.strokeStyle = "#48C" ;
+        	
+        	//definit le point de depart
+        	contexte.moveTo(50, 50);
+        	
+        	//coordonnéées des pointss
+			contexte.lineTo(350,150)
+			contexte.lineTo(50, 150);
+			contexte.lineTo(50, 50);
+			
+			
+			contexte.stroke();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript :</h1>
+		<script>
+			function indentite (x,y,z){
+				this.prenom = x;
+				this.nom = y;
+				this.age = z;
+			}
+			
+			var joe = new indentite ('joe', 'dede', 26);
+			var james = new indentite ('james', 'kelle', 86);
+			
+			var joejumeau = joe;
+			
+			console.log('joe age ' + joe.age);
+			console.log('joejumeau age ' + joejumeau.age);
+			
+			//object sont stocké par reference
+			
+			joejumeau.age = 36;
+			
+			console.log('pierre age ' + joe.age);
+			
+		</script>
+    </body>
+</html>

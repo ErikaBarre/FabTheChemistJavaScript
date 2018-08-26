@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript : reduce</h1>
+		<script>
+			// reduce sert pour la transformation de tableau
+			// apply a function against an accumalator and each value of the array (from left to right) to reduce it to a single value 
+			/*
+			array.reduce(function(accumaltor, currentValue, currentIndex, array)) initialValue)
+			accumulator : required, result of reduction so far
+			currentValue: required 
+			initialValue : optional, c'est la valeur initial
+			*/
+			var number = [1,2,3,4] ;
+			number.reduce(function(sum, elt, i, array) {
+				return sum + elt
+			}, 5)
+			
+			/*
+			sum elt i 	array		results		
+			5	1	0	number			6
+			6	2	1	number			8
+			8	3	2	number			11
+			11	4	3	number			15
+			
+			*/
+			
+			var multi = [[0,1],[2,3],[4,5]];
+			multi.reduce(function(sum, elt, i, array) {
+				return sum.concat(elt);
+			}, [])
+									
+			var multi2 = [[-2,-1],[0,1],[2,3],[4,5]];
+			multi2.reduce(function(acc, curr, i, array) {
+				console.log(acc, curr);
+				return acc.concat(curr);
+			}, [])
+			
+			/*
+			[]       [-2,-1]
+			[-2,-1]	 
+			
+			
+			
+			*/
+			var homerunes = 
+			[
+				{batter : 12},
+				{batter : 21},
+				{batter : 28},
+				{batter : 42},
+				{batter : 31},
+				{batter : 22},
+				{batter : 17},
+				{batter : 16},
+				{batter : 5}
+				];
+			
+			var tottalHomes = homerunes.reduce(function(sum, elt, i, array) {
+				console.log('sum ' + sum + ' ,elt' + elt ); 
+				return sum + elt.batter;
+			},0)
+			
+			//lambda ecriture
+			var tottalHomes = homerunes.reduce((sum, elt, i, array) =>	sum + elt.batter ,0) ;
+			
+			var nbs = [5,10,15,20,25];
+			nbs.reduce(function(sum, elt, i, array) {
+				console.log(sum, elt)
+				return sum + elt; 
+			},0)
+			
+			nbs.reduce(function(sum, elt, i, array) {
+				return sum * elt; 
+			},1)
+			
+			nbs.reduce(function(sum, elt, i, array) {
+				if(sum > elt){
+					return sum;
+				} else{
+					return elt
+				}
+			},0)
+			
+			var ope = [1,2,3,4];
+			var triplex = ope.map(function(elt, i, array) {
+				return elt * 3;
+			}).reduce(function(sum, elt, i, array) {
+				return sum + elt;
+			},0) //30
+			triplex;
+		</script>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>fonction auto invoquée :</h1>
+		<script>
+		
+			//fonction immediatement invoquée au chargement de la page
+			(function (x){
+				x = prompt('Entre un numbre');
+				console.log('x = ' + x);
+			})(); //la fonction s'exécute d'elle meme sans appel 
+			
+			//une fonction immeditement invoquée peut aussi etre stokée dans une variable
+			var functhree = (function (x){
+				//x = prompt('Entrez un nombre');
+				console.log('Entrez un nombre');
+			})();
+			functhree ; //l'appel de la fonction sans parenthèse permet l'exécution de la fonction 
+			
+			//alors que  
+			var functhree2 = function (x){
+				//x = prompt('Entrez un nombre');
+				console.log('Entrez un nombre');
+			};
+			functhree2 ;  //le résultat est le code de fonction, pour obtenir le résultat il faut écrire 
+			functhree2(); //exécute la fonction
+			
+			//avec argument à passer
+			(function (x,y){
+				document.write("L35 var x"  + x + " <br> et var y " + y  );
+				
+			})(10,35);
+			
+			var dogwalker = (function (x,y){
+				document.write("<br> L40 var x"  + x + " <br> et var y " + y  );
+				
+			})(10,35);
+			dogwalker;
+			
+		</script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>L'élément HTML canvas</title>
+        <meta charset="utf-8">   
+        <style>
+            body{margin: 0px;padding: 0px;}
+            #canvas1{border: 2px solid orange;}
+        </style>
+    </head>
+    
+    <body>
+        <canvas id='canvas1' width='400' height='200'></canvas>
+        
+        <script>
+            var canvas = document.getElementById('canvas1');
+            var contexte = canvas.getContext('2d');
+
+            /*On définit le point de départ de nos dessins au
+             *centre du canvas*/
+            contexte.translate(200,100);
+            
+            //On crée un premier carré bleu
+            contexte.fillStyle = '#48A';
+            contexte.fillRect(0, 0, 75, 75);
+            
+            /*On effectue une rotation de 90° et on crée un
+             *deuxième carré vert*/
+            contexte.rotate(Math.PI/2);
+            contexte.fillStyle = 'RGB(64,192,128)';
+            contexte.fillRect(0, 0, 75, 75);
+            
+            //Autre rotation de 90° et 3è carré rose
+            contexte.rotate(Math.PI/2);
+            contexte.fillStyle = '#A3A';
+            contexte.fillRect(0, 0, 75, 75);
+            
+            //Dernière rotation de 90° et carré orange
+            contexte.rotate(Math.PI/2);
+            contexte.fillStyle = '#E85';
+            contexte.fillRect(0, 0, 75, 75);
+        </script>
+    </body>
+</html>

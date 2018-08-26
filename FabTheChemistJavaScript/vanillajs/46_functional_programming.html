@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+    <script>
+        
+    function mapForEach(arr,fn){
+        var newArr=[];
+        
+        for(var i = 0 ; i<arr1.length;i++){
+            newArr.push(fn(arr[i])
+        )};
+    }    
+        
+    var arr1 = [1,2,3];
+    console.log(arr1);
+        
+    var arr2 = [];
+    
+    for(var i = 0 ; i<arr1.length;i++){
+        
+        arr2.push(arr1[i]*2);
+        
+    }
+        
+        
+    console.log(arr2);
+        
+    var arr3 = mapForEach(arr1,function(itemp){
+        return itemp * 2;
+    } )    
+    
+    
+    //la fonction passée peut être tout autres
+    //et le tableau resultat différent
+     var arr3 = mapForEach(arr1,function(itemp){
+        return itemp * 2;
+    } ) 
+    console.log(arr3);
+     //ici on a 2 paramètres
+     var checkPastLimit = function(limiter, item){
+         return item > limiter;
+     }
+     //on peut utiliser bind pour imposer le 1er paramètre
+     var arr4 = mapForEach(arr1,checkPastLimit.bind(this,1));
+      console.log(arr4);
+    //si on veut un limiter varialbe et non fixe    
+         var checkPastLimitSimplifier = function(limiter){
+             return function(limiter, item){
+                 return item > limiter;
+             }.bind(this,limiter);
+         }    
+         
+    //l'execution de checkPastLimitSimplifier retourne une fonction [function(limiter, item){
+    //             return item > limiter;
+    //         }.bind(this,limiter);]     
+    // c'est cette fonction est passée en argument et exécutée     
+    //le premier param "limiter" est fixé par le bind     
+     var arr5 = mapForEach(arr1,checkPastLimitSimplifier(2));
+        
+    //voir aussi
+        // https://underscorejs.org/
+    </script>
+    
+</body>
+</html>

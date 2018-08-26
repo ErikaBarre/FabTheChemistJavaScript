@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    
+    // polyfill : si la methode n'existe pas (comme create) à cause browser trop vieux alors on la créé
+    
+    
+if (!Object.create) {
+  Object.create = function (o) {
+    if (arguments.length > 1) {
+      throw new Error('Object.create implementation'
+      + ' only accepts the first parameter.');
+    }
+    function F() {}
+    F.prototype = o;
+    return new F();
+  };
+}
+    
+var person = {
+    
+    firstname:'DEFAULT',
+    lastname:'DEFAULT',
+    greet:function(){
+        return 'HI ' + this.firstname + ' ' + this.lastname
+    }
+    
+    var john = Object.create(person);
+    //on a une obejct vide qui hérite (__proto__) de propriété et method de person (pur prototypical heritance)
+    john.firstname = 'john';
+    john.lastname = 'doe';
+    //l'object est complété de ses propriétés
+    john.greet() ; // Hi john
+    
+    //dans les vieux browser create n'existe pas , on utilise le polyfill (code that adds a feature which the engine may lack)
+    
+    
+}
+
+    
+</script>
+</body>
+</html>

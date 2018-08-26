@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>BOM et navigateur</h1>
+		<p></p>
+		<p id='p'></p>
+		<script>
+			var lang = navigator.language;
+			var navigatorName = navigator.appName;
+			var v = navigator.appVersion;
+			var prod =navigator.product;
+			var cook = navigator.cookieEnabled
+			
+			var p = document.querySelector('p');
+			p.innerHTML = lang + '<br>' + navigatorName + '<br>' + v + '<br>' + prod + '<br>' +cook ;
+			
+			var p2 = document.querySelector('#p');
+			
+			var loc = navigator.geolocation;
+			
+			(function(){
+				if(loc){
+					loc.getCurrentPosition(coordonnees);
+				}else{
+					p2.innerHTML = 'Localisation non visible'; 
+				}
+				
+			})();
+			
+			function coordonnees(x){
+				p2.innerHTML = 'Latitude: ' + x.coords.latitude + '<br>Longitude: ' + x.coords.longitude;
+				
+			}
+			
+		</script>
+    </body>
+</html>

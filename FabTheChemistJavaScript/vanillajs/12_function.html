@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript :</h1>
+		<script>
+			//fonction native
+			//fonction spécifique a developper
+            //fonction avec identifiant = function expression
+            
+			function multiplication (x,y){
+					console.log(x*y);
+			}
+			
+			function multiplication2 (x,y){
+					return x*y;
+			}
+			
+			var x = 10, y=11;
+			
+			multiplication(x,y);
+			
+			console.log(multiplication2(x,y));
+			
+			var retour = multiplication2(x,y);
+			console.log(multiplication2(x,y));
+			
+            //fonction placé dans unevariable = function statement ou function anonyme
+            //variable contient la function object
+            var anonumous = function(){
+                console.log('hi');
+            }
+            anonumous();
+            
+            function fnt(a){
+                a();
+            }
+            fnt(function(){
+                console.log('Hi');
+            })
+            
+		</script>
+    </body>
+</html>

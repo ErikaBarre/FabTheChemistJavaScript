@@ -1,0 +1,27 @@
+// npm node package manager
+npm sert à constituer des packages
+connaitre la version de npm:
+
+npm -v
+
+//ceci prouve également que npm est installé
+npm est intégré à node , mais des framework comme jquery l'integre également
+
+ npm init //initialisation 
+ 
+npm demande une serie de question (entre parenthèse apparait la valeur pas defaut
+name :
+version:
+description
+entry point (point d'entrée du chargement du package) ici app.js
+test command (voir dans la suite du cours)
+git repository
+keyword (si on cherche après des modules dans le projet)
+author
+
+à la fin , une question nous demande la confirmation, on saisit, yes.
+Et un fichier package.json avec les détail s'ajoute dans le projet
+
+on va sur npmjs.com , on recherche "lodash" , ceci offre les statistiques sur l'accès au package
+
+npm install lodash --save

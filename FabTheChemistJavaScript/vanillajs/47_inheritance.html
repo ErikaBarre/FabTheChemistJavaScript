@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+//inheritance : one object gets access to the properties and methods of another object
+//l'héritage en js est appeler l'héritage prototype 
+//simple , flexible, extensible , facile
+//on a une object avec une propriété , pour acceder à la propritété on utilise notamment la dot notation : object.property
+//les objects ont également de method et propriété qui n'interaggisent pas directement sur eux, tous les object js ont des "prototype properties"
+//prototype ont leur propriétés
+//l'object prototype peut contenir un autre object prototype avec également ses propriétés. Et ainsi de suite
+//quand on passe d'object proto en object proto pour accéder à une propritété , on suit la prototype chain
+
+var person = {
+	firstname : 'Default',
+	lastname : 'Default',
+	getFullName : function(){
+		return this.firstname + this.lastname;
+	}
+}
+
+var john = {
+		firstname : 'John',
+		lastname : 'Doe',
+	}
+
+//pour des raisons de performence, ne jamais effectuer ce qui suit !!!
+john.__proto__ = perso ; //john herite de person
+console.log(john.getFullName());  // John Doe (meme si fullname n'a pas été definit dans john, ça fonctionne car avec prototype, il a été chercher la method chez person par héritage )
+console.log(john.firstname) ; // John (et non pas Default : ceci est à cause de prototype, john chercehr firstname chez lui et s'il trouve il s'arrete là )
+
+var jane = {
+		firstname : 'Jane',
+	}
+jane.__proto__ = perso ; //jane herite de person
+console.log(jane.getFullName());  // Jane Default
+
+var a = {};
+var b = function(){
+	
+}
+var c = [];
+
+a.__proto__ ; //on trouve les method caractéristique de tout ce type d'object
+b.__proto__ ; //on trouve que chaque object fonction a une method call apply bind toString etc etc
+c.__proto__; //on trouve que tout tableau a une methode push redurce filter etc etc
+
+for(var prop in john){
+	//hasOwnProperty : renvoi uniquement les propritétés définies propre à l'object
+	if(john.hasOwnProperty('firstname')){
+		console.log('Prop : ' + john['firstname']);
+	}
+	if(john.hasOwnProperty(prop)){
+		console.log('Prop : ' + john[prop]);
+	}
+}
+
+var jane2 = {
+		adress : '111 main str',
+		getFomalFullName : function(){
+			return this.lastname + this.fistname;
+			
+		}
+}
+
+
+var jim = {
+		getFirstName : function(){
+			return firstname;
+		}
+}
+//reflection: an object can look at itself  listing and changing its properties and methods
+//on peut prendre la method extend de underscore.js et chaque object va hérité des propriété et methode qu'il ne détient pas.
+//le code de cette methode consiste en 2 boucles imbriquée et la fonction fait ce qu'on appelle de la reflection
+_.extend(john,jane2, jim);
+
+console.log(john);
+
+</script>
+
+</body>
+</html>

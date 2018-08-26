@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>BOM et Screen</h1>
+		<p></p>
+		<script>
+			var h = screen.height;
+			var hd = screen.availHeight;
+			var reso = screen.pixelDepth;
+			
+			var p = document.querySelector('p');
+			p.innerHTML = 'Hauteur : ' + h + '<br>hauteur disponible:' + hd + '<br>resoltion :' + reso + 'bit/px' ;
+		
+		</script>
+    </body>
+</html>

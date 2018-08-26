@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript : map</h1>
+		<script>
+			//creates a new array with the results of calling a provided function on every element of an array
+			//map ne supprimer aucun element comme filter, il transforme le tableau selon ce qui est demandé
+
+			var forecast=[
+				{day: 'monday', sun : true, humidity:10},
+				{day: 'tuesday', sun : false, humidity:100},
+				{day: 'wednesday', sun : false, humidity:100},
+				{day: 'thursday', sun : true, humidity:25},
+				{day: 'friday', sun : false, humidity:100},
+				{day: 'saterday', sun : true, humidity:15},
+				{day: 'sunday', sun : false, humidity:100}
+			]
+			
+			var humid = forecast.map(function(wetness) {
+				return wetness.humidity;
+			})
+			
+			console.log(humid); // retourn un tableau des valeurs avec uniquement humidity
+			
+			var humid2 = forecast.map(function(wetness) {
+				return wetness.sun;
+			})
+			
+			console.log(humid2); // retourn un tableau des valeurs avec uniquement humidity
+			
+			var list = [1,2,3,4,5,6,7,8,9,10] ;
+			var multi = list.map(function(value) {
+				return value * 3;
+			})
+			console.log(multi);
+			
+			var list2 = [2,4,6,8,10,12];
+			var double = list2.map(function(elt, i, array) {
+				return elt * 2;
+			}).map(function(elt, i, array) {
+				return elt +1;
+			})
+			console.log(double); //[ 5, 9, 13, 17, 21, 25 ]
+			
+			var toconvertToUpperCase = ['abc', 'def', 'yhu','pml'];
+			var reslover = toconvertToUpperCase.map(function(elt, i, array) {
+				return elt.toUpperCase();
+			})			
+			console.log(reslover);
+			
+		</script>
+    </body>
+</html>

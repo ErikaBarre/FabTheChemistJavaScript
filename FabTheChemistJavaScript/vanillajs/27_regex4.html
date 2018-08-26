@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>Regex</h1>
+		<p>On apprend à utiliser les 6 [regex] en JavaScript 125 x ? 2365pend ?</p>
+		<p id='reg'></p>
+		<script>
+			// . : recherche de n'importe quel caractère sauf les caractères de retour à la ligne.
+			// \w : equivaut à [a-zA-Z]
+			// \W : equivaut à [^a-zA-Z]
+			// \d : equivaut à [0-9]
+			// \D : equivaut à [^0-9]
+			// \s : recherche des espace
+			// \S : recherche de tout excepté espace
+			// \ba : trouve les 'a' en debut et fin d'un mot
+			// \Ba : trouve les 'a' non situé en debut et fin d'un mot
+			// \n : troue un retour à la ligne
+			
+			var text = document.querySelector('p').textContent;
+			//var texte = document.getElementById('p1').textContent;
+			var expr = document.querySelector('p');
+			
+			var r1 = /./g ;
+			var r2 = /\d/g ;
+			var r3 = /\D/g ;
+			var r4 = /\br/g ;
+			
+			
+			var rec = document.querySelector('p').textContent;
+			
+			var res1 = text.match(r1);
+			var res2 = text.match(r2);
+			
+			var res3 = text.match(r3);
+			var res4 = text.match(r4);
+		
+		
+		
+			var resultat = document.getElementById('reg');
+			resultat.innerHTML = 'reg1 : ' + res1 +
+								 '<br>reg2 : ' + res2 +
+								 '<br>reg3 : ' + res3 +
+								 '<br>reg4 : ' + res4 /*+
+								 '<br>reg5 : ' + res5 + 
+								 '<br>reg6 : ' + res6 +
+								 '<br>reg7 : ' + res7 + 
+								 '<br>reg8 : ' + res8 +
+								 '<br>reg9 : ' + res9 + 
+								 '<br>reg10 : ' + res10  */
+								 ;
+			
+			
+		</script>
+    </body>
+</html>

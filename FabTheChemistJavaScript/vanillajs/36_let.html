@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+//mot clé "let"
+let toto = 'titi' ;
+//on peut attribuer une autre valeur à toto
+toto='tutu';
+//mais on ne peut pas écrire
+let toto = 'tyty' ; //error // car c'est un temporal dead zone
+
+
+// var a un function scope
+var count = 4;
+
+if(true){
+	var more = 1
+}
+console.log(count + more); // 5 (more est considéré comme global variable) 
+
+
+//let a un block scope (comme en java)
+let count = 4;
+
+if(true){
+	let more = 1  //more se trouve dans un block
+}
+console.log(count + more); //error // more n'est pas pas visilbe comme en java
+
+function varTest(){
+	var x = 1
+	if (true){
+		var x = 2;
+		console.log(x);
+	}
+	console.log(x);
+}
+
+varTest();
+
+function letTest(){
+	let x = 1
+	if (true){
+		let x = 2;
+		console.log(x);
+	}
+	console.log(x);
+}
+
+letTest();
+
+
+</script>
+
+</body>
+</html>

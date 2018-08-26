@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 id="page_title">Todo Tracker</h1>
+	
+	<h2 id="todo_header">Todos</h2>
+
+	<form action="">
+		<input type="text" id='user-do' placeholder="New To Do">
+	</form>
+
+	<ul>
+		<li class="todos" >Item 1</li>
+		<li class="todos">Item 2</li>
+		<li class="todos">Item3</li>
+	</ul>
+	<button id='clear'>Clear All</button>
+
+<script type="text/javascript">
+	var title = document.getElementById("page_title");
+	var toDoHeader = document.getElementById("todo_header");
+	var formField = document.querySelector("form");
+	var input = document.getElementById('user-do');
+	var ulElement = document.querySelector('ul');
+	
+	var qTitle = document.querySelector("h1"); //ramène le 1er element 
+	var qIdTitle = document.querySelector("#page_title");
+	var qClass = document.querySelector(".todos");
+	var qClass = document.querySelectorAll(".todos");
+		
+	//tableaux pour stocker toutes les todos values
+	//var toArrays = [];
+	//si le talbeau est vide alors rien ne s'affichera si on rafraichit la page. Pour récupérer les infos de l'étape avant le rafraichissement 
+	var toArrays = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
+		
+	//JSON.stringify est utilisé car localstorage fonctionne avec des string et non des tableaux
+	localStorage.setItem('todos', JSON.stringify(toArrays));
+	
+	//ensuite on utilise JSON pour convertir la string des données en un objects javascript (on fait le chemin inverse)
+	//la variable devrait contenir un tableau
+	var storage = JSON.parse(localStorage.getItem('todos'));
+	
+	formField.addEventListener("submit", function(submitevent){
+		submitevent.preventDefault();  
+		toArrays.push(input.value);
+		localStorage.setItem('todos', JSON.stringify(toArrays));
+		toDoMaker(input.value);
+		input.value = '';
+		}) ;
+	
+	var toDoMaker = function (value){
+		var newLi = document.createElement('li') ;
+		newLi.textContent = value ;
+		ulElement.appendChild(newLi);
+	}
+	
+	//boucle pour afficher les données stockée dans localstorage après rafraichissement
+	// a faire après la déclaration de la fonction (car fonction placé dans une variable), sinon il y aura une erreur
+	for(var i = 0 ; i<storage.length;i++){
+		toDoMaker(storage[i]);
+	}
+	
+	btn.addEventListener('click', function() {
+		while(ulElement.firstChild){
+			ulElement.removeChild(ulElement.firstChild);
+		}
+		localStorage.clear();
+	});
+	
+</script>
+</body>
+</html>

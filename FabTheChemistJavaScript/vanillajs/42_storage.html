@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+
+//pour stoker des données , on utilise localStorage , setItem (KEY, VALUE);
+localStorage.setItem('todos', 'Make Breakfast');
+// pour connaitre le contenu 
+localStorage; //tableau de valeur
+localStorage.setItem('doNotDo', 'Sleep');
+//recupération de valeur
+localStorage.getItem('todos');
+//supprimer 
+localStorage.remove('doNotDo');
+//pour vider complètement
+localStorage.clear();
+</script>
+</body>
+</html>

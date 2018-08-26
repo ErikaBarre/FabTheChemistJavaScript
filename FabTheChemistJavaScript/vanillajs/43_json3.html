@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON</title>
+</head>
+<body>
+	<h1>JSON</h1>
+    <div id="output"></div>
+	<script type="text/javascript">
+	
+	// le json contient un tableau
+    var myObj = {
+            "friends": [{
+                "firstName": "Mike"
+                , "lastName": "Jones"
+           },{
+                "firstName": "John"
+                , "lastName": "Smith"
+           } ,{
+                "firstName": "Laurence"
+                , "lastName": "Svekis"
+           },{
+                "firstName": "Alice"
+                , "lastName": "James"
+           }]
+        }
+        
+        var users = myObj.friends;
+	
+		//on peut donc inséré une personne dans ce tableau
+		users.splice(3,0, {
+                "firstName": "XXXX"
+                , "lastName": "PPPP"
+           });
+	
+        var html = '';
+        
+        //finalement cela revient à boucler sur le tableau
+        for(var user in users){
+        	// +1 car on début à 0. Number donne le numero de l'élement dans le tableau  
+        	/*
+        	L'objet Number est une enveloppe objet (wrapper) autour du type primitif numérique. 
+        	Autrement dit, il est utilisé pour manipuler les nombres comme des objets. 
+        	Pour créer un objet Number, on utilise le constructeur Number().
+        	*/
+        	console.log(Number(user));
+        	console.log(user);
+        	//number est nécessaire pour convertir l'index de la tableau en nomber afin de pouvoir effectuer l'opération d'additino
+            html += (Number(user)+1) + ' . ' + users[user].firstName + ' ' + users[user].lastName + '<br>';
+            //dans le cas suivant , on obtient une concanténation de string : 01 02 ...
+        	html += (user + 1) + ' . ' + users[user].firstName + ' ' + users[user].lastName + '<br>';
+        }
+        document.getElementById('output').innerHTML = html;
+        
+        for(var i=0 ; i<users.length;i++){
+        	 html += (Number(i)+1) + ' . ' + users[i].firstName + ' ' + users[i].lastName + '<br>';	
+        }
+        var ctn = 1
+        myObj.friends.forEach(function(user){
+        	html += ctn++ + ' . ' + user.firstName + ' ' + user.lastName + '<br>';	
+        });
+        document.getElementById('output').innerHTML = html;
+        
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript"> 
+	
+	function makeGreeting (language){
+        
+        return function (firstname, lastname){
+            
+            if(language === 'en'){
+                console.log('Hello ' + firstname)
+            }
+            
+            if(language === 'es'){
+                console.log('Hola ' + firstname)
+            }
+            
+        }
+    }
+    //on crée 2 exécutions context en mémoire qui vont contenir une fonction (retournée) et la varialbe (d'environnement) qui est passée   
+    var greetEnglish = makeGreeting('en');
+    var greetSpanish = makeGreeting('es');    
+	
+    //on exécute la fonctionne stokée dans la variable , qui contient également la variable  
+    //chaque exécution va recherché en mémoire son contexte d'exécution, c'éest à dire "sa closure" 
+    greetEnglish('john', 'wayne');
+    greetSpanish('Carlos', 'sanchez');
+    //ce sont des exemples de fonction qui appelle des fonctions    
+        
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>Objet Location</h1>
+		<button id='charger'>charger un nouveau document</button>
+		<button id='recharger'>recharger le document</button>
+		<button id='changer'>remplacer le document</button>
+		<p></p>
+		<script>
+			var p = document.querySelector('p');	
+			var charger = document.getElementById('charger');
+			var recharger = document.getElementById('recharger');
+			var changer = document.getElementById('changer');
+			
+			charger.addEventListener('click', f_charge);
+			recharger.addEventListener('click', f_recharger);
+			changer.addEventListener('click', f_changer);
+			
+			function f_charge (){
+				location.assign("http://www.google.com");
+				
+			}
+			
+			function f_recharger (){
+				location.reload();		
+							
+						}
+			
+			function f_changer (){
+				location.replace("http://www.duckduckgo.com");
+				
+			}
+			
+			var url = location.href;
+			var path = location.pathname;
+			
+			p.innerHTML = 'url ' + url + ' path ' + path ;
+		
+		</script>
+    </body>
+</html>

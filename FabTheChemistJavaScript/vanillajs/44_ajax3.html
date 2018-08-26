@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+</head>
+
+<body>
+    <div id="output"></div>
+    <button id="submit">Submit</button>
+    <button id="loadNew">Load</button>
+    <script type="text/javascript">
+        var output = document.getElementById('output');
+        
+        document.getElementById('loadNew').addEventListener('click',function(){
+            loadAjax();
+        })
+        
+        function loadAjax (){
+        	var xhr = new XMLHttpRequest();   
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    output.innerHTML = xhr.responseText
+                }
+            }
+        	xhr.open("GET", "44_sample.txt", true);
+            xhr.send();
+      		
+        }
+    </script>
+</body>
+
+</html>

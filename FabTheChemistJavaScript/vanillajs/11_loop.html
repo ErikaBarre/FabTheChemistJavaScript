@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript :</h1>
+		<script>
+			//WHILE LOOP
+		
+			var xx = 0 ;
+			while(xx < 10){
+				console.log('x contient' + xx);
+				xx++;
+			}
+			
+			 var x = 0, xprime = 0, alpha = 10, alphaprime = 10;
+            
+            /*Ici, l'assignation est prioritaire sur l'incrémentation
+             *ou la décrémentation*/
+            var y = x++; // y = 0, x = 1
+            var beta = alpha--; // beta = 10, alpha = 9
+            
+            /*Ici, l'incrémentation ou la décrémentation sont
+             *prioritaires sur l'assignation*/
+            var yprime = ++xprime; // yprime = 1, xprime = 1
+            var betaprime = --alphaprime; //betaprime = 9, alphaprime = 9
+			
+			console.log(
+				'x :' + x +
+				'\nxprime :' + xprime +
+				
+				'\nalpha :' + alpha +
+				'\nalphaprime :' + alphaprime +
+				'\ny :' + y +
+				'\nbeta :' + beta +
+				'\nyprime :' + yprime +
+				'\nbetaprime :' + betaprime 
+			
+			);
+			
+			xx = 0 ;
+			while(xx > 10){
+				console.log('x contient' + xx);
+				xx--; //aucun passage dans la boucle
+ 			}
+			
+			// DO / WHILE LOOP
+			do{
+				console.log('x contient' + xx);
+				xx--; //1 passage est assuré dans la boucle
+			}while(x > 10);
+			
+			
+			// FOR LOOP
+			var i = 0;
+			for(i=0;i<10;i++){
+				console.log('x contient' + xx);
+			}
+			
+			var m = ['aaa','bbb', 'ccc', 'ddd', 'eee'] ;
+			for(n=0;n<m.length;n++){
+				console.log('x contient - ' + m[n]);
+			}
+			
+		</script>
+    </body>
+</html>

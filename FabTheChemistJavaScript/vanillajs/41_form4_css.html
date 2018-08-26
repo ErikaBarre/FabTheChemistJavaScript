@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	body{
+		padding : 15px;
+		background-color: #66CCFF;
+		font-family: sans-serif;
+	}
+	#page_title{
+		padding : 10px;
+		font-size : 36px;
+		border: 2px solid #FFF;
+		width: 250px;
+	}
+	#todo_header{
+		font-size : 24px;
+		
+	}
+	ul{
+		list-style: none;
+		padding-left: 0;
+		width: 250 px;
+	}
+	li{
+		color: #333;
+		background-color: rgba(255,255,255, .5);
+		padding: 15px;
+		margin-bottom: 15px;
+		border-radius: 5px;
+		width: 250 px;
+	
+	}
+</style>
+
+</head>
+<body>
+	<h1 id="page_title">Todo Tracker</h1>
+	
+	<h2 id="todo_header">Todos</h2>
+
+	<form action="">
+		<input type="text" id='user-do' placeholder="New To Do">
+	</form>
+
+	<ul>
+		<li class="todos" >Item 1</li>
+		<li class="todos">Item 2</li>
+		<li class="todos">Item3</li>
+	</ul>
+	<button id='clear'>Clear All</button>
+
+<script type="text/javascript">
+	
+	var formField = document.querySelector("form");
+	var input = document.getElementById('user-do');
+	var ulElement = document.querySelector('ul');
+	
+	var qClass = document.querySelector(".todos");
+	var qClass = document.querySelectorAll(".todos");
+
+	var toArrays = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
+	localStorage.setItem('todos', JSON.stringify(toArrays));
+	var storage = JSON.parse(localStorage.getItem('todos'));
+	
+	formField.addEventListener("submit", function(submitevent){
+		submitevent.preventDefault();  
+		toArrays.push(input.value);
+		localStorage.setItem('todos', JSON.stringify(toArrays));
+		toDoMaker(input.value);
+		input.value = '';
+		}) ;
+	
+	var toDoMaker = function (value){
+		var newLi = document.createElement('li') ;
+		newLi.textContent = value ;
+		ulElement.appendChild(newLi);
+	}
+	
+	for(var i = 0 ; i<storage.length;i++){
+		toDoMaker(storage[i]);
+	}
+	
+	btn.addEventListener('click', function() {
+		while(ulElement.firstChild){
+			ulElement.removeChild(ulElement.firstChild);
+		}
+		localStorage.clear();
+	});
+	
+</script>
+</body>
+</html>

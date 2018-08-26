@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    //les classes sont du sucre synthaxique 
+  class Person {
+	  
+	  constructor (firstname, lastname){
+		  this.firstname = firstname ;
+		  this.lastname = lastname;
+	  }
+	  
+	  greet(){
+		  return 'Hi' + firstname;
+		  
+	  }
+	  
+  }
+
+  var john = new Person('john','doe');
+  
+  //pour l'heritage (derrière c'est le prototype " __proto__ " qui est utilisé)
+   class pp extends Person {
+	  
+	  constructor (firstname, lastname){
+		 super(firstname, lastname)
+	  }
+	  
+	  greet(){
+		  return 'Yo' + firstname;
+		  
+	  }
+	  
+  }
+  
+  
+  //en réalité la classe a été créé en js pour faire plaisir au développeur java. Mais la classe js est un object , c'est une autre forme d'écriture sans plus
+    
+</script>
+</body>
+</html>

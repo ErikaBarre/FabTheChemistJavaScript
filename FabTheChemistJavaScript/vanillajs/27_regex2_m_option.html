@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>Regex</h1>
+		<p>1, 10, 100 , 11 , 12, 251096,1000</p>
+		<p id='p1'>On apprend à utiliser les regex en JavaScript x pend</p>
+		<p id='reg'></p>
+		<script>
+			var text = document.querySelector('p').textContent;
+			var texte = document.getElementById('p1').textContent;
+			var texte2 = 'dJe suis sur \n deux lignes d en Js' ;
+			
+			var r1 = /on/i	;
+			var r2 = /e/g ;
+			var r3 = /^d/ ; //n effectue pas de recherche de 'd' dans la 2eme ligne
+			// m : recherche en début de chaque ligne
+			var r4 = /^d/m ;
+					
+			var res1 = texte.match(r1);
+			var res2 = texte.match(r2);
+			var res3 = texte2.match(r3);
+			var res4 = texte2.match(r4); // ne ramène rien car le debut de la 2eme ligne commence par un espace, mais si \ndeux alors on ramène un résultat
+			
+			var resultat = document.getElementById('reg');
+			resultat.innerHTML = 'reg1 : ' + res1 +           //reg1 : 10,100,10,1000
+								 '<br>reg2 : ' + res2 +
+								 '<br>reg3 : ' + res3 +
+								 '<br>reg4 : ' + res4 /*+
+								 '<br>reg5 : ' + res5 + 
+								 '<br>reg6 : ' + res6 +
+								 '<br>reg7 : ' + res7 + 
+								 '<br>reg8 : ' + res8 +
+								 '<br>reg9 : ' + res9 + 
+								 '<br>reg10 : ' + res10 */
+								 ;
+			
+			
+		</script>
+    </body>
+</html>

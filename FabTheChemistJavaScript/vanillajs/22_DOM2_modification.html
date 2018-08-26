@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1 id='titreh1'>chapitre sur le concept DOM:</h1>
+		<p class='para'>Du textet et une url <a href='http://www.google.com'>google</a> vers un site</p>
+		
+		<p class='para'>Du textet et une url <a href='http://www.google.com'>google</a> vers un site</p>
+		<p class='para'>Un autre paragraphe</p>
+		
+		<p class='titanic'>Le bateau se dirige vers</p>
+		<p class='titanic'>l'iceberg</p>
+		<p class='titanic'>et sombre</p>
+		
+		<h1>javascript :</h1>
+		<script>
+			document.getElementById('titreh1').innerHTML = 'Chapitre sur la modification du contenu du DOM'
+		
+			var q4 = document.querySelector('p a').innerHTML;
+			console.log('innerHTML :' + q4);
+			
+			document.querySelector('p a').innerHTML = 'changement de texte';
+			
+			document.querySelector('p a').innerHTML += ' <mark>et encore de la modif au kg</mark>'; //concatenation avec l'existant
+			
+			document.querySelector('a').href = 'http://youyube.com' ;
+			
+			document.querySelector('.para').className = 'parachute' ;
+			
+			document.querySelector('.parachute').className // ne doit pas retourner null
+			
+			
+			//si je souhaite modifier le 2 eme element "para"
+			document.querySelectorAll('.titanic')[1].innerHTML = 'le port'  ;
+			
+			document.getElementById('titreh1').style.color = 'orange' ;
+			document.getElementById('titreh1').style.fontSize = '40px' ;
+		</script>
+    </body>
+</html>

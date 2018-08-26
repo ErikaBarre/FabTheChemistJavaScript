@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>fonction auto invoquée :</h1>
+		<script>
+		
+		function addNumber (number1, number2){
+			return number1 + number2;
+		}
+		console.log(addNumber(10,20));
+		console.log(addNumber(10));
+		
+		//les argument supplémentaire sont ignorés
+		console.log(addNumber(10,20,30,40));
+		
+		//en js les paramètres sont stocké dans arguments et nous pouvons 
+		//en ajouter et les retrouver grace au tableau arguments
+		function func1(a, b, c) {
+			  console.log(arguments[0]);
+			  // expected output: 1
+
+			  console.log(arguments[1]);
+			  // expected output: 2
+
+			  console.log(arguments[2]);
+			  // expected output: 3
+			  for (var i =0;i< arguments.length;i++){
+				  console.log(arguments[i]);
+			  }
+			  
+		}
+		func1(1,2,3,4,5);
+			
+		</script>
+    </body>
+</html>

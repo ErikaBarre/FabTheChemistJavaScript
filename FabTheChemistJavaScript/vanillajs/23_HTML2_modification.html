@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		
+		<h1 id='titreh1'>chapitre sur les modifications de l'html avec js:</h1>
+		<h1 id='titreh2'>chapitre sur les modifications de l'html avec js 2 :</h1>
+		<p class='para'>Du textet et une url <a href='http://www.google.com'>google</a> vers un site</p>
+		<p class='para'>Un autre paragraphe</p>
+		<script>
+			var title = document.getElementById('titreh1') ;
+			var parent = document.body;
+			parent.removeChild(title);
+			
+			// <h2 id='titreh2'>titre second</h2>
+			var title2 = document.getElementById('titreh2') ;
+			
+			var nouveautitre = document.createElement('h2');
+			nouveautitre.id = 'titreh2';
+			nouveautitre.innerHTML = 'titre second';
+			parent.replaceChild(nouveautitre,title2)
+			
+			
+						
+		</script>
+    </body>
+</html>

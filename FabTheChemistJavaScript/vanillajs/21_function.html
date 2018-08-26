@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript :</h1>
+		<script>
+			//fonction déclarée avec un identifiant, fonction régulière
+			/////////
+			function funcOne (){
+				return "texte one";
+			}
+			funcOne () ; //permet l'exécution
+			////EST EQUIVALENT A
+			funcOne () ; //permet l'exécution
+			function funcOne (){
+				return "texte one";
+			}
+			//////
+			
+			//fonction anonyme, on la stocke dans une variable
+			var varFunctwo = function (){
+				return "text two";
+			}
+			varFunctwo(); //execution de la fonction anonyme	
+			// par contre ecrire 
+			/*
+			varFunctwo();
+			var varFunctwo = function (){
+				return "text two";
+			} 
+			*/ //=> donne une erreur la variable étant undefinied au moment de l'appel 
+			var x = function (x){
+				console.log("message x :" + x) ;
+			};  // point virgule car la fonction est une instruction et non une declaration
+			
+			var y = prompt('Entrez un nombre');
+
+			x(y);	
+			
+		</script>
+    </body>
+</html>

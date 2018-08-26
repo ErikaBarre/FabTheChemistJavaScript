@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON</title>
+</head>
+<body>
+<h1>JSON</h1>
+<script type="text/javascript">
+
+	//json est un object
+	//pour que du format json soit valide , il ne faut pas oublier d'ajouter les guillemets autour des clé
+	//ici la variable person2 n'est pas un json valide
+	
+	// json est une extension de javascript
+	// media type  : application/json
+	// extension :   " .json  "
+	// dans le code est entouré d'accolade {}  {"name" : "value"}
+	// clé et valeur sont séparé par :
+	// les pairs cle/valeur sont séparés par des virgules {"name" : "value", "name2" : "value2", "name3" : "value3"}
+	// json avec valeur = tableau  {"name" : [{"name3" :"value3", "name2" : "value2"}]}
+	// finalement json est une collection de clé/valeur (penser object javascript) et ordonne (penser tableau )
+	// peut contenir autant de niveaux possibles
+	
+	var person = {
+            "firstName": "John"
+            , "lastName": "Smith"
+            , "age" : 25
+            , "checkedin" : true
+        };
+	/*
+	var person2 = {
+			firstName:"John" 
+			
+	};*/
+	console.log(person);
+	console.log(person.age);
+	
+	//création de json object en code havascript
+	
+	var myJson = {};
+	myJson.car1 = "black";
+	myJson; // {"car1":"black"}
+	
+	var myJson = {};
+	myJson["car2"] = "blue";
+	myJson; // {"car2":"blue"}
+	
+	var myJson = {};
+	myJson['car2'] = "blue";
+	myJson; // {"car2":"blue"} si on utilise des quote, le résultat sera avec des guillemets
+	
+	//autres exemples 
+	var car20 = {"car10":["bleu", "black"]};
+	//façon plus flexible (car il est possible d'ajouter plus facilement des infos par la suite)
+	var car21 = {"car11":{"color":"bleu"}, "car12": {"color":"black"}};
+	var car22 = {"car11":{"color":"bleu","model":"T2000"}, "car12": {"color":"black","model":"P2560cc"}};
+	//on peut ajouter comme ceci une info :
+	car22.car11.year = "1993";
+	
+	//pour la creation de json en fichier , ne jamais oublié le double quote
+	//pour la création de json à parti de javascript, le quote, double quote ou sans quote sont permis selon la syntaxe choisie
+	//en dot notation ou en array ecriture
+	var jso = {foo:"value"};
+	
+	//il est possible de placer des espaces dans la clé 
+	var person3 = {
+            "firstName": "John"
+            , "last Name": "Smith"
+            , "age" : 25
+            , "checkedin" : true
+            , "car1" : "Mustang"
+            , "car2" : "F150"
+        };
+	person3['last Name'] = "Svensson";
+	
+	//recoupération de valeur
+	var val = person3.firstName ;
+	var val2= person3['last Name'];
+	var counter = 1;
+	var car= person3['car' + counter];
+	var str = "car2";
+	var car= person3[str];
+	
+    var str1= "car";
+    var cnt = 1;
+    
+    console.log(person3[str1+cnt])
+    cnt++;
+    console.log(person3[str1+cnt])
+	
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+</head>
+
+<body>
+    <div id="output"></div>
+    <button id="submit">Submit</button>
+    <button id="loadNew">Load</button>
+    <script type="text/javascript">
+        var output = document.getElementById('output');
+        
+        document.getElementById('loadNew').addEventListener('click',function(){
+            loadAjax();
+        })
+        
+        function loadAjax (){
+        //create d'un xmlhttprequest pour communité avec le //serveur
+        //l'object de retour est une response
+        //les propriétés très utilisées sont responseText
+        //readyState, responseType, status
+        var ajax = new XMLHttpRequest();
+        //ajout de paramètre supplémentaires
+        //appel de la méthode qui permet de détecter //chaque changement d'état et quand le status envoyé par la serveur est 200 (état de réussite)
+        ajax.onreadystatechange = function () {
+            console.log('21 state changed', ajax.readyState, ajax.status);
+            //si on arrive avec un status 200 à l'état 4 alors c'est que la communication client-serveur s'est bien déroulé
+            if(ajax.readyState == 4 && ajax.status==200){
+                console.log("ready for data");
+                console.log(ajax.responseText);
+                //on peut utiliser le pronom this , ajax = this 
+                var jsonArrayT = JSON.parse(this.responseText);
+                console.log("THIS ", jsonArrayT);
+                
+                //ou utiliser la variable ajax
+                var jsonArray = JSON.parse(ajax.responseText);
+                var data = jsonArray.results[0];
+                console.log(data);
+                var message = data.name.first + ' ' 
+                 +  data.name.last;
+                output.innerHTML = message;
+            }
+        }
+        //effectuer quelque chose quand l'échange client server est in progress
+        //on verra que cela se passe à l'état 3 (quand on est en train de télécharger le contenu)
+        ajax.onprogress = function(){
+            console.log('31 progress', ajax.readyState, ajax.status);
+        }
+        //effectuer quelques chose quand la récupération des donnée est terminée
+        // à l'état 4
+        ajax.onload = function(){
+            console.log('36 load', ajax.readyState, ajax.status);
+        }
+            //on ouvre l'état
+            //true signifie que ce sera asynchrone
+        ajax.open('GET', 'https://randomuser.me/api/', true);
+        ajax.send();
+        //pour extraire uniquement le json (les info demandées)
+        console.log(ajax.responseText);
+        }
+    </script>
+</body>
+
+</html>

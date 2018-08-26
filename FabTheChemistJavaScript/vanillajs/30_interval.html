@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p>Horloge indique <span id='temps'></span></p>
+<button id='stop' >TEST</button>
+
+<button id='btn'>test timeout</button>
+
+<script type="text/javascript">
+var heure = document.getElementById('temps');
+var tempsReal = setInterval(f_horloge, 1000);
+var stop =  document.getElementById('stop');
+var body = document.body;
+var btn = document.getElementById('btn');
+
+btn.addEventListener('click', f_timeout);
+
+function f_timeout(){
+	setTimeout(function(){
+		body.style.backgroundColor = '#3BA' ;
+	}, 2000);
+	setTimeout(function(){
+		body.style.backgroundColor = '#4BA' ;
+	}, 4000);
+	setTimeout(function(){
+		body.style.backgroundColor = '#59B' ;
+	}, 6000);
+	setTimeout(function(){
+		body.style.backgroundColor = '#66B' ;
+	}, 8000);
+	setTimeout(function(){
+		body.style.backgroundColor = '#63B' ;
+	}, 10000);
+	setTimeout(function(){
+		body.style.backgroundColor = '#83A' ;
+	}, 12000);
+	setTimeout(function(){
+		body.style.backgroundColor = '#ABA' ;
+	}, 14000);
+	setTimeout(function(){
+		body.style.backgroundColor = '#A59' ;
+	}, 16000);
+	setTimeout(function(){
+		body.style.backgroundColor = '#A77' ;
+	}, 18000);
+}
+//clearTimeOut (rarement utilisé mais sert à arrêter un timeout
+
+function f_horloge(){
+	var d = new Date();
+	console.log(d.toLocaleTimeString()); //recuperation du fuseau horaire
+
+	heure.innerText = d.toLocaleTimeString(); //recuperation du fuseau horaire
+}
+stop.addEventListener('click', function(e) {
+	//arrete l'action de setInterval
+	clearInterval(tempsReal);
+});
+
+
+</script>
+</body>
+</html>

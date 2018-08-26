@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>javascript :navigation dans dom</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1 id='titreh1'>navigation dans dom</h1>
+		<div>
+			<p class='para'>Du texte</p>
+			<p class='para'>Du second <strong>blablabla</strong><b>d</b>bateau</p>
+		</div>
+		<script>
+			var p = document.querySelector('.para');
+			//on remonte du paragraphe au div
+			var div = p.parentNode;
+			div.style.color = 'orange' ;
+			
+			var b = document.body;
+			//l'ESPACE ENTRE LES ELEMENTS COMPTES POUR DES ELEMENTS
+			// le div est le 4eme element et non le 2eme
+			var div = b.childNodes[3];
+			var p1 = div.childNodes[1];
+			//aller cherche le texte
+			var text = p1.childNodes[0].nodeValue;
+			console.log(text);
+			
+			var p2 = document.querySelectorAll('.para')[1] ;
+			var premier = p2.firstChild;
+			var dernier = p2.lastChild;
+			
+			var inner1 = premier.nodeValue;
+			//pour ramener une valeur innerHTML doit être entouré de balise donc ici ne ramene pas "bateau" mais undefined
+			var inner2 = dernier.innerHTML;
+			
+			var inner3 = dernier.nodeValue; // equivaut aussi dernier.childNodes[0].nodeValue
+			var inner4 = dernier.textContent; 
+			console.log(inner1 + ' ' + inner2 + ' ' + inner3 + ' ' + inner4);
+			
+			// methode nextSibling pour passer d'un element au suivant
+			var title = document.getElementById('titreh1');
+			//accès à l'espace entre titre h1 et div
+			title.nextSibling ;
+			var div = title.nextSibling.nextSibling ;
+			div.innerHTML = 'super mega texte' ;
+									
+		</script>
+    </body>
+</html>

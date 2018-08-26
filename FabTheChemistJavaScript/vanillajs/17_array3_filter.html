@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Array , filter</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript : fonction callback filter</h1>
+		<script>
+			//fonction callback filter , return un nouveau talbeau après traitement des élements true (rien n'est supprimé des objets)
+			//supprime tous les elements qui ne répondent à la condition de true
+			/*
+			array.filter(function(currentValue), {
+				return true; (return an arrey of true values)
+			})
+			function argument callback function
+			element in array	
+			
+			*/
+			var list = [1,2,3,4,5,6,7,8,9,10] ;
+			
+			var list2 = ["victor","pierre", "joseph", "paul", "victor"] ;
+			
+			function isEven(value, index, array){
+				if(value % 2 == 0 ){
+					return true;
+					
+				}else{
+					return false;
+				}
+			}
+			//identique à 
+			function isEven2(value, index, array){
+					return value % 2 == 0 ;
+			}
+			var res = list.filter(isEven);
+			document.write(res); //retourne uniquement les pairs
+			var res2 = list.filter(isEven2);
+			document.write(res2); //retourne uniquement les pairs
+			//identique à 
+			var res3 = list.filter(function(value, index, array){
+				return value % 2 == 0 ;
+		});
+			document.write(res3); //retourne uniquement les pairs
+			var res4 = list2.filter(function(value, index, array){
+				return array.indexOf(value) == index ;
+		});
+			document.write(res4); 
+			
+			var testScore = [92,87,54,63,75,59];
+			var passingTest = function(test){  //si on ne fait rien de index et arrey alors on placer uniquement que le 1er arg qui sera la value
+				return test > 60
+			}
+			var graduation = testScore.filter(passingTest);
+			
+			var graduation = testScore.filter(function(test){ 
+				return test > 60
+			});
+			
+			console.log(graduation); // [92,87,63,75]
+			
+			var forecast=[
+				{day: 'monday', sun : true},
+				{day: 'tuesday', sun : false},
+				{day: 'wednesday', sun : false},
+				{day: 'thursday', sun : true},
+				{day: 'friday', sun : false},
+				{day: 'saterday', sun : true},
+				{day: 'sunday', sun : false}
+			]
+			
+			var sunnydays = forecast.filter(function(value){
+				return value.sun;
+				/* if(value.sun){
+					return value.day;
+				} */
+				
+			});
+			console.log(sunnydays);
+			document.write(sunnydays);
+			
+		</script>
+    </body>
+</html>

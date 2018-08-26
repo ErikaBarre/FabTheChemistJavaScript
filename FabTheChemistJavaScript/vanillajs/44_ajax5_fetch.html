@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>AJAX-FETCH</title>
+</head>
+
+<body>
+	<div id="output"></div>
+	<button id="submit">Load url  + error management</button>
+	<button id="loadNew">Load file</button>
+	<button id="loadNew2">Load file</button>
+	<button id="error1">Load file with error</button>
+	<button id="error2">Load url with error</button>
+	<script type="text/javascript">
+		/*
+		L'API Fetch fournit une interface pour la récupération de ressources (e.g., à travers le réseau.) 
+		Elle paraîtra familière à tout utilisateur de XMLHttpRequest, mais cette nouvelle API propose 
+		néanmoins un ensemble de fonctionnalités plus souples et plus puissantes.
+		https://developer.mozilla.org/fr/docs/Web/API/Fetch_API
+		
+		//cet une API qui effectue toute les opérations des leçons précédente (open , send ...) 
+		//API ne se trouve pas sur les browser ancien
+		
+		//a lire aussi la notion de CORS
+		https://developer.mozilla.org/fr/docs/Web/HTTP/CORS
+			Le «  Cross-origin resource sharing » (CORS) ou « partage des ressources entre origines multiples » (en français, moins usité) est un mécanisme qui consiste à ajouter des en-têtes HTTP afin de permettre à un agent utilisateur d'accéder à des ressources d'un serveur situé sur une autre origine que le site courant. Un agent utilisateur réalise une requête HTTP multi-origine (cross-origin) lorsqu'il demande une ressource provenant d'un domaine, d'un protocole ou d'un port différent de ceux utilisés pour la page courante.
+			Prenons un exemple de requête multi-origine : une page HTML est servie depuis http://domaine-a.com contient un élément <img> src ciblant http://domaine-b.com/image.jpg. Aujourd'hui, de nombreuses pages web chargent leurs ressources (feuilles CSS, images, scripts) à partir de domaines séparés (par exemple des CDN (Content Delivery Network en anglais ou « Réseau de diffusion de contenu »).
+			Pour des raisons de sécurité, les requêtes HTTP multi-origine émises depuis les scripts sont restreintes. Ainsi, XMLHttpRequest et l'API Fetch respectent la règle d'origine unique. Cela signifie qu'une application web qui utilise ces API peut uniquement émettre des requêtes vers la même origine que celle à partir de laquelle l'application a été chargée, sauf si des en-têtes CORS sont utilisés.
+			
+		fetch retourne une promesse : retourne une promesse (promise) contenant, en réponse, un objet (de type Response).
+		*/
+		var btn = document.querySelector("#submit");
+		btn.addEventListener("click", loadData2);
+		
+		var btn2 = document.querySelector("#loadNew");
+		btn2.addEventListener("click", loadData);
+		
+		var btn3 = document.querySelector("#loadNew2");
+		btn3.addEventListener("click", loadData3);
+		
+		var btn4 = document.querySelector("#error1");
+		btn4.addEventListener("click", header_error_file);
+		
+		//var btn5 = document.querySelector("#error2");
+		//btn5.addEventListener("click", header_error_url);
+			
+		
+		function header_error_file (){
+			//avec fetch on peut également récuperer des informations du header ou type
+			//on peut egalement gerer les erreurs
+			fetch("44_sample.txt")
+			  .then(function(response){
+				console.log(reponse.headers.get('Content-Type'));
+				console.log(reponse.headers.get('Date'));
+				console.log(reponse.type);
+				console.log(response.text());
+				return response.text();
+			}).then(function(text){
+				console.log(text);
+			}).catch(function(error){
+				console.log(error);
+			});
+			
+		}
+		
+		function loadData3 (){
+			//autre syntaxe
+			fetch("44_sample.txt"),{
+				
+			}
+			  .then(function(response){
+				response.text().then(function(text){
+				console.log(text);
+			})});
+			
+		}
+		
+		function loadData2 (){
+            const url = 'https://api.chucknorris.io/jokes/random';
+            
+            fetch('https://api.chucknorris.io/jokes/random').then(function (response) {
+                console.log(response.headers.get('Content-Type'));
+                console.log(response.headers.get('Date'));
+                console.log(response.type);
+                return response.json();
+            }).then(function (json) {
+                console.log(json)
+                var html = '<div><img src="'+json.icon_url+'"> '+json.value+'</div>';
+                document.querySelector('#output').innerHTML = html;
+            }).catch(function(error){
+                console.log(error);
+            });
+		}
+		
+		function loadData (){
+			var url = "https://api.chucknorris.io/jokes/random" ;
+			
+			//chargement d'un fichier, ne semble pas fonctionner excepté si on déploit sur un serveur web
+			//le fetch et la cascade de then permet de récupérer la valeur de retour de chaque fonction dans la "then" suivant
+			// cela permet d'effectuer du callback en cascade. 
+			fetch("44_sample.txt")
+			  .then(function(response){
+				//alert('test ' + response.text());
+				//alert('test ' + response.responseText);
+				console.log(response.text());
+				return response.text();
+			}).then(function(text){
+				console.log(text);
+			});
+		}
+		
+		
+		
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript : objet Event : methode et propriété</title>
+        <meta charset='utf-8'>
+		<style>
+			div{
+				border: 1px solid orange;
+				padding : 20px;
+				margin: 10px;
+			}
+		</style>
+    </head>
+    <body>
+		<h1 id='titleh1'>Objet Event : methode et propriétés</h1>
+		<div id='div1'>
+			<p id = 'p1'>qui est le déclencheur, le porteur d'événement</p>
+		</div>
+		<div id='div2'>
+			<p id = 'p2'>qui est le déclencheur type, le porteur d'événement</p>
+		</div>
+		<div id='div3'>
+			<p id = 'p3'>prevent event</p>
+		</div>
+		<script>
+			var div1 = document.getElementById('div1');
+			var p1 = document.getElementById('p1');
+			
+			var div2 = document.getElementById('div2');
+			var p2 = document.getElementById('p2');
+			
+			var div3 = document.getElementById('div3');
+			var p3 = document.getElementById('p3');
+			
+			div1.addEventListener('click', Messagediv);
+						
+			function Messagediv (event){
+				this.innerHTML = 'element déclencheur' + event.target + '<br>Elemenet portant evenement' + event.currentTarget + 
+									'<br>type evenement ' + event.type ;
+				//evenement declencheur est p car on a clique sur p, mais celui qui va s'effectuer est celui du div puisque c'eest le seul definit.
+				//si on clique sur le bord du div, en dehors de p, alors l evenement declencheur sera le div et l'evenement exécuté également
+			}
+			
+			div2.addEventListener('click', Messagediv2,true);
+			p2.addEventListener('click', Messagep2, true);
+			
+			//arreter la propagation après le div
+			function Messagediv2 (event){
+				alert('stop propagation');
+				event.stopPropagation();
+			}
+			function Messagep2 (event){
+				alert('ce message ne doit pas s\'afficher');
+			}
+			
+			div3.addEventListener('click', Messagediv3,true);
+			p3.addEventListener('click', Messagep3, true);
+			
+			function Messagediv3 (event){
+				//method qui va empecher l'event de div de s'executer mais sans bloquer la propagation, donc l'event de p va s'executer s'il existe
+				//donc le message de Messagep3 va s'afficher
+				event.preventDefault();
+			}
+			function Messagep3 (event){
+				alert('preventDefault n\'empeche pas la propagation');
+			}
+			
+		</script>
+    </body>
+</html>

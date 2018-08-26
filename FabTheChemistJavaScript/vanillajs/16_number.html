@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script</title>
+        <meta charset='utf-8'>
+		
+    </head>
+    <body>
+		<h1>javascript :</h1>
+		<script>
+			var min = Number.MIN_VALUE ;
+			var max = Number.MAX_VALUE ;
+			var infneg = Number.NEGATIVE_INFINITY;
+			var infpos = Number.NEGATIVE_INFINITY;
+			var notnumber = Number.NaN;
+			
+			console.log('Min :' + min +
+					'\nMax :' + max +
+					'\ninfneg :' + infneg +
+					'\ninfpos :' + infpos +
+					'\nnotnumber :' + notnumber 
+			);
+			
+			//convert number to string
+			
+			var x = 10;
+			var t = x.toString();
+			
+			console.log(typeOf(x));
+			console.log(typeOf(t));
+			
+			var xx = 10.5896 ;
+			var d = xx.toFixed(2); // prend chiffre avec 2 decimal // 10.59 et c'est un string
+			var e = xx.toPrecision(3);  // prend les 3 premiers chiffre // 10.6 et c'est un string
+			
+			//conversion vers number
+			
+			var b = true;
+			var c = false;
+			var dat = new Date();
+
+			console.log('b ' + Number(b) +
+						'\nc ' + Number(c) +
+						'\ndat ' + Number(dat)  // conversion en millisec
+			);	
+			
+			//consersion string to number (en int ou float)
+			var xxx = "10.526";
+			var pint = parseInt(xxx);  //10
+			var dec = parseFloat(xxx);  // 10.526
+			
+			
+			
+		</script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AJAX</title>
+</head>
+<body>
+<div id="output"></div>
+<button id="submit">Submit</button>
+
+<script type="text/javascript">
+//en js les appels réseaux sont effectué avec l'object xhr
+var xhr = new XMLHttpRequest;
+console.log(xhr);
+xhr.open('GET', 'https://api.chucknorris.io/jokes/random', true) ;
+xhr.send();
+console.log(xhr); //contient les information reçu du site
+    
+//une autre façon est de tout fair en 1 opération
+fetch('https://randomuser.me/api/').then(function(response){
+    return response.text();
+}).then(function(text){
+    console.log(text);
+})
+
+
+</script>
+</body>
+</html>
