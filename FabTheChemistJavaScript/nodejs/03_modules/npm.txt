@@ -22,6 +22,21 @@ author
 à la fin , une question nous demande la confirmation, on saisit, yes.
 Et un fichier package.json avec les détail s'ajoute dans le projet
 
-on va sur npmjs.com , on recherche "lodash" , ceci offre les statistiques sur l'accès au package
+on va sur npmjs.com , on recherche "lodash" , ceci permet de voir la possibilité d'import avec la syntaxe indiquée à l'écran, du module (module utilitaire lodash)
 
 npm install lodash --save
+un repertoire lodash est inséré dans le projet , il s'agit d'un module avec toutes une série d'utilitaire que nous pouvont utiliser dans le projet
+le fichier packag.json est automatiquement modifié avec les info lodash dans les dependendies (avec la version, ainsi si on fait un zip,
+ on peut effacer le package lodash pour alléger le zip et au prochain packaging, cela permet d'importer exéactement 
+le meme module lodash (on évite ainsi les risque de deprecated avec le telechargement de la dernière version) 
+
+ensuite lors de la prochaine install , grace aux information dans le json dependencies, il suffit de faire un
+npm install (les modules seront importé automatiquement grace aux infos insérée dans le json 
+
+le loadadh permet d'effectuer un import de ce module dans notre projet const _ = require('lodash');
+pour utiliser les méthodes dans le packages lodash, on peut se rendre sur le site 
+lodash.com et on y trouve la documentation des différentes méthodes
+
+
+
+

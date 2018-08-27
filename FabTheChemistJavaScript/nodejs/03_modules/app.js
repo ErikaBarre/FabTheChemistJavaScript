@@ -7,8 +7,16 @@ console.log('starting app');
 const fs = require('fs');
 //module operating system
 const os = require('os');
+
+const _ = require('lodash');
+
 //import de fichier dévelppé par nos propre soins
 const notes = require('./notes.js');
+
+// on a donc 3 type d'imports
+//import des modules de nodejs
+//import des modules de npm
+//import des js de son propre projet
 
 
 //appenfile permet ajout de texte. La fonction suivante ne gère pas les erreurs, elle est actuellement deprecated mais fonctionne en laissant un stack d'erreur
@@ -35,3 +43,8 @@ fs.appendFileSync('greet3.txt',` template string ${user.username} and age ${note
 , profession ${notes.callnameBC('playmate')} , sitation mariétage ${notes.callnameBD('marié', '2 enfants', ' pointure 37')}\n`  );
 
 console.log('end exec');
+
+//utilisation d'un méthode utilitaire de lodash
+console.log('example lodash : ' + _.isString(52));
+var filteredArray = _.uniq(['Andrew',1,'Andrew',2,3,4]) //methode qui supprime les valeurs dupliquée dans un tableau
+console.log(filteredArray); //['Andrew',1,2,3,4]

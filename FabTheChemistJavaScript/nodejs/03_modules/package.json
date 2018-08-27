@@ -10,5 +10,8 @@
     "modules"
   ],
   "author": "FabTheChemist",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.10"
+  }
 }

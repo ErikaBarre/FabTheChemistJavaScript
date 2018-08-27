@@ -1,0 +1,16 @@
+se rendre sur npm.com et rechercher nodemon
+
+nodeman est un utilitaire qui détecter tout changement et se charge de redémarrer le serveur lors de changements
+
+dans un premier temps, importer le module nodemon. Ce module ne s'insère pas dans l'application mais s'installer sur le PC au niveau de node js
+
+npm install nodemon -g
+
+ensuite pour charge l'application on écrit la commande 
+
+nodemon app.js 
+
+cela a le meme effet que node app.js, excepté qu'à chaque modification d'un fchier du projet , l'application est relancée automatiquement, 
+plus besoin de resaisir la commande comme avec "node app.js"
+
+pour stopper nodemon : ctrl+c
