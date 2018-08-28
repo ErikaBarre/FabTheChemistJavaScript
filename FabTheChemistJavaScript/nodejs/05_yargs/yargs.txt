@@ -1,0 +1,23 @@
+www.yargs.com
+
+il s'agit d'une librairies qui sert à valider des entrées et formater toutes sortent d'entrées
+
+pour l'installer 
+cd /home/fabrice/Developpement/git/FabTheChemistJavaScript/nodejs/05_yargs
+
+npm install yargs@6.4.0 --save
+
+on tape la commande 
+node app.js add
+
+le résultat :
+
+command:  add
+process:  [ '/usr/bin/node',
+  '/home/fabrice/Developpement/git/FabTheChemistJavaScript/nodejs/05_yargs/app.js',
+  'add' ]
+yargs:  { _: [ 'add' ], '$0': 'app.js' }
+Adding new note
+[ '/usr/bin/node',
+  '/home/fabrice/Developpement/git/FabTheChemistJavaScript/nodejs/05_yargs/app.js',
+  'add' ]
