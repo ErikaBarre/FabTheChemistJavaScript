@@ -1,0 +1,17 @@
+création du fichier json.js
+si on exécute les commandes suivante 
+
+cd project
+node json.js
+
+le résultat est une string  et le contenu est un format json
+
+console.log(typeof stringObj);
+console.log(stringObj);
+
+string
+{"name":"andrew"}
+
+dans le 2eme cas , on effectue l'inverse et le résultat est un object et un tableau clé/valeur
+object
+{ name: 'James', age: 85 }
