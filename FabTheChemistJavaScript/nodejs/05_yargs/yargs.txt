@@ -21,3 +21,36 @@ Adding new note
 [ '/usr/bin/node',
   '/home/fabrice/Developpement/git/FabTheChemistJavaScript/nodejs/05_yargs/app.js',
   'add' ]
+
+  -----
+  
+  sur le site on trouvera la methode 
+  .command
+  
+  //usage de command, permet de passer les argument dans le code plutot que par commande dans la console
+//help : méthode qui va nous retournez des information utile . Quand on ecrira 
+node app2.js --help
+
+Commandes:
+  add     Add a new note
+  list    List all notes
+  read    Read a note
+  remove  Remove a note
+
+Options:
+  --help  Affiche de l'aide                                            [booléen]
+
+
+//alors sera afficher toutes les options possible à passé comme add read remove etc . On va alors définit dans la commande les possiblité , la description des commandes, l'alias
+// si on veut connaitre les paramètre à passer pour une options on écrit 
+node app2.js add
+
+et il sera affichier les parame à passer en arguments
+
+ Options:
+  --help       Affiche de l'aide                                       [booléen]
+  --title, -t  Title of note                                            [requis]
+  --body, -b   Body of note                                             [requis]
+
+
+  
