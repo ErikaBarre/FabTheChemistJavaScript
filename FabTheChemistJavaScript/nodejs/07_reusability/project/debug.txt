@@ -1,0 +1,46 @@
+voici un exemple de faàon de debugger
+le code va founrit au final que person.name = 'Natalia'. Comment trouver l'endroit avant la changement de valeur (erika) : 
+
+
+node inspect debugging.js 
+< Debugger listening on ws://127.0.0.1:9229/d889bba8-06c4-47ba-9a37-c403ea7e712b
+< For help see https://nodejs.org/en/docs/inspector
+< Debugger attached.
+Break on start in debugging.js:1
+> 1 (function (exports, require, module, __filename, __dirname) { //node inspect pour déclencher le debuug
+  2 // list(10)  : affichage des 10 ligness
+  3 // n : permet le passage de ligne en ligne
+debug> n
+break in debugging.js:8
+  6 //on saisit le nom de la variable et sa valeur s'afficher là où on s'est arrêter avec le debugger (avec n)
+  7 
+> 8 var person = {
+  9     name : 'Erika'
+ 10     
+debug> n
+break in debugging.js:13
+ 11 }
+ 12 
+>13 person.age = 25;
+ 14 person.name = 'Natalia';
+ 15 
+debug> repl
+Press Ctrl + C to leave debug repl
+> person
+{ name: 'Erika' }
+> 
+
+
+debug> repl
+Press Ctrl + C to leave debug repl
+> person.age
+25
+> person.age +100
+125
+> 
+
+--debug avec chrome
+node --inspect-brk debugging.js 
+nodemon --inspect-brk debugging.js 
+puis aller dans chrome saisir dans l'url
+chrome://inspect/
