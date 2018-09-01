@@ -11,7 +11,23 @@
 </body>
 
 <script type="text/javascript">
+
+var square = (x) => {
+    var result = x * x;
+    return result;
+};
+console.log(square(9));
+
+//on peut ecrire en 1 instruction
+// dans ce cas , pas besoin d'accolade
+// return est implicite
+
+var square2 = (x) => x * x;
+console.log(square2(9));
+
+// et comme il y a qu'un argument en paramètre
 //pas besoin de parenthèse
+
 var square3 = x => x * x;
 console.log(square3(9));
 
