@@ -1,0 +1,151 @@
+var x = 1;
+var y = x + 9;
+
+console.log(`y is ${y}`);
+
+
+call stack est une strecture de données qui fait 2 choses
+-on peut ajoute quelques chose à son sommet
+-on peut retirer quelques chose aussi par le sommet
+=> first in first out 
+
+node exéucte toujours la main function 
+main()
+c'est la fonction qui englobe tout le reste
+
+ensuite on a l'exécution de la première ligne de codne
+var x = 1;
+cette sommence est ajouter au stack ,exécutée et puis retirée du stack
+
+ensuite on 
+var y = x + 9;
+
+ajoutée dans le stack , exécutée et puis retirée du stack
+
+ensuite on 
+console.log(`y is ${y}`);
+
+ajoutée dans le stack , exécutée et puis retirée du stack
+
+après le programme est terminé et main() est retiré du call stak
+
+le node process est cloturé
+
+
+-------
+var add = (a,b) => {
+	var total = a + b;
+	return total;
+}
+var res = add(3,8);
+console.log(res);
+
+Dans le stack on a ceci 
+main()
+
+var add = (a,b) ....
+main()
+
+main()
+
+var res = add(3,8);
+main()
+
+var total = a + b;
+var res = add(3,8);
+main()
+
+return total;
+var res = add(3,8);
+main()
+
+main()
+
+console.log(res);
+main();
+
+
+-------
+console.log('Starting app');
+
+setTimeout(() => {
+    console.log('Inside callback');
+},2000)
+
+setTimeout(() => {
+    console.log('Inside callback1');
+},0)
+
+console.log('Finished app');
+
+dans notre call stack on a
+
+main()
+
+console.log('Starting app');
+main();
+
+setTimeout(2 sec)
+main()
+
+setTimeout(2 sec) va ensuite être enregistrée dans l'API Node
+
+le call stack devient 
+main()
+
+et pendant ce temps api node prend en charge l'attente du setTimeout(2 sec)
+
+api Node et call stack sont 2 choses séparée, ce qui signifie que le code continue pour stocké de nouvelle ligne de code dans le call stack
+
+setTimeout(0 sec)
+main()
+
+setTimeout(0 sec) va ensuite être enregistrée dans l'API Node, le call stack se vide
+
+main()
+
+console.log('Finished app');
+main();
+
+quand setTimeout(0 sec) est terminé, l'événement est stocké dans la "callback queue" . Stocke tous les callback prêt à être exécutés.
+
+event loop qui regarde la call stack contient encore des commandes a exécuter
+
+quand le programe est terminé et que le call stack est vide, alors setTimeout(0 sec) va dans le call stack et est exécute
+
+puis setTimeout(0 sec) est exécuté , le call back vidé
+
+après call back vide, callback queue vide, les 2 secondes passe et setTimeout(2 sec) va dans la callbackqueue
+
+event loop regarde si le call stack est vide et alors setTimeout(2 sec va dans le call back pour être exécuté. 
+
+dans le callstack on a alors 
+
+setTimeout(2 sec)
+
+puis 
+
+console.log('Inside callback');
+setTimeout(2 sec)
+
+puis 
+
+setTimeout(2 sec)
+
+puis vidange totale du call back
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
