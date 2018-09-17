@@ -56,8 +56,8 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
         console.log(errorMessage);
     }else{
         //console.log(JSON.stringify(wresults));
-        console.log(JSON.stringify(wresults.temperature));
-        console.log(JSON.stringify(wresults.apparentTemperature));
+        console.log('1:' + wresults.temperature);
+        console.log('2:' + wresults.apparentTemperature);
     }
     
 });
