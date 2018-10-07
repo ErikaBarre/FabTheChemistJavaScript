@@ -1,0 +1,20 @@
+
+pour déployer un projet node sur un server node, on peut notamment utuliser "express"
+on importe dans le projet le package "express"
+
+on initilisale le porjet comme précédemment
+npm init
+
+se rendre sur le site
+expressjs.com
+pour la doc de ce package
+
+ npm install express --save
+
+demarrer avec
+nodemon server.js 
+
+se rendre dans un browser 
+http://localhost:3000/
+
+on voit le texte afficher

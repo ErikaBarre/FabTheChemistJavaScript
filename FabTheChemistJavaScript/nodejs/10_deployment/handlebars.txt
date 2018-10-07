@@ -1,0 +1,9 @@
+le package développé par le site suivant
+
+http://handlebarsjs.com/
+
+sert pour gerer des templates envoyé sur le client (brownser)
+La doc se trouve sur ce site
+
+pour telecharger le package sur le prpjet, il faut se rendre sur 
+npmjs.com/package/hbs

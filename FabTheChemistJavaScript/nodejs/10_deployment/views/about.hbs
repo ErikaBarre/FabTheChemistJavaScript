@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Help page HBS</title>
+</head>
+<body>
+    
+    {{> header}}
+<h1>{{pageTitle}}</h1>
+    <p>TextHelp page</p>
+    <p>{{screamit welcomeMessage}}</p>
+    
+    <!-- on va rentre réutiliser le footer en le plaçant dans un repertoires "partial", qui est register (vers server4.js)
+    <footer>
+    <p>Copyright {{currentYear}}</p>
+    </footer>
+-->
+    {{> footer}}
+</body>
+</html>
