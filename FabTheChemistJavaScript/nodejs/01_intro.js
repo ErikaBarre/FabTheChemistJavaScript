@@ -14,4 +14,4 @@ global;
 process;
 process.exit(0); //on sort de nodejs
 //ctrl d : on sort aussi de nodejs
-node v; //version de node
+//node v; //version de node

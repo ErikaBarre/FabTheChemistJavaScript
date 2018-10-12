@@ -31,7 +31,7 @@ var person = {
     greet:function(){
         return 'HI ' + this.firstname + ' ' + this.lastname
     }
-    
+}    
     var john = Object.create(person);
     //on a une obejct vide qui hérite (__proto__) de propriété et method de person (pur prototypical heritance)
     john.firstname = 'john';
@@ -42,7 +42,7 @@ var person = {
     //dans les vieux browser create n'existe pas , on utilise le polyfill (code that adds a feature which the engine may lack)
     
     
-}
+
 
     
 </script>

@@ -2,7 +2,7 @@
  * node est non blocking language 
  */
 //non blocking : toutes les operation s'effectuent en meme temps
-var getUsernb = = require('./getUserb');
+var getUsernb =  require('./getUserb');
 
 getUsernb(123, function(user1){
 	console.log('user1 ' + user1);
