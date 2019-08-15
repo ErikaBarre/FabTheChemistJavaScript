@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Adding DOM Elements</title>
+        <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.insertAfter').click(function() {
+                var value = $('input').val();
+                $('<li>' + value + '</li>').insertAfter('#contendersList li:last');
+            });
+            $('.after').click(function() {
+                var value = $('input').val();
+                $('#contendersList li:last').after('<li class="nikki">' + value + '</li>');
+            });
+            $('.after2').click(function() {
+                var value = $('input').val();
+                $('#contendersList li:nth-child(3)').after('<li class="nikki">' + value + '</li>');
+            });
+            $('.insertBefore').click(function() {
+                var value = $('input').val();
+                $('<li>' + value + '</li>').insertBefore('#contendersList li:first');
+            });
+            $('.before').click(function() {
+                var value = $('input').val();
+                $('#contendersList li:first').before('<li>' + value + '</li>');
+            });
+            $('.appendTo').click(function() {
+                $('#contendersList li:first').appendTo('#contendersList');
+            });
+            $('.append').click(function() {
+                $('#contendersList').append($('#contendersList li:first'));
+            });
+        });
+    </script>
+    <style>
+        .link {
+            display: inline-block;
+            height: 34px;
+            width: 150px;
+            vertical-align: middle;
+            text-align: center;
+            border: solid 1px lightgreen;
+            color: green;
+            cursor: pointer;
+            margin: 2px 0px;
+            line-height: 34px;
+        }
+
+        .link:hover {
+            border: solid 1px darkgreen;
+            color: darkolivegreen;
+        }
+
+        input {
+            display: inline-block;
+            height: 28px;
+            width: 304px;
+            border: solid 1px grey;
+            color: darkslategrey;
+            margin: 2px 0px;
+            line-height: 28px;
+        }
+
+        .text {
+            font-family: sans-serif;
+            font-size: 16px;
+            color: darkslategrey;
+            opacity: 1.0;
+            margin-top: 18px;
+            width: 306px;
+            height: 200px;
+        }
+        .nikki{
+          color:red;
+        }
+
+    </style>
+</head>
+<body>
+<input id="userinput">
+<br>
+<div class="insertAfter link">
+    Insert at end
+</div>
+<div class="after link">
+    Insert at end
+</div>
+<div class="after2 link">
+    Insert else
+  </div>
+<br>
+<div class="insertBefore link">
+    Insert at start
+</div>
+<div class="before link">
+    Insert at start
+</div>
+<br>
+<div class="appendTo link">
+    First becomes last
+</div>
+<div class="append link">
+    First becomes last
+</div>
+<br>
+<div class="text">
+    <ul id="contendersList">
+        <li>
+            Carl Carlson
+        </li>
+        <li>
+            Jack Jackson
+        </li>
+        <li class="john">
+            John Johnson
+        </li>
+        <li>
+            William Williamson
+        </li>
+        <li>
+            Edward Edwarson
+        </li>
+        <li>
+            Peter Peterson
+        </li>
+        <li>
+            Johan Johanson
+        </li>
+    </ul>
+</div>
+<br>
+</body>
+</html>

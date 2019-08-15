@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>More Selectors</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("li[name='thedonald']").addClass('red-color');
+
+            $('#ted ul.vicepresident li').addClass('blue-color');
+
+            $('li.governor, li.ceo').addClass('underline');
+
+            $('#republican > li').addClass('border');
+//quand plusieurs "governor" à la suite gt(0) signifie great than (plus grand que)
+//tout les élément plus grand que l'index 0 sont concerné ,
+//dans ce cas John Kasich (index 1) et Chris Christie (index 2)
+            $('li.governor:gt(0)').addClass('highlight');
+        });
+    </script>
+    <style>
+        .red-color {
+            color: #de1515;
+        }
+        .blue-color {
+            color: cornflowerblue;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        .border {
+            padding: 10px;
+            border: solid 1px seagreen;
+        }
+        .highlight {
+            background-color: darkkhaki;
+        }
+    </style>
+</head>
+<body>
+<h3>
+        Republican presidential candidates
+</h3>
+<div>
+        <ul id="republican">
+            <li id="djt" name="thedonald">
+                Donald Trump
+                <ul>
+                    <li class="vicepresident">
+                        Mike Pence
+                    </li>
+                    <li>
+                        Chris Christie
+                    </li>
+                    <li>
+                        Newt Gingrich
+                    </li>
+
+                </ul>
+            </li>
+            <li id="ted">
+                Ted Cruz
+                <ul class="vicepresident">
+                    <li>
+                        Carly Fiorina
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        Mickey Fist
+                    </li>
+                </ul>
+                <ul class="vicepresident">
+                    <li>
+                        John Johnson
+                    </li>
+                </ul>
+            </li>
+            <li class="governor">John Kasich</li>
+            <li class="governor">Jeff Jeffson</li>
+            <li>Bill Carlson</li>
+            <li class="ceo">Jack Jackson</li>
+            <li class="governor">Chris Christie</li>
+        </ul>
+</div>
+</body>
+</html>

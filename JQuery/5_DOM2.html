@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Advanced Selectors</title>
+      <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function() {
+
+          //selectionne les pairs, le premier element a l'index 0 et est pair
+      //      $("tr:even").addClass('even-row');
+
+// selectionn les paires
+//            $("tr:odd").addClass('odd-row');
+
+
+  //selectionne les enfants pairs, cela commence à index 1
+            //$("tr:nth-child(even)").addClass('even-row');
+
+            $("tr:nth-child(2)").addClass('even-row');
+            $("tr:nth-child(odd)").addClass('odd-row');
+
+            $("td:contains('Hagrid')").addClass('highlight');
+
+//            $(".non-human:eq(1)").addClass('highlight');
+//            $(".non-human:gt(1)").addClass('highlight');
+//            $(".non-human:lt(1)").addClass('highlight');
+
+        });
+    </script>
+    <style>
+        table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+        .even-row {
+            background-color:  blue;
+        }
+        .odd-row {
+            background-color: yellow;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #de1515;
+        }
+    </style>
+</head>
+<body>
+<h3>
+    Hogwarts professors and classes
+</h3>
+<div>
+    <table>
+        <tr class="non-human">
+            <td> Cuthbert Binns </td>
+            <td> History Of Magic </td>
+        </tr>
+        <tr>
+            <td> Charity Burbage </td>
+            <td> Muggle Studies </td>
+        </tr>
+        <tr class="non-human">
+            <td> Firenze </td>
+            <td> Divination </td>
+        </tr>
+        <tr class="non-human">
+            <td> Rubeus Hagrid </td>
+            <td> Care Of Magical Creatures </td>
+        </tr>
+        <tr>
+            <td> Aurora Sinistra </td>
+            <td> Astronomy </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

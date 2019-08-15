@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Key Events</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).keyup(function(event) {
+                var ch = String.fromCharCode(event.which);
+                $('div').append(ch);
+            });
+        });
+    </script>
+    <style>
+        .big {
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Last key pressed</h3>
+    <div class="big">
+    </div>
+</body>
+</html>

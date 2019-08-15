@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Custom Events</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.box').on('color:change', function() {
+                var colors = ['red', 'blue', 'green', 'yellow', 'grey', 'pink', 'brown', 'fuchsia'];
+                var box = $(this);
+                box.css('background-color', colors[Math.floor(Math.random() * colors.length)]);
+            });
+
+            $('body').on('click', 'button', function() {
+                $(this).closest('.box').trigger('color:change');
+            });
+        });
+    </script>
+    <style>
+        .box {
+            height: 100px;
+            width: 250px;
+            vertical-align: middle;
+            border: solid 1px grey;
+            margin: 2px 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <button id="changeColor1">Change</button>
+</div>
+<br>
+<div class="box">
+    <button id="changeColor2">Change</button>
+</div>
+<br>
+<div class="box">
+    <button id="changeColor3">Change</button>
+</div>
+<br>
+<div class="box">
+    <button id="changeColor4">Change</button>
+</div>
+<br>
+</body>
+</html>

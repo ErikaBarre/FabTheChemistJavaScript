@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Event Delegation</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+          //pour deleguer un event a un nouveau bouton
+          //on place le bouton dans un div
+          // le div englobe tous les boutons et ceux qui seront créés
+            $('div').on('click', 'button', function() {
+                console.log('You clicked on a button!');
+            });
+
+            $('div').on('click', 'button', function() {
+              //this est le bouton
+                console.log('You clicked on this button: ' + $(this).text());
+            });
+
+            var index = 4;
+            $('#addButton').on('click', function() {
+                var buttonText = 'Button ' + index++;
+                $('div').append("<button>" + buttonText + "</button><br><br>");
+
+                console.log('Added button: ' + buttonText);
+            });
+        });
+    </script>
+</head>
+<body>
+<div>
+    <button id="button1">Button 1</button>
+    <br>
+    <br>
+    <button id="button2">Button 2</button>
+    <br>
+    <br>
+    <button id="button3">Button 3</button>
+    <br>
+    <br>
+</div>
+<button id="addButton">Add Button</button>
+<br>
+<br>
+</body>
+</html>

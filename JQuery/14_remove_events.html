@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Removing Event Handlers</title>
+      <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+          //pour effectuer des suppression d'event, il faut les placer la fonction d'exécution de l'event dans une variable
+            var click1Fn = function() {
+                console.log('CLICK event handler 1');
+            };
+            var click2Fn = function() {
+                console.log('CLICK event handler 2');
+            };
+            var click3Fn = function() {
+                console.log('CLICK event handler 3');
+            };
+
+            $('#clickMe').on('click', click1Fn);
+            $('#clickMe').on('click', click2Fn);
+            $('#clickMe').on('click', click3Fn);
+
+            $('#removeClick').on('click', function() {
+                console.log('Click 1 event removed');
+                $('#clickMe').off('click', click1Fn);
+            });
+
+            $('#removeAll').on('click', function() {
+                console.log('All click events removed');
+                $('#clickMe').off('click');
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="clickMe">Click me, I have multiple event handlers</button>
+<br>
+<br>
+<button id="removeClick">Remove the click1 event</button>
+<br>
+<br>
+<button id="removeAll">Remove all click events</button>
+</body>
+</html>

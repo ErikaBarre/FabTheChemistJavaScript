@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Passing Data To Event Handlers</title>
+      <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            var ghosts = [
+                'The Bloody Baron',
+                'The Fat Friar',
+                'The Grey Lady',
+                'Nearly Headless Nick'
+            ];
+            $('#ghost').on(
+                'click',
+                {
+                  ghostNames: ghosts,
+                  parame : 167
+                }, function (e) {
+                      console.log(e.data.ghostNames[Math.floor(Math.random() * e.data.ghostNames.length)]);
+                      console.log(e.data.parame);
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+<button id="ghost">Hogwarts Ghosts</button>
+</body>
+</html>

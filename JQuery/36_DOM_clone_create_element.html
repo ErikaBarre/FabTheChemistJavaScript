@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cloning And Creating DOM Elements</title>
+  <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            var classNames = ['.red', '.green', '.yellow', '.brown', '.blue'];
+
+            $('.clone').click(function() {
+                var className = classNames[Math.floor(Math.random() * classNames.length)];
+                //on clone le 1ere element avec le nom de classe sélectionné
+                $(className).first().clone().appendTo($('#colorboxes'));
+            });
+
+            $('.createpink').click(function() {
+                var jqEl = $('<div class="pink box"></div>');
+                $('#colorboxes').append(jqEl);
+            });
+
+            $('.createpurple').click(function() {
+                $('#colorboxes').append($('<div class="purple box"></div>'));
+            });
+
+            $('.createrandom').click(function() {
+                var className = classNames[Math.floor(Math.random() * classNames.length)];
+                className = className.substr(1);
+                $('#colorboxes').append($('<div></div>', {
+                    'class': className + ' box'
+                }));
+            });
+        });
+    </script>
+    <style>
+        .link {
+            display: inline-block;
+            height: 34px;
+            width: 150px;
+            vertical-align: middle;
+            text-align: center;
+            border: solid 1px lightgreen;
+            color: green;
+            cursor: pointer;
+            margin: 2px 0px;
+            line-height: 34px;
+        }
+
+        .link:hover {
+            border: solid 1px darkgreen;
+            color: darkolivegreen;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            border: solid 1px grey;
+            display: inline-block;
+        }
+        .red {
+            background-color: red;
+        }
+        .green {
+            background-color: green;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+        .brown {
+            background-color: brown;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .pink {
+            background-color: hotpink;
+        }
+        .purple {
+            background-color: purple;
+        }
+
+    </style>
+</head>
+<body>
+<div class="clone link">
+    Clone
+</div>
+<div class="createpink link">
+    Create Pink
+</div>
+<div class="createpurple link">
+    Create Purple
+</div>
+<div class="createrandom link">
+    Create Random
+</div>
+<br>
+<br>
+<div id="colorboxes">
+    <div class="red box">
+    </div>
+    <div class="green box">
+    </div>
+    <div class="yellow box">
+    </div>
+    <div class="brown box">
+    </div>
+    <div class="blue box">
+    </div>
+</div>
+<br>
+</body>
+</html>

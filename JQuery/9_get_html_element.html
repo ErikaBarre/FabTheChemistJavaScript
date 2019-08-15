@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>No Conflicts</title>
+
+      <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+	//exemple pour montrer que jquery peut aller chercher des elements natif dans le code html
+
+		//ramène un talbeau de tous les elements div rencontré dans la page html
+		 $(document).ready(function() {
+
+				var elements = $('div');
+
+				var el0 = $('div')[2];
+				console.log(el0.innerText)
+
+				var el1 = $('div').get(3);
+				console.log(el1.innerText)
+		});
+    </script>
+    <style>
+        .red-color {
+            color: #de1515;
+        }
+    </style>
+</head>
+<body>
+<div>hello 1</div>
+<div>hello 2</div>
+<div>hello 3</div>
+<div>hello 4</div>
+<div>hello 5</div>
+<div>hello 6</div>
+<div>hello 7</div>
+<div>hello 8</div>
+<div>hello 9</div>
+<div>hello 9</div>
+<div>hello 10</div>
+
+
+</body>
+</html>

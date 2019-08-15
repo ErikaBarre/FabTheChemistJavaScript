@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Multiple Event Handlers</title>
+      <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#hello').click(function (e) {
+                console.log("From listener 1");
+            });
+
+            $('#hello').bind('click', function (e) {
+                console.log("From listener 2");
+            });
+
+            $('#hello').on('click', function (e) {
+                console.log("From listener 3");
+            });
+
+            $('#hello').on({click:function (e) {
+                console.log("From listener 4");
+            }});
+
+            $('body').on({
+              click:function (e) {
+                console.log("From listener 6");
+            }}, '#hello');
+
+            $('body').on({
+              click:function (e) {
+                console.log("From listener 5");
+            }}, 'button');
+
+            //le bouton "hello" detient ici 6 listener sur son click
+
+
+//le meme handlers gère 2 events
+            $('#clickMe').on('mouseenter mouseleave', function(e) {
+                console.log('Mouse event: ' + e.type);
+            });
+
+            //economie d'écriture si on doit gérer plusiers événement
+            // 1 handler par events 
+            $('#clickMeAgain').on({
+                mouseenter: function() {
+                    console.log("Enter button");
+                },
+                mouseleave: function() {
+                    console.log("Leave button");
+                },
+                click: function() {
+                    console.log("Click button");
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+<button id="hello">Hello!</button>
+<button id="clickMe">Click me</button>
+<button id="clickMeAgain">Click me as well!</button>
+</body>
+</html>

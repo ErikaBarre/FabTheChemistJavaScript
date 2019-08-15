@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stop Animate</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            var randomProperties = [
+                {
+                    'left': '-=800',
+                    'opacity': '-=0.1'
+                },
+                {
+                    'left': '+=800',
+                    'opacity': '+=0.1'
+                },
+                {
+                    'top': '-=800',
+                    'opacity': '-=0.1'
+                },
+                {
+                    'top': '+=800',
+                    'opacity': '+=0.1'
+                }
+            ];
+
+            $('.start').click(function() {
+                $('.text').each(function() {
+                    $(this).animate(
+                        randomProperties[Math.floor(Math.random() * randomProperties.length)],
+                        16000
+                    );
+                });
+            });
+            $('.stopone').click(function() {
+                $('.text').filter(':animated').first().stop();
+            });
+            $('.stopall').click(function() {
+                $('.text').filter(':animated').stop();
+            });
+        });
+    </script>
+    <style>
+        .link {
+            display: inline-block;
+            height: 34px;
+            width: 200px;
+            vertical-align: middle;
+            text-align: center;
+            border: solid 1px lightgoldenrodyellow;
+            color: darkorange;
+            cursor: pointer;
+            margin: 2px 0px;
+            line-height: 34px;
+        }
+
+        .link:hover {
+            border: solid 1px darkorange;
+            color: orangered;
+        }
+
+        .text {
+            font-family: sans-serif;
+            font-size: 44px;
+            color: #de1515;
+            opacity: 1.0;
+            margin-top: 18px;
+            position: absolute;
+            left: 300px;
+            top: 300px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="start link">
+    Start animation!
+</div>
+<div class="stopone link">
+    Stop one animation
+</div>
+<div class="stopall link">
+    Stop all!
+</div>
+<div class="text">
+    Loonycorn
+</div>
+<div class="text">
+    Loonycorn
+</div>
+<div class="text">
+    Loonycorn
+</div>
+<div class="text">
+    Loonycorn
+</div>
+<div class="text">
+    Loonycorn
+</div>
+<div class="text">
+    Loonycorn
+</div>
+<div class="text">
+    Loonycorn
+</div>
+<br>
+</body>
+</html>

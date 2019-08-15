@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Namespacing Events</title>
+      <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.big').on('mouseenter', function() {
+                console.log('Mouseenter!');
+            });
+            $('.big').on('mouseleave', function() {
+                console.log('Mouseleave!');
+            });
+
+            $('#triggerButton1').on('click', function() {
+                $('.big').trigger('mouseenter');
+            });
+            $('#triggerButton2').on('click', function() {
+                $('.big').trigger('mouseleave');
+            });
+        });
+    </script>
+    <style>
+        .big {
+            height: 100px;
+            width: 250px;
+            background-color: yellow;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div class="big">I have mouse events</div>
+<br>
+<br>
+<button id="triggerButton1">Trigger mouse enter</button>
+<button id="triggerButton2">Trigger mouse leave</button>
+<br>
+<br>
+</body>
+</html>

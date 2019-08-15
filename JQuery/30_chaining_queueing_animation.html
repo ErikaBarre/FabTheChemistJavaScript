@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chaining And Queueing</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.start').click(function() {
+
+              //la fonction addClass ne fait pas partie de la queue
+//les events s'enchainent l'un à la suite des autre mais addClass s'exécute de suite
+//malgré sa position dans la chaine
+//tout les events d'animation s'enchaine dans une queue appelée "fx"
+                $('.noqueue')
+                    .slideUp(2000)
+                    .fadeIn(2000)
+                    .hide(2000)
+                    .slideDown(2000)
+                    .fadeOut(2000)
+                    .show(2000)
+                    .addClass('highlight')
+                    .hide(2000)
+                    .fadeIn(2000)
+                    .slideDown(2000)
+                    .fadeOut(2000)
+                    .show(2000);
+//on emploie la fonction "queue" si on veut que addclass
+//s'excute à la suite d'un certains nombres d'evenements
+
+                $('.queue')
+                    .slideUp(2000)
+                    .fadeIn(2000)
+                    .hide(2000)
+                    .slideDown(2000)
+                    .fadeOut(2000)
+                    .show(2000)
+                    .queue(function() {
+                       $(this).addClass('highlight');
+
+                       //dequeue method c'est pour signaler de continuer la queue des events d'animation
+                       //sinon on stoppe la chaine et la event ci dessous ne s'exécute pas
+                       $(this).dequeue();
+                     })
+                    .hide(2000)
+                    .fadeIn(2000)
+                    .slideDown(2000)
+                    .fadeOut(2000)
+                    .show(2000);
+
+                $('.queueagain')
+                    .slideUp(2000)
+                    .fadeIn(2000)
+                    .hide(2000)
+                    .slideDown(2000)
+                    .fadeOut(2000)
+                    .show(2000)
+                    .queue(function(next) {
+                       $(this).addClass('highlight');
+                       //l'argument next equivaut à  $(this).dequeue();
+                       //c'est une autre écriture que ci-dessus
+                       next();
+                     })
+                    .hide(2000)
+                    .fadeIn(2000)
+                    .slideDown(2000)
+                    .fadeOut(2000)
+                    .show(2000);
+            });
+        });
+    </script>
+    <style>
+        .link {
+            display: inline-block;
+            height: 34px;
+            width: 200px;
+            vertical-align: middle;
+            text-align: center;
+            border: solid 1px lightgoldenrodyellow;
+            color: darkorange;
+            cursor: pointer;
+            margin: 2px 0px;
+            line-height: 34px;
+        }
+
+        .link:hover {
+            border: solid 1px darkorange;
+            color: orangered;
+        }
+
+        .noqueue {
+            left: 100px;
+            top: 100px;
+        }
+
+        .queue {
+            left: 100px;
+            top: 200px;
+        }
+
+        .queueagain {
+            left: 100px;
+            top: 300px;
+        }
+
+        .text {
+            font-family: sans-serif;
+            font-size: 44px;
+            color: #de1515;
+            opacity: 1.0;
+            margin-top: 18px;
+            position: absolute;
+        }
+        .highlight {
+            color: deepskyblue;
+        }
+
+    </style>
+</head>
+<body>
+<div class="start link">
+    Start
+</div>
+<div class="text noqueue">
+    Loonycorn
+</div>
+<div class="text queue">
+    Loonycorn
+</div>
+<div class="text queueagain">
+    Loonycorn
+</div>
+<br>
+</body>
+</html>

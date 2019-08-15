@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>No Conflicts</title>
+    <script src="./lib/prototype/prototype.js"></script>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $jq = jQuery.noConflict();
+        $jq(document).ready(function() {
+            $jq('h3').addClass('red-color');
+        });
+
+        window.onload = function() {
+            // Prototype function equivalent of document.getElementById()
+            var el = $("content");
+            el.innerHTML = 'Updated content!';
+        };
+
+        $jq(document).ready(function($) {
+            $('p').addClass('red-color');
+        });
+
+    </script>
+    <style>
+        .red-color {
+            color: #de1515;
+        }
+    </style>
+</head>
+<body>
+<h3>Hello World!</h3>
+<p id="content">Some content here</p>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wrap And WrapAll</title>
+      <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+          //la fonction va entourée chaque element '.box' par l'element '<div class="outer-box"></div>'
+            $('.wrap').click(function() {
+                $('.box').wrap('<div class="outer-box"></div>');
+            });
+//la fonction va entourée l'ensemble des elements '.box' par l'element '<div class="outer-box"></div>'
+            $('.wrapall').click(function() {
+                $('.box').wrapAll('<div class="outer-box"></div>');
+            });
+        });
+    </script>
+    <style>
+        .link {
+            display: inline-block;
+            height: 34px;
+            width: 150px;
+            vertical-align: middle;
+            text-align: center;
+            border: solid 1px lightgreen;
+            color: green;
+            margin: 2px 0px;
+            line-height: 34px;
+        }
+
+        .link:hover {
+            border: solid 1px darkgreen;
+            color: darkolivegreen;
+        }
+
+        .box {
+            width: 200px;
+            font-size: 22px;
+            color: red;
+            text-align: center;
+        }
+
+        .outer-box {
+            border: solid 1px grey;
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap link">
+    Wrap
+</div>
+<div class="wrapall link">
+    Wrap All
+</div>
+<br>
+<br>
+<div id="container">
+    <div class="box">
+        Loonycorn rocks!
+    </div>
+    <div class="box">
+        Loonycorn rocks!
+    </div>
+    <div class="box">
+        Loonycorn rocks!
+    </div>
+    <div class="box">
+        Loonycorn rocks!
+    </div>
+</div>
+<br>
+</body>
+</html>

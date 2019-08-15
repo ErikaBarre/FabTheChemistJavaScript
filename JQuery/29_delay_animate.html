@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Delay Animate</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            var randomProperties = [
+                {
+                    'left': '-=100',
+                    'opacity': '-=0.1'
+                },
+                {
+                    'left': '+=200',
+                    'opacity': '+=0.1'
+                },
+                {
+                    'top': '-=50',
+                    'opacity': '-=0.1'
+                },
+                {
+                    'top': '+=300',
+                    'opacity': '+=0.1'
+                }
+            ];
+
+            $('.start').click(function() {
+                $('.nodelay').animate(
+                    randomProperties[0],
+                    1000
+                ).animate(
+                    randomProperties[1],
+                    1000
+                ).animate(
+                    randomProperties[2],
+                    1000
+                ).animate(
+                    randomProperties[3],
+                    1000
+                );
+
+                $('.delay').animate(
+                    randomProperties[0],
+                    1000
+                ).delay(1500).animate(
+                    randomProperties[1],
+                    1000
+                ).delay(1500).animate(
+                    randomProperties[2],
+                    1000
+                ).delay(1500).animate(
+                    randomProperties[3],
+                    1000
+                );
+            });
+        });
+    </script>
+    <style>
+        .link {
+            display: inline-block;
+            height: 34px;
+            width: 200px;
+            vertical-align: middle;
+            text-align: center;
+            border: solid 1px lightgoldenrodyellow;
+            color: darkorange;
+            cursor: pointer;
+            margin: 2px 0px;
+            line-height: 34px;
+        }
+
+        .link:hover {
+            border: solid 1px darkorange;
+            color: orangered;
+        }
+
+        .text {
+            font-family: sans-serif;
+            font-size: 44px;
+            color: #de1515;
+            opacity: 1.0;
+            margin-top: 18px;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="start link">
+    Start
+</div>
+<div class="text delay">
+    Loonycorn
+</div>
+<div class="text nodelay">
+    Loonycorn
+</div>
+<br>
+</body>
+</html>

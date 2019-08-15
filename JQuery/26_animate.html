@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Animate</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.small').click(function() {
+                $('.text').animate({
+                        'font-size': '16px',
+                        'opacity': '0.25'
+                    },
+                    2000,  //la durée de l'animation en millisecondes
+                    function() {
+                        console.log('Make small done!');
+                    }
+                )
+            });
+            $('.medium').click(function() {
+                $('.text').animate({
+                        'font-size': '44px',
+                        'opacity': '0.6'
+                    },
+                    2000,
+                    function() {
+                        console.log('Make medium done!');
+                    }
+                )
+            });
+            $('.big').click(function() {
+                $('.text').animate({
+                        'font-size': '88px',
+                        'opacity': '1'
+                    },
+                    2000,
+                    function() {
+                        console.log('Make big done!');
+                    }
+                )
+            });
+        });
+    </script>
+    <style>
+        .link {
+            display: inline-block;
+            height: 34px;
+            width: 200px;
+            vertical-align: middle;
+            text-align: center;
+            border: solid 1px lightgoldenrodyellow;
+            color: darkorange;
+            cursor: pointer;
+            margin: 2px 0px;
+            line-height: 34px;
+        }
+
+        .link:hover {
+            border: solid 1px darkorange;
+            color: orangered;
+        }
+
+        .text {
+            font-family: sans-serif;
+            font-size: 44px;
+            color: #de1515;
+            opacity: 1.0;
+            margin-top: 18px;
+            position: absolute;
+            left: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="small link">
+    Small
+</div>
+<div class="medium link">
+    Medium
+</div>
+<div class="big link">
+    Big
+</div>
+<div class="text">
+    Loonycorn rocks!
+</div>
+<br>
+</body>
+</html>

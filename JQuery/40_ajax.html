@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ajax</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.getdatasuccess').click(function() {
+                $.ajax({
+                  //beaucoup d'autres option existent
+                  //voir le doc
+                    url: 'data/data.json',
+                    type: 'GET',
+                    dataType: 'json'
+                })
+                .done(function(response) {
+                    var index = 0;
+                    console.log(response);
+                    $('.row').each(function() {
+                        var obj = response[index++];
+                        $(this).children().eq(0).html(obj['name']);
+                        $(this).children().eq(1).html(obj['subject']);
+                    });
+                })
+                .always(function(xhr, status) {
+                    console.log('This is always called - status: ' + status);
+                });
+            });
+
+  //pour le cas suivant l'url envoyée sera
+  //http://127.0.0.1:8080/doesnotexist.txt?start=1&number=10
+            $('.getdatafail').click(function() {
+                $.ajax({
+                    url: 'doesnotexist.txt',
+                    data: {start: 1, number: 10},
+                    type: 'GET'
+                })
+                .done(function(response) {
+                    console.log('This will not be called');
+                })
+                .fail(function(xhr, status, error) {
+                    console.log('Error: ' + error);
+                    console.log('Status: ' + status );
+                    console.dir(xhr);
+                })
+                .always(function(xhr, status) {
+                    console.log('This is always called - status: ' + status);
+                });
+
+            });
+        });
+    </script>
+    <style>
+        .link {
+            display: inline-block;
+            height: 34px;
+            width: 150px;
+            vertical-align: middle;
+            text-align: center;
+            border: solid 1px deeppink;
+            color: hotpink;
+            cursor: pointer;
+            margin: 2px 0px;
+            line-height: 34px;
+        }
+
+        .link:hover {
+            border: solid 1px purple;
+            color: mediumpurple;
+        }
+
+        table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        .name {
+            height: 24px;
+            width: 150px;
+        }
+
+        .subject {
+            height: 24px;
+            width: 150px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="getdatasuccess link">
+    Get data - success
+</div>
+<div class="getdatafail link">
+    Get data - fail
+</div>
+<br>
+<br>
+<div id="container">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Class</th>
+        </tr>
+        <tr class="row">
+            <td class="name"></td>
+            <td class="subject"></td>
+        </tr>
+        <tr class="row">
+            <td class="name"></td>
+            <td class="subject"></td>
+        </tr>
+        <tr class="row">
+            <td class="name"></td>
+            <td class="subject"></td>
+        </tr>
+        <tr class="row">
+            <td class="name"></td>
+            <td class="subject"></td>
+        </tr>
+        <tr class="row">
+            <td class="name"></td>
+            <td class="subject"></td>
+        </tr>
+        <tr class="row">
+            <td class="name"></td>
+            <td class="subject"></td>
+        </tr>
+    </table>
+
+</div>
+<br>
+</body>
+</html>

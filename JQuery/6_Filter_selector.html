@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Filter Selector</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("tr").filter(':even').addClass('even-row');
+
+            var favoriteTeachers = ['Rubeus Hagrid', 'Remus Lupin', 'Firenze'];
+            $("td").filter(function() {
+            //  console.log(this.innerText);
+                return favoriteTeachers.indexOf(this.innerText) != -1;
+            }).addClass('highlight');
+
+            $("a").filter(function() {
+                return this.hostname && this.hostname.indexOf('wikipedia') == -1;
+            }).addClass('error');
+
+        });
+    </script>
+    <style>
+        table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+        .even-row {
+            background-color: lightyellow;
+        }
+        .highlight {
+            background-color: aliceblue;
+        }
+        .error {
+            font-weight: bold;
+            color: #de1515;
+        }
+    </style>
+</head>
+<body>
+<h3>
+    Hogwarts professors and classes
+</h3>
+<div>
+    <table>
+        <tr>
+            <td> Cuthbert Binns </td>
+            <td> History Of Magic </td>
+        </tr>
+        <tr>
+            <td> Charity Burbage </td>
+            <td>
+                <a href="https://evil.com">
+                    Muggle Studies
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td> Firenze </td>
+            <td>
+                <a href="https://en.wikipedia.org/wiki/Magic_in_Harry_Potter#Divination">
+                    Divination
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td> Pomona Sprout </td>
+            <td> Herbology </td>
+        </tr>
+        <tr>
+            <td> Rubeus Hagrid </td>
+            <td>
+                <a href="https://en.wikipedia.org/wiki/Magic_in_Harry_Potter#Care_of_Magical_Creatures">
+                    Care Of Magical Creatures
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td> Aurora Sinistra </td>
+            <td> Astronomy </td>
+        </tr>
+        <tr>
+            <td> Remus Lupin </td>
+            <td> Defense Against The Dark Arts </td>
+        </tr>
+        <tr>
+            <td> Severus Snape </td>
+            <td> Defense Against The Dark Arts </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

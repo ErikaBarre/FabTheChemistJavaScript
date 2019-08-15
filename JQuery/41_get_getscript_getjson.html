@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Get, Get Script, Get Json</title>
+  <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+
+    //jquery fournit beaucoup de fonction wrapper
+
+        $(document).ready(function () {
+            $('.getdata').click(function() {
+              //une fonction ajax qui fait du get
+                $.get('41_data.html', function(response) {
+                    $('#htmldata').html(response);
+                })
+            });
+            //getScript permet de ramener un script depuis le server
+            $('.getscript').click(function() {
+                $.getScript('41_script.js', {}, function(response) {
+                    console.log(response);
+                });
+            });
+            //getJSON permet de ramener de json depuis le serveur (comme dans le fichier 40)
+            $('.getjson').click(function() {
+                $.getJSON('data/data.json', function(response) {
+                    var index = 0;
+                    $('.row').each(function() {
+                        var obj = response[index++];
+                        $(this).children().eq(0).html(obj['name']);
+                        $(this).children().eq(1).html(obj['subject']);
+                    });
+                })
+            });
+        });
+    </script>
+    <style>
+        .link {
+            display: inline-block;
+            height: 34px;
+            width: 150px;
+            vertical-align: middle;
+            text-align: center;
+            border: solid 1px deeppink;
+            color: hotpink;
+            cursor: pointer;
+            margin: 2px 0px;
+            line-height: 34px;
+        }
+
+        .link:hover {
+            border: solid 1px purple;
+            color: mediumpurple;
+        }
+
+        table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        .name {
+            height: 24px;
+            width: 150px;
+        }
+
+        .subject {
+            height: 24px;
+            width: 150px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="getdata link">
+    Get
+</div>
+<div class="getscript link">
+    Get Script
+</div>
+<div class="getjson link">
+    Get Json
+</div>
+<br>
+<br>
+<div id="htmldata">
+</div>
+<div id="scriptdata">
+</div>
+<br>
+<div id="jsondata">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Class</th>
+        </tr>
+        <tr class="row">
+            <td class="name"></td>
+            <td class="subject"></td>
+        </tr>
+        <tr class="row">
+            <td class="name"></td>
+            <td class="subject"></td>
+        </tr>
+        <tr class="row">
+            <td class="name"></td>
+            <td class="subject"></td>
+        </tr>
+        <tr class="row">
+            <td class="name"></td>
+            <td class="subject"></td>
+        </tr>
+        <tr class="row">
+            <td class="name"></td>
+            <td class="subject"></td>
+        </tr>
+        <tr class="row">
+            <td class="name"></td>
+            <td class="subject"></td>
+        </tr>
+    </table>
+</div>
+<br>
+</body>
+</html>

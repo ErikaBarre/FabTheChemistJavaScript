@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Custom Queues</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.left').click(function() {
+                $('.text').animate({
+                        'left': ['-=200', 'swing'],
+                        'opacity': ['-=0.1', 'swing']
+                    },
+                    2000,
+                    function() {
+                        console.log('Left and lighter!');
+                    }
+                )
+            });
+            $('.right').click(function() {
+                $('.text').animate({
+                        'left': ['+=200', 'swing'],
+                        'opacity': ['+=0.1', 'linear']
+                    },
+                    2000,
+                    function() {
+                        console.log('Right and darker!');
+                    }
+                )
+            });
+            $('.up').click(function() {
+                $('.text').animate({
+                        'top': ['-=200', 'swing']
+                    },
+                    2000,
+                    function() {
+                        console.log('Up!');
+                    }
+                )
+            });
+            $('.down').click(function() {
+                $('.text').animate({
+                        'top': ['+=200', 'linear']
+                    },
+                    2000,
+                    function() {
+                        console.log('Down!');
+                    }
+                )
+            });
+        });
+    </script>
+    <style>
+        .link {
+            display: inline-block;
+            height: 34px;
+            width: 200px;
+            vertical-align: middle;
+            text-align: center;
+            border: solid 1px lightgoldenrodyellow;
+            color: darkorange;
+            cursor: pointer;
+            margin: 2px 0px;
+            line-height: 34px;
+        }
+
+        .link:hover {
+            border: solid 1px darkorange;
+            color: orangered;
+        }
+
+        .text {
+            font-family: sans-serif;
+            font-size: 44px;
+            color: #de1515;
+            opacity: 1.0;
+            margin-top: 18px;
+            position: absolute;
+            left: 300px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="left link">
+    Left
+</div>
+<div class="right link">
+    Right
+</div>
+<div class="up link">
+    Up
+</div>
+<div class="down link">
+    Down
+</div>
+<div class="text">
+    Loonycorn rocks!
+</div>
+<br>
+</body>
+</html>

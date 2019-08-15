@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Forms Serialize and Serialize Array</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.serialize').click(function() {
+                $('#serializeid').html($('form').serialize());
+            });
+            $('.serializearray').click(function() {
+                $('#serializeid').html(JSON.stringify($('form').serializeArray()));
+            });
+
+            $('form').submit(function(e) {
+                var requiredJqEl = $('.required');
+                if (requiredJqEl.val().length == 0) {
+                    var el = requiredJqEl.siblings('.error').first();
+                    el.html('*required');
+
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+    <style>
+        .link {
+            display: inline-block;
+            height: 34px;
+            width: 150px;
+            vertical-align: middle;
+            text-align: center;
+            border: solid 1px deeppink;
+            color: hotpink;
+            cursor: pointer;
+            margin: 2px 0px;
+            line-height: 34px;
+        }
+
+        .link:hover {
+            border: solid 1px purple;
+            color: mediumpurple;
+        }
+
+        #serialize {
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+<div class="serialize link">
+    Serialize
+</div>
+<div class="serializearray link">
+    Serialize Array
+</div>
+<br>
+<br>
+<form>
+    Name:
+    <input name="clientName" class="required"/>
+    <span class="error" style="color: red"></span>
+    <br>
+
+    Contact E-mail:
+    <input name="clientEmail" type="email"/>
+    <br>
+
+    Bedrooms:
+    <input type="radio" name="onebr" value="1" />1+
+    <input type="radio" name="twobr" value="2" />2+
+    <input type="radio" name="threebr" value="3" />3+ <br>
+
+    Property Type:
+    <input type="checkbox" name="condo"/> Condo
+    <input type="checkbox" name="townhome" /> Townhome
+    <input type="checkbox" name="house" /> House <br>
+
+    <input type="submit" />
+</form>
+<br>
+<br>
+<div id="serializeid">
+
+</div>
+</body>
+</html>

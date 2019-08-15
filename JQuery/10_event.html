@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Event Object</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('a').click(function (e) {
+                console.log("Event Type: " + e.type);
+                console.log("Button or key pressed: " + e.which);
+                console.log("Link clicked " + e.target.href);
+//this est la "a" element 
+                if (this.hostname.indexOf('evil') != -1) {
+                  //empeche levenement de se déclencher
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+    <style>
+        table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td> Cuthbert Binns </td>
+        <td> History Of Magic </td>
+    </tr>
+    <tr>
+        <td> Charity Burbage </td>
+        <td>
+            <a href="https://evil.com" target="_blank">
+                Muggle Studies
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td> Firenze </td>
+        <td>
+            <a href="https://en.wikipedia.org/wiki/Magic_in_Harry_Potter#Divination"
+               target="_blank">
+                Divination
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td> Pomona Sprout </td>
+        <td> Herbology </td>
+    </tr>
+    <tr>
+        <td> Rubeus Hagrid </td>
+        <td>
+            <a href="https://en.wikipedia.org/wiki/Magic_in_Harry_Potter#Care_of_Magical_Creatures"
+               target="_blank">
+                Care Of Magical Creatures
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td> Aurora Sinistra </td>
+        <td> Astronomy </td>
+    </tr>
+</table>
+</body>
+</html>
