@@ -13,13 +13,36 @@
             });
 
             $('form').submit(function(e) {
-                var requiredJqEl = $('.required');
-                if (requiredJqEl.val().length == 0) {
-                    var el = requiredJqEl.siblings('.error').first();
-                    el.html('*required');
 
-                    e.preventDefault();
-                }
+              //console.log('requiredJqEl');
+                var requiredJqEl = $('.required');
+
+              //  console.log(requiredJqEl);
+                $('.required').each(function(i, obj) {
+                    //test
+                    //alert(requiredJqEl);
+//    $( ".required:eq( " + 0 + ")" ).siblings('.error').first().html('*required');
+                    //var err = $( ".error" ).next();
+                  //  if (obj.value.length == 0) {
+                     if ($( ".required:eq( " + i + ")" ).val().length == 0) {
+
+$( ".error:nth-child(2)" ).html('*required');
+
+              $( ".error:eq(" + i + ")" ).siblings().html('*required');
+                                // //     err.html('*required');
+                    // //
+                          e.preventDefault();
+                      }
+
+                });
+
+
+                // if (requiredJqEl.val().length == 0) {
+                //     var el = requiredJqEl.siblings('.error').first();
+                //     el.html('*required');
+                //
+                //     e.preventDefault();
+                // }
             });
         });
     </script>
@@ -63,9 +86,12 @@
     <br>
 
     Contact E-mail:
-    <input name="clientEmail" type="email"/>
+    <input name="clientEmail" class="required" type="email"/>
+      <span class="error" style="color: red"></span>
     <br>
 
+  <span class="error" style="color: red"></span>
+  <br>
     Bedrooms:
     <input type="radio" name="onebr" value="1" />1+
     <input type="radio" name="twobr" value="2" />2+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Labo de Fab</title>
+		<meta charset="utf-8">
+		<meta name="keywords" content="Fabrice Degreef, Fabrice, Degreef, site perso, site personnel, private website, analyst, analyte, devéloppeur, developer, webdesigner, webmaster, webmester, programmation, computer science, informatique, jquery, java, javascript, php, parlement européen, european parliament, commission, oracle, mysql" >
+
+
+    <link rel="stylesheet" href="./css/agile_carousel/agile_carousel.css">
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script src="./lib/agile_carousel/agile_carousel.alpha.js"></script>
+
+
+
+
+
+        <script>
+            $.getJSON("./data/agile_carousel/agile_carousel_data.json", function (data) {
+                $(document).ready(function () {
+                    $("#basic_slideshow").agile_carousel({
+                        carousel_data: data,
+                        carousel_outer_height: 228,
+                        carousel_height: 228,
+                        slide_height: 230,
+                        carousel_outer_width: 960,
+                        slide_width: 960,
+                        transition_type: "fade",
+                        timer: 4000
+                    });
+                });
+            });
+        </script>
+
+
+
+	</head>
+	<body>
+
+
+		<div id="main">
+
+			<img src="./common/images/logo/logotext.png" alt="logo" />
+
+			<div class="clear"></div>
+			<div class="slideshow" id="basic_slideshow"></div>
+			</div>
+
+	</body>
+</html>

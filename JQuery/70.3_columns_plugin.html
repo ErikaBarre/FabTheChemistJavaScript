@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery sameheight Plugin Demos</title>
+
+<link href="./css/3_columns/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="./css/3_columns/style.css">
+
+<script src="./lib/jquery/jquery-3.4.1.js"></script>
+<script src="./lib/3_columns/sameHeight.js"></script>
+
+</head>
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<div class="container">
+<div class="title">
+	<h1>jQuery sameheight Plugin Demos</h1>
+	<p>Resize the window and refresh the page.</p>
+</div>
+<br>
+<h3 align="center">Make Same Hight Based on Highest length</h3>
+<br>
+
+<div class="parent">
+	<div class="child color1">
+		<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. </p>
+	</div>
+	<div class="child color2">
+		<p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. </p>
+	</div>
+	<div class="child color3">
+		<p>To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee.</p>
+	</div>
+
+</div>
+<br>
+<h3 align="center">Make Same Hight Based on lowest length</h3>
+<br>
+
+<div id="box">
+	<div class="child color4">
+		<p>Cette partie est la partie concernant mes expérimentations technologiques dans le domaine du développement informatique. Ce sont essentiellement des pages de présentations.</p>
+	</div>
+	<div class="child color5">
+		<p>Ce site est également créé pour partager d'autres passions telles que le photographie, pratiquer lors de mes différents voyages à l'étranger.</p>
+	</div>
+	<div class="child color6">
+		Vous pouvez me contacter pour me poser toutes les questions que vous souhaitez. Un formulaire de contact est destiné à cet effet sur le lien suivant :
+	</div>
+
+</div>
+
+
+<script type="text/javascript">
+
+
+	$( document ).ready(function() {
+	    // console.log( "ready!" );
+
+
+	    var $a = $(".parent").find(".child");
+
+	    $a.sameHeight();
+
+	    $("#box").find(".child").sameHeight({way: "min"});
+
+
+
+	});
+</script>
+</div><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Slick</title>
+    <link rel="stylesheet" type="text/css" href="./plugin/slick-master/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./plugin/slick-master/slick/slick-theme.css"/>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="./plugin/slick-master/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.dogs').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3
+            });
+        });
+    </script>
+    <style>
+        .dog-image {
+            display: inline-block;
+            top: 50px;
+            height: 300px;
+            width: 200px;
+            border: solid 1px slategray;
+            margin: 8px;
+            padding: 8px;
+            line-height: 34px;
+        }
+
+        .dog-image:hover {
+            border: solid 1px black;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<h3>
+    Slick is a pretty awesome plugin
+</h3>
+<div class="dogs">
+    <div class="dog-image">
+        <img src="./image/Moje.jpg"/>
+    </div>
+    <div class="dog-image">
+        <img src="./image/Oba.jpg"/>
+    </div>
+    <div class="dog-image">
+        <img src="./image/Moje.jpg"/>
+    </div>
+    <div class="dog-image">
+        <img src="./image/Oba.jpg"/>
+    </div>
+</div>
+</body>
+</html>
