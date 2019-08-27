@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Widgets With Functions</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script src="./lib/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            (function ($) {
+                $.widget('loony.fancyButton', {
+                    options: {
+                        'css': {
+                            'display': 'inline-block',
+                            'height': '34px',
+                            'width': '150px',
+                            'vertical-align': 'middle',
+                            'text-align': 'center',
+                            'font-family': 'sans-serif',
+                            'background-color': 'chocolate',
+                            'border': 'solid 1px chocolate',
+                            'opacity': '0.7',
+                            'color': 'antiquewhite',
+                            'cursor': 'pointer',
+                            'margin': '2px 0px',
+                            'line-height': '34px'
+                        },
+                        'pause': true
+                    },
+
+                    _create: function() {
+                        this._button = $('<div></div>');
+                        $(this.element).append(this._button);
+                        this._update();
+                    },
+
+                    _update: function() {
+                        if (this.options.pause) {
+                            this._button.text('Play');
+                        } else {
+                            this._button.text('Pause');
+                        }
+                        this._button.css(this.options.css);
+                    },
+
+                    _setOption: function(key, value) {
+                        if (key == 'css') {
+                            this.options.css = $.extend(this.options.css, value);
+                        } else if (key == 'pause') {
+                            this.options.pause = value;
+                        }
+                        this._update();
+                    },
+
+                    toggleState: function() {
+                        this.options.pause = !this.options.pause;
+                        this._update();
+                        if (this.options.pause) {
+                            this._trigger('pauseEvent');
+                        } else {
+                            this._trigger('playEvent');
+                        }
+                    }
+                });
+            } (jQuery));
+
+            $('.onebutton').fancyButton({
+                playEvent: function() {console.log('Play the music!');},
+                pauseEvent: function() {console.log('Pause the music!');}
+            }).addClass('fancybutton');
+            $('.onebutton').fancyButton('option', {'css': {'background-color': '#de1515'}});
+
+            $('.fancybutton').click(function() {
+                $(this).fancyButton('toggleState');
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="onebutton">
+</div>
+</body>
+</html>

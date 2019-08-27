@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JQuery UI</title>
+    <link href="./css/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script src="./lib/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.datepicker').datepicker({
+                inline: true
+            });
+
+            var names = [
+                'Harry',
+                'Hermione',
+                'Ron',
+                'Draco',
+                'Ginny',
+                'Cedric',
+                'Voldemort'
+            ];
+            $('.autocomplete').autocomplete({
+                source: names
+            });
+
+            $( ".tabs" ).tabs();
+
+        });
+    </script>
+</head>
+<body>
+<h2>Datepicker</h2>
+<div>
+    Date: <input class="datepicker">
+</div>
+
+<h2 >Autocomplete</h2>
+<div>
+    <input class="autocomplete">
+</div>
+
+<h2>Tabs</h2>
+<div class="tabs">
+    <ul>
+        <li><a href="#tabs-harry">Harry</a></li>
+        <li><a href="#tabs-hermione">Hermione</a></li>
+        <li><a href="#tabs-ron">Ron</a></li>
+    </ul>
+    <div id="tabs-harry">Harry Potter <br> Parents: James and Lily Potter <br> Can be known by: Scar on forehead</div>
+    <div id="tabs-hermione">Hermione Granger <br> Parents: First names unknown. Dentists <br> Can be known by: Brown, curly hair</div>
+    <div id="tabs-ron">Ronald Weasley <br> Parents: Molly and Arthur Weasley <br> Can be known by: Red hair</div>
+</div>
+
+</body>
+</html>

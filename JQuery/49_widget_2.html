@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Widgets With Functions</title>
+    <script src="./lib/jquery/jquery-3.4.1.js"></script>
+    <script src="./lib/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            (function ($) {
+                $.widget('loony.fancyButton', {
+                    options: {
+                        'css': {
+                            'display': 'inline-block',
+                            'height': '34px',
+                            'width': '150px',
+                            'vertical-align': 'middle',
+                            'text-align': 'center',
+                            'font-family': 'sans-serif',
+                            'background-color': 'chocolate',
+                            'border': 'solid 1px chocolate',
+                            'opacity': '0.7',
+                            'color': 'antiquewhite',
+                            'cursor': 'pointer',
+                            'margin': '2px 0px',
+                            'line-height': '34px'
+                        },
+                        'text': 'Submit'
+                    },
+
+                    _create: function() {
+                        this._button = $('<div></div>');
+                        $(this.element).append(this._button);
+                        this._update();
+                    },
+
+                    _update: function() {
+                        this._button.css(this.options.css);
+                        this._button.text(this.options.text);
+                    },
+//quand on appelle la fonction ooption(), derrière c'est la méthode _setoption qui est appelée
+                    _setOption: function(key, value) {
+                        if (key == 'css') {
+                            var newCss = $.extend(this.options.css, value);
+                            this.options.css = newCss;
+                            this._update();
+                        } else if (key == 'text') {
+                            this.text(value);
+                        }
+                    },
+
+                    text: function(text) {
+                        if (!text) {
+                            return this._button.text();
+                        }
+                        this.options.text = text;
+                        this._update();
+                    }
+                });
+            } (jQuery));
+
+            $('.onebutton').fancyButton();
+            $('.onebutton').fancyButton('option', {'css': {'background-color': 'purple'}});
+            $('.onebutton').fancyButton('option', {'text': 'Boo'});
+
+            $('.twobutton').fancyButton();
+            $('.twobutton').fancyButton('option', {'css': {'background-color': '#de1515'}});
+            $('.twobutton').fancyButton('text', 'Click Me');
+
+            var text = $('.twobutton').fancyButton('text');
+            console.log(text);
+        });
+    </script>
+</head>
+<body>
+<div class="onebutton">
+</div>
+<div class="twobutton">
+</div>
+</body>
+</html>
